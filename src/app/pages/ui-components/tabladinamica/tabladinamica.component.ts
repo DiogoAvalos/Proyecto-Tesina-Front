@@ -1,4 +1,4 @@
-import { HostListener, Input, ViewChild } from "@angular/core";
+import { ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from "@angular/core";
 import { TablaDinamicaColumnas, TablaDinamicaEstiloDinamico } from "./tabladinamica.interfases";
 
 @Component({
