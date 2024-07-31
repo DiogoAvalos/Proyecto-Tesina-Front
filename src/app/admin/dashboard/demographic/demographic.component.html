@@ -1,0 +1,108 @@
+<div class="block-header">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h2>Demographic</h2>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+                <li class="breadcrumb-item">Dashboard</li>
+                <li class="breadcrumb-item active">Demographic</li>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="d-flex flex-row-reverse">
+                <div class="page_action">
+                    <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+                    &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+                </div>
+                <div class="p-2 d-flex">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix">
+
+    <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let item of bgCardOption" >
+      <ico-bg-primary-card
+        [value] = "item.value"
+        [title] = "item.title"
+        [icon] = "item.icon"
+        [per] = "item.per"
+        [bgColor] = "item.bgColor" >
+      </ico-bg-primary-card>
+    </div>
+</div>
+<div class="row clearfix row-deck">
+    <div class="col-lg-4 col-md-12">
+        <div class="card">
+            <div class="header">
+                <h2>Household Income/Value <small>Top 5 cities in the world</small></h2>
+                <ul class="header-dropdown">
+                    <ico-common-action-dropdown></ico-common-action-dropdown>
+                </ul>
+            </div>
+            <div class="body">
+                <div echarts [options]="incomeValueChartOption" id="Household-Income" style="height: 280px" [autoResize]="true"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+        <div class="card">
+            <div class="header">
+                <h2>Conversion by Age <small>Top 5 Country in the world</small></h2>
+                <ul class="header-dropdown">
+                    <ico-common-action-dropdown></ico-common-action-dropdown>
+                </ul>
+            </div>
+            <div class="body">
+                <div echarts [options]="conversionByAgeOption" id="Conversion-by-Age" style="height: 280px" [autoResize]="true"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+        <div class="card">
+            <div class="header">
+                <h2>Which channels are driving engagement? <small>Top 5 Country in the world</small></h2>
+                <ul class="header-dropdown">
+                    <ico-common-action-dropdown></ico-common-action-dropdown>
+                </ul>
+            </div>
+            <div class="body">
+                <div echarts [options]="sessionPageViewOption" id="driving-engagement" style="height: 280px" [autoResize]="true"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix row-deck">
+    <div class="col-lg-4 col-md-12">
+        <div class="card">
+            <div class="header">
+                <h2>Conversion By Gender</h2>
+                <ul class="header-dropdown">
+                    <ico-common-action-dropdown></ico-common-action-dropdown>
+                </ul>
+            </div>
+            <div class="body d-flex justify-content-start align-items-center">
+                <div class="mr-2">
+                  <!-- class="knob" -->
+                    <div echarts [options]="MaleknobOptions" style="height:90px;width:90px;"></div>
+                </div>
+                <div class="ml-2">
+                    <h6>Male</h6>
+                    <p class="mb-0">Average <span class="font-12 text-muted"><i class="fa fa-level-up"></i> 23%</span></p>
+                </div>
+            </div>
+            <div class="body d-flex justify-content-start align-items-center">
+                <div class="mr-2">
+                    <div echarts [options]="femaleknobOptions" style="height:90px;width:90px;"></div>
+                </div>
+                <div class="ml-2">
+                    <h6>Female</h6>
+                    <p class="mb-0">Average <span class="font-12 text-muted"><i class="fa fa-level-up"></i> 9%</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

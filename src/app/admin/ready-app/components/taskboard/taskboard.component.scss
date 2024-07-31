@@ -1,0 +1,14 @@
+.progress_task .dd-handle {
+  background: #ff812d;
+  color: var(--font-white);
+}
+.completed_task .dd-handle {
+  background: #42d182;
+  color: var(--font-white);
+}
+.planned_task .dd-handle {
+  background: #f0f0f0;
+  color: #000;
+}
+
+

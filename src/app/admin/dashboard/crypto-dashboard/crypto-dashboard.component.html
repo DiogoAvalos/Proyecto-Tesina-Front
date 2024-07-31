@@ -1,0 +1,333 @@
+<div class="block-header">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h2>Cryptocurrency</h2>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+                <li class="breadcrumb-item">Dashboard</li>
+                <li class="breadcrumb-item active">Cryptocurrency</li>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="d-flex flex-row-reverse">
+                <div class="page_action">
+                    <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+                    &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+                </div>
+                <div class="p-2 d-flex">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let coin of currencyCoins">
+        <div class="card">
+            <div class="body">
+              <ico-currency-coin-tile [name]="coin.name" [value]="coin.value" [icon]="coin.icon" ></ico-currency-coin-tile>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix row-deck">
+    <div class="col-lg-8 col-md-12">
+        <div class="card user_statistics">
+            <div class="header">
+                <h2>Crypto Statistics <small>9% High then last week</small></h2>
+                <ul class="header-dropdown">
+                    <li><a href="#" title=""><i class="fa fa-envelope"></i></a></li>
+                    <li><a href="#" title=""><i class="fa fa-download"></i></a></li>
+                    <ico-common-action-dropdown></ico-common-action-dropdown>
+                </ul>
+            </div>
+            <div class="body">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                        <ngb-tabset [ngClass]="'nav-tabs-new2'">
+                          <ngb-tab >
+                              <ng-template ngbTabTitle>Bitcoin</ng-template>
+                              <ng-template ngbTabContent></ng-template>
+                          </ngb-tab>
+                          <ngb-tab>
+                              <ng-template ngbTabTitle>Neo</ng-template>
+                              <ng-template ngbTabContent></ng-template>
+                          </ngb-tab>
+                          <ngb-tab>
+                              <ng-template ngbTabTitle>Ethereum</ng-template>
+                              <ng-template ngbTabContent></ng-template>
+                          </ngb-tab>
+                        </ngb-tabset>
+                    </div>
+                    <div>
+                        <select class="custom-select custom-select-sm">
+                            <option>Open this select menu</option>
+                            <option value="1">Today’s</option>
+                            <option value="2">This Week</option>
+                            <option selected value="3">Last Week</option>
+                            <option value="4">This Month</option>
+                            <option value="5">Last Month</option>
+                            <option value="6">Last 12 Month</option>
+                            <option value="7">Custom Dates</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <div echarts [options]="criptoStatisticsOption" id="apex-CandleStick" class="ct-chart" ></div> -->
+                <div id="apex-CandleStick" class="ct-chart">
+                  <apx-chart
+                    [series]="chartOptions.series"
+                    [chart]="chartOptions.chart"
+                    [xaxis]="chartOptions.xaxis"
+                    [yaxis]="chartOptions.yaxis"
+                    [title]="chartOptions.title"
+                  ></apx-chart>
+                </div>
+                <!-- [autoResize]="true" -->
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+        <div class="card">
+            <div class="header">
+                <h2>Popular Cryptocurrency <small>15% High then last month</small></h2>
+            </div>
+            <div class="body text-center">
+                <div class="Popular_Cryptocurrency">
+                  <div class="body">
+                    <div id="chart-pie" ></div>
+                  </div>
+                </div>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <tbody>
+
+                            <tr *ngFor="let currency of popularCyptoCurrency">
+                                <td>
+                                    <img src="{{currency.image}}"  width="35" />
+                                </td>
+                                <td>
+                                    <small>{{currency.title}}</small>
+                                    <h5 class="mb-0">0.00015434</h5>
+                                </td>
+                                <td>
+                                    <div echarts [options]="currency.chartOption" style="height:26px;width: 80px;"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix row-deck">
+    
+</div>
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="header">
+                <h2>Order Statistics</h2>
+                <ul class="header-dropdown">
+                    <li><a href="#" title=""><i class="fa fa-envelope"></i></a></li>
+                    <li><a href="#" title=""><i class="fa fa-download"></i></a></li>
+                    <ico-common-action-dropdown></ico-common-action-dropdown>
+                </ul>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <table class="table table-hover js-basic-example dataTable table-custom mb-0">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount BTC</th>
+                                <th>BTC Remaining</th>
+                                <th>Price</th>
+                                <th>USD</th>
+                                <th>Fee (%)</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>28-July-2018 06:51:51</td>
+                                <td>Buy</td>
+                                <td>
+                                    0.58647</td>
+                                <td>
+                                    0.58647</td>
+                                <td>11900.12</td>
+                                <td>$ 1597.78</td>
+                                <td>0.023</td>
+                                <td>
+                                    <button class="btn btn-sm round btn-outline-success">Accept</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:50:50</td>
+                                <td>Sell</td>
+                                <td>
+                                    1.38647</td>
+                                <td>
+                                    0.38647</td>
+                                <td>11905.09</td>
+                                <td>$ 2496.36</td>
+                                <td>0.017</td>
+                                <td>
+                                        <button class="btn btn-sm round btn-outline-success">Accept</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:49:51</td>
+                                <td >Buy</td>
+                                <td>
+                                    0.45879</td>
+                                <td>
+                                    0.45879</td>
+                                <td>11901.85</td>
+                                <td>$ 3165.44</td>
+                                <td>0.013</td>
+                                <td>
+                                    <button class="btn btn-sm round btn-outline-success"> Accept</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:51:51</td>
+                                <td>Buy</td>
+                                <td>
+                                    0.89877</td>
+                                <td>
+                                    0.89877</td>
+                                <td>11899.28</td>
+                                <td>$ 25830.6</td>
+                                <td>0.011</td>
+                                <td>
+                                        <button class="btn btn-sm round btn-outline-success">Accept</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:51:51</td>
+                                <td>Sell</td>
+                                <td>
+                                    0.45712</td>
+                                <td>
+                                    0.45712</td>
+                                <td>11908.19</td>
+                                <td>$ 2586.34</td>
+                                <td>0.024</td>
+                                <td>
+                                        <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:51:51</td>
+                                <td>Buy</td>
+                                <td>
+                                    0.58647</td>
+                                <td>
+                                    0.58647</td>
+                                <td>11900.12</td>
+                                <td>$ 1597.78</td>
+                                <td>0.023</td>
+                                <td>
+                                    <button class="btn btn-sm round btn-outline-success">Accept</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:50:50</td>
+                                <td>Sell</td>
+                                <td>
+                                    1.38647</td>
+                                <td>
+                                    0.38647</td>
+                                <td>11905.09</td>
+                                <td>$ 2496.36</td>
+                                <td>0.017</td>
+                                <td>
+                                        <button class="btn btn-sm round btn-outline-success">Accept</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:51:51</td>
+                                <td>Buy</td>
+                                <td>
+                                    0.58647</td>
+                                <td>
+                                    0.58647</td>
+                                <td>11900.62</td>
+                                <td>$ 5623.59</td>
+                                <td>0.019</td>
+                                <td>
+                                    <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:51:51</td>
+                                <td>Buy</td>
+                                <td>
+                                    0.89877</td>
+                                <td>
+                                    0.89877</td>
+                                <td>11899.28</td>
+                                <td>$ 25830.6</td>
+                                <td>0.011</td>
+                                <td>
+                                        <button class="btn btn-sm round btn-outline-success">Accept</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:51:51</td>
+                                <td>Sell</td>
+                                <td>
+                                    0.45712</td>
+                                <td>
+                                    0.45712</td>
+                                <td>11908.19</td>
+                                <td>$ 2586.34</td>
+                                <td>0.024</td>
+                                <td>
+                                        <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:51:51</td>
+                                <td>Buy</td>
+                                <td>
+                                    0.58647</td>
+                                <td>
+                                    0.58647</td>
+                                <td>11900.12</td>
+                                <td>$ 1597.78</td>
+                                <td>0.023</td>
+                                <td>
+                                    <button class="btn btn-sm round btn-outline-success">Accept</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28-July-2018 06:50:50</td>
+                                <td>Sell</td>
+                                <td>
+                                    1.38647</td>
+                                <td>
+                                    0.38647</td>
+                                <td>11905.09</td>
+                                <td>$ 2496.36</td>
+                                <td>0.017</td>
+                                <td>
+                                        <button class="btn btn-sm round btn-outline-success">Accept</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

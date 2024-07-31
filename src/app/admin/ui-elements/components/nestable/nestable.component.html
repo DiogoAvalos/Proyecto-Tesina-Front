@@ -1,0 +1,338 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Sortable Nestable</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">UI Elements</li>
+        <li class="breadcrumb-item active">Sortable Nestable</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="header">
+        <h2>Nestable Handle</h2>
+      </div>
+      <div class="body">
+        <div class="dd nestable-with-handle">
+          <ngx-nestable [(list)]="list" [options]="options" [template]="itemTemplate">
+          </ngx-nestable>
+          <ng-template #itemTemplate let-row>
+            <i class="icon-list" [ngxNestableDragHandle]="row"></i>
+            <span *ngIf="row.item.children && row.item.children.length; else empty_item"
+              [ngxNestableExpandCollapse]="row">
+              &nbsp;&nbsp;<i class="fa {{row.item.$$expanded ? ' fa-minus' : 'fa-plus'}} "></i>&nbsp;&nbsp;
+            </span>
+            <div>{{row.item.text}}</div>
+          </ng-template>
+
+          <ng-template #empty_item>
+            <span style="width: 40px"></span>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="header">
+        <h2>Nestable Handle with Badge</h2>
+      </div>
+      <div class="body">
+        <div class="dd nestable-with-handle">
+          <ol class="dd-list">
+            <li class="dd-item dd3-item" data-id="1">
+              <div class="dd-handle dd3-handle"></div>
+              <div class="dd3-content">Founder & Director <span class="badge badge-success float-right">1</span></div>
+            </li>
+            <li class="dd-item dd3-item" data-id="2">
+              <div class="dd-handle dd3-handle"></div>
+              <div class="dd3-content">Sales Lead <span class="badge badge-info float-right">1</span></div>
+            </li>
+            <li class="dd-item dd3-item" data-id="3">
+              <div class="dd-handle dd3-handle"></div>
+              <div class="dd3-content">Project Lead <span class="badge badge-warning float-right">1</span></div>
+              <ol class="dd-list">
+                <li class="dd-item dd3-item" data-id="4">
+                  <div class="dd-handle dd3-handle"></div>
+                  <div class="dd3-content">UI UX Designer <span class="badge badge-warning float-right">3</span></div>
+                </li>
+                <li class="dd-item dd3-item" data-id="5">
+                  <div class="dd-handle dd3-handle"></div>
+                  <div class="dd3-content">FrontEnd Developer <span class="badge badge-warning float-right">8</span>
+                  </div>
+                </li>
+                <li class="dd-item dd3-item" data-id="6">
+                  <div class="dd-handle dd3-handle"></div>
+                  <div class="dd3-content">Mobile Lead <span class="badge badge-warning float-right">2</span></div>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="header">
+        <h2>Sortable with Background</h2>
+      </div>
+      <div class="body">
+        <div cdkDropList [cdkDropListData]="groups" (cdkDropListDropped)="dropGroup($event)" class="dd dd4">
+          <ol class="dd-list" cdkDropListGroup *ngFor="let group of groups" cdkDrag [cdkDragData]="group">
+            <div cdkDropList id={{group.id}} [cdkDropListData]="group.items" (cdkDropListDropped)="dropItem($event)"
+              [cdkDropListConnectedTo]="getConnectedList()">
+              <li class="dd-item" *ngFor="let item of group.items" cdkDrag [cdkDragData]="item">
+                <div class="dd-handle {{item.st}}">{{item.name}}</div>
+              </li>
+            </div>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="header">
+        <h2>Sortable With Task List</h2>
+      </div>
+      <div class="body todo_list">
+        <div cdkDropList [cdkDropListData]="taskList" (cdkDropListDropped)="dropGroup($event)"
+          class="dd nestable-with-handle">
+          <ol class="dd-list" cdkDropListGroup *ngFor="let group of taskList" cdkDrag [cdkDragData]="group">
+            <div cdkDropList id={{group.id}} [cdkDropListData]="group.items" (cdkDropListDropped)="dropItem($event)"
+              [cdkDropListConnectedTo]="getConnectedList()">
+              <li class="dd-item dd3-item" *ngFor="let item of group.items" cdkDrag [cdkDragData]="item">
+                <div class="dd-handle dd3-handle"></div>
+                <div class="dd3-content">
+                  <label class="fancy-checkbox">
+                    <input type="checkbox" name="checkbox" [checked]="item.isChecked">
+                    <span> <i class="{{item.icon}} m-r-5"></i> {{item.text}} <span
+                        ngClass="{{item.badge_st}}">{{item.bage}}</span> </span>
+                  </label>
+                </div>
+              </li>
+            </div>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>With Project List</h2>
+      </div>
+      <div class="body team_list">
+        <div class="dd" data-plugin="nestable">
+          <ol class="dd-list">
+            <li class="dd-item" data-id="1">
+              <div class="dd-handle">Desiger</div>
+              <div class="dd-content top_counter">
+                <div class="icon">
+                  <img src="assets/images/xs/avatar1.jpg" class="rounded-circle" alt="">
+                </div>
+                <div class="content m-t-5">
+                  <div>UI UX Desiger</div>
+                  <h6>Brian Swader</h6>
+                </div>
+              </div>
+              <ol class="dd-list">
+                <li class="dd-item" data-id="1">
+                  <div class="dd-handle">Team Member</div>
+                  <div class="dd-content">
+                    <h6 class="m-b-15">Info about Design Team <span class="badge badge-success float-right">New</span>
+                    </h6>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
+                      when looking at its layout.</p>
+                    <ul class="list-unstyled team-info m-t-20 m-b-20">
+                      <li class="m-r-15"><small class="text-muted">Team</small></li>
+                      <li><img src="assets/images/xs/avatar1.jpg" title="Avatar" alt="Avatar"></li>
+                      <li><img src="assets/images/xs/avatar2.jpg" title="Avatar" alt="Avatar"></li>
+                      <li><img src="assets/images/xs/avatar5.jpg" title="Avatar" alt="Avatar"></li>
+                    </ul>
+                    <div class="progress-container l-black m-b-20">
+                      <span class="progress-badge">Prograss</span>
+                      <div class="progress">
+                        <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="68" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 68%;">
+                          <span class="progress-value">68%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        <small>PROJECTS: 12</small>
+                        <h6>BUDGET: 4,870 USD</h6>
+                      </div>
+                      <div class="col-5">
+                        <div class="sparkline text-right m-t-10" data-type="bar" data-width="97%" data-height="26px"
+                          data-bar-Width="2" data-bar-Spacing="7" data-bar-Color="#333333">2,5,8,3,5,7,1,6</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </li>
+            <li class="dd-item" data-id="1">
+              <div class="dd-handle">Sales</div>
+              <div class="dd-content top_counter">
+                <div class="icon">
+                  <img src="assets/images/xs/avatar2.jpg" class="rounded-circle" alt="">
+                </div>
+                <div class="content m-t-5">
+                  <div>Sales Lead</div>
+                  <h6>Rose Rivera</h6>
+                </div>
+              </div>
+            </li>
+            <li class="dd-item" data-id="1">
+              <div class="dd-handle">Developer</div>
+              <div class="dd-content top_counter">
+                <div class="icon">
+                  <img src="assets/images/xs/avatar10.jpg" class="rounded-circle" alt="">
+                </div>
+                <div class="content m-t-5">
+                  <div>Project Lead</div>
+                  <h6>Richard Foos</h6>
+                </div>
+              </div>
+              <ol class="dd-list">
+                <li class="dd-item" data-id="1">
+                  <div class="dd-handle">FrontEnd Developer</div>
+                  <div class="dd-content">
+                    <ul class="list-unstyled team-info">
+                      <li><img src="assets/images/xs/avatar5.jpg" alt="Avatar"></li>
+                      <li><img src="assets/images/xs/avatar6.jpg" alt="Avatar"></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dd-item" data-id="1">
+                  <div class="dd-handle">PHP Expert</div>
+                  <div class="dd-content">
+                    <ul class="list-unstyled team-info">
+                      <li><img src="assets/images/xs/avatar7.jpg" alt="Avatar"></li>
+                      <li><img src="assets/images/xs/avatar8.jpg" alt="Avatar"></li>
+                      <li><img src="assets/images/xs/avatar9.jpg" alt="Avatar"></li>
+                      <li><img src="assets/images/xs/avatar10.jpg" alt="Avatar"></li>
+                    </ul>
+                  </div>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Default Example <small>Drag & drop hierarchical list with mouse and touch compatibility</small> </h2>
+      </div>
+      <div class="body">
+        <ng-template #tmplNode let-node="node">
+          <div class="node-item" [attr.data-id]="node.id" [attr.id]="'node-'+node.id">
+
+            <div class="node-title" (click)="node.isExpanded=!node.isExpanded">
+              {{node.children.length ? (node.isExpanded?'-&nbsp;':'+') : '&nbsp;&nbsp;&nbsp;'}} &nbsp;&nbsp;&nbsp;
+              {{node.id}} <span class="item-notes">
+                ({{node.children.length}}{{node.children.length?', expanded: ' + !!node.isExpanded:''}})</span>
+            </div>
+
+            <div *ngIf="node.isExpanded && node.children.length" class="node-children" cdkDropList
+              [cdkDropListData]="node.children" [id]="node.id" [cdkDropListConnectedTo]="dropTargetIds"
+              (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
+
+              <div *ngFor="let child of node.children" cdkDrag [cdkDragData]="child.id"
+                (cdkDragMoved)="dragMoved($event)">
+                <ng-container *ngTemplateOutlet="tmplNode,context:{node:child}"></ng-container>
+              </div>
+
+            </div>
+
+          </div>
+        </ng-template>
+
+        <div cdkDropList [cdkDropListData]="nodes" [id]="'main'" [cdkDropListConnectedTo]="dropTargetIds"
+          (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
+          <div *ngFor="let node of nodes" cdkDrag [cdkDragData]="node.id" (cdkDragMoved)="dragMoved($event)">
+            <ng-container *ngTemplateOutlet="tmplNode,context:{node:node}"></ng-container>
+          </div>
+        </div>
+        <b>Output JSON</b>
+        <textarea cols="30" rows="3" class="form-control no-resize"
+          readonly>[{id:'Item 1',children: []},{id:'Item 2',children: [{id:'Item 2.1',children: []},{id:'Item 2.2',children: [][id:'Item 2.3.1',children: []},{id:'Item 2.3.2',children: []]]},{id:'Item 3',children: []]]},{id:'Item 3',children: []]]</textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Default Example with Dark<small>Drag & drop hierarchical list with mouse and touch compatibility</small>
+        </h2>
+      </div>
+      <div class="body">
+        <div class="clearfix m-b-20">
+          <div class="nestable-dark-theme">
+            <ng-template #tmplNode let-node="node">
+              <div class="node-item" [attr.data-id]="node.id" [attr.id]="'node-'+node.id">
+
+                <div class="node-title" (click)="node.isExpanded=!node.isExpanded">
+                  {{node.children.length ? (node.isExpanded?'-&nbsp;':'+') : '&nbsp;&nbsp;&nbsp;'}} &nbsp;&nbsp;&nbsp;
+                  {{node.id}} <span class="item-notes">
+                    ({{node.children.length}}{{node.children.length?', expanded: ' + !!node.isExpanded:''}})</span>
+                </div>
+
+                <div *ngIf="node.isExpanded && node.children.length" class="node-children" cdkDropList
+                  [cdkDropListData]="node.children" [id]="node.id" [cdkDropListConnectedTo]="dropTargetIds"
+                  (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
+
+                  <div *ngFor="let child of node.children" cdkDrag [cdkDragData]="child.id"
+                    (cdkDragMoved)="dragMoved($event)">
+                    <ng-container *ngTemplateOutlet="tmplNode,context:{node:child}"></ng-container>
+                  </div>
+
+                </div>
+
+              </div>
+            </ng-template>
+
+            <div cdkDropList [cdkDropListData]="nodes" [id]="'main'" [cdkDropListConnectedTo]="dropTargetIds"
+              (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
+              <div *ngFor="let node of nodes" cdkDrag [cdkDragData]="node.id" (cdkDragMoved)="dragMoved($event)">
+                <ng-container *ngTemplateOutlet="tmplNode,context:{node:node}"></ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <b>Output JSON</b>
+        <textarea cols="30" rows="3" class="form-control no-resize"
+          readonly>[{id:'Item 1',children: []},{id:'Item 2',children: [{id:'Item 2.1',children: []},{id:'Item 2.2',children: [][id:'Item 2.3.1',children: []},{id:'Item 2.3.2',children: []]]},{id:'Item 3',children: []]]},{id:'Item 3',children: []]]</textarea>
+      </div>
+    </div>
+  </div>
+
+</div>

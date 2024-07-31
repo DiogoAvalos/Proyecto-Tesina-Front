@@ -1,0 +1,516 @@
+<div id="left-sidebar" class="sidebar {{isShowLeftBar}}">
+  <button type="button" class="btn-toggle-offcanvas" (click)="toggleLeftBar()"><i class="fa fa-arrow-left"></i></button>
+  <div class="sidebar-scroll">
+    <div class="user-account">
+      <img src="assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
+      <div class="dropdown">
+        <span>Welcome,</span>
+        <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Pamela
+            Petrus</strong></a>
+        <ul class="dropdown-menu dropdown-menu-right account">
+          <li><a href="/extra-pages/profile-v2"><i class="icon-user"></i>My Profile</a></li>
+          <li><a href="/ready-app/inbox"><i class="icon-envelope-open"></i>Messages</a></li>
+          <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+          <li class="divider"></li>
+          <li><a href="/authentication/login"><i class="icon-power"></i>Logout</a></li>
+        </ul>
+      </div>
+      <hr>
+      <ul class="row list-unstyled">
+        <li class="col-4">
+          <small>Sales</small>
+          <h6>561</h6>
+        </li>
+        <li class="col-4">
+          <small>Order</small>
+          <h6>920</h6>
+        </li>
+        <li class="col-4">
+          <small>Revenue</small>
+          <h6>$23B</h6>
+        </li>
+      </ul>
+    </div>
+    <!-- Nav tabs -->
+
+    <ngb-tabset>
+      <ngb-tab>
+        <ng-template ngbTabTitle>Menu</ng-template>
+        <ng-template ngbTabContent>
+          <!-- Tab panes -->
+          <div class="tab-pane active" id="menu">
+            <nav id="left-sidebar-nav" class="sidebar-nav">
+              <ul id="main-menu" class="metismenu li_animation_delay">
+                <li [ngClass]="{'active':currentActiveMenu == 'dashboard'}">
+                  <a href="javascript:void(0)" (click)="changeNavTab('dashboard')" class="has-arrow"><i
+                      class="fa fa-dashboard"></i><span>Dashboard</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'dashboard') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'analytical'}"><a
+                        [routerLink]="['/dashboard/analytical']">Analytical</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'iot-dashboard'}"><a
+                        [routerLink]="['/dashboard/iot-dashboard']">IoT Dashboard</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'demographic'}"><a
+                        [routerLink]="['/dashboard/demographic']">Demographic</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'project-board'}"><a
+                        [routerLink]="['/dashboard/project-board']">Project Board</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'crypto-dashboard'}"><a
+                        [routerLink]="['/dashboard/crypto-dashboard']">Crypto Dashboard</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'ecommerce'}"><a
+                        [routerLink]="['/dashboard/ecommerce']">eCommerce</a></li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active':currentActiveMenu == 'ready-app'}">
+                  <a href="javascript:void(0)" class="has-arrow" class="has-arrow"
+                    (click)="changeNavTab('ready-app')"><i class="fa fa-th-large"></i><span>Ready App</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'ready-app') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'inbox'}"><a
+                        [routerLink]="['/ready-app/inbox']">Inbox</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'chat'}"><a
+                        [routerLink]="['/ready-app/chat']">Chat</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'calendar'}"><a
+                        [routerLink]="['/ready-app/calendar']">Calendar</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'contact-list'}"><a
+                        [routerLink]="['/ready-app/contact-list']">Contact list</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'contact-card'}"><a
+                        [routerLink]="['/ready-app/contact-card']">Contact Card <span
+                          class="badge badge-warning float-right">New</span></a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'taskboard'}"><a
+                        [routerLink]="['/ready-app/taskboard']">Taskboard</a></li>
+                    <li><a href="javascript:void(0)" (click)="changeNavSubTab('blog')"><span>Blog</span></a>
+                      <ul [ngClass]="(currentActiveSubMenu == 'blog') ? 'collapse in':'collapse'">
+                        <li [ngClass]="{'active':currentActiveSubOfSub == 'dashboard'}"><a
+                            [routerLink]="['/ready-app/blog/dashboard']">Dashboard</a></li>
+                        <li [ngClass]="{'active':currentActiveSubOfSub == 'new-post'}"><a
+                            [routerLink]="['/ready-app/blog/new-post']">New Post</a></li>
+                        <li [ngClass]="{'active':currentActiveSubOfSub == 'blog-list'}"><a
+                            [routerLink]="['/ready-app/blog/blog-list']">Blog List</a></li>
+                        <li [ngClass]="{'active':currentActiveSubOfSub == 'blog-detail'}"><a
+                            [routerLink]="['/ready-app/blog/blog-detail']">Blog Detail</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="javascript:void(0)" (click)="changeNavSubTab('file-manager')"><span>File
+                          Manager</span></a>
+                      <ul [ngClass]="(currentActiveSubMenu == 'file-manager') ? 'collapse in':'collapse'">
+                        <li [ngClass]="{'active':currentActiveSubOfSub == 'dashboard'}"><a
+                            [routerLink]="['/ready-app/file-manager/dashboard']">Dashboard</a></li>
+                        <li [ngClass]="{'active':currentActiveSubOfSub == 'documents'}"><a
+                            [routerLink]="['/ready-app/file-manager/documents']">Documents</a></li>
+                        <li [ngClass]="{'active':currentActiveSubOfSub == 'media'}"><a
+                            [routerLink]="['/ready-app/file-manager/media']">Media</a></li>
+                        <li [ngClass]="{'active':currentActiveSubOfSub == 'images'}"><a
+                            [routerLink]="['/ready-app/file-manager/images']">Images</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active':currentActiveMenu == 'widget'}">
+                  <a href="javascript:void(0)" (click)="changeNavTab('widget')" class="has-arrow"><i
+                      class="fa fa-puzzle-piece"></i><span>Widgets</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'widget') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'statistics'}"><a
+                        [routerLink]="['/widget/statistics']">Statistics</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'data'}"><a
+                        [routerLink]="['/widget/data']">Data</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'chart'}"><a
+                        [routerLink]="['/widget/chart']">Chart</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'weather'}"><a
+                        [routerLink]="['/widget/weather']">Weather</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'social'}"><a
+                        [routerLink]="['/widget/social']">Social</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'blog'}"><a
+                        [routerLink]="['/widget/blog']">Blog</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'ecommerce'}"><a
+                        [routerLink]="['/widget/ecommerce']">eCommerce</a></li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active':currentActiveMenu == 'ui-elements'}">
+                  <a href="javascript:void(0)" (click)="changeNavTab('ui-elements')" class="has-arrow"><i
+                      class="fa fa-diamond"></i><span>UI Elements</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'ui-elements') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'typography'}"><a
+                        [routerLink]="['/ui-elements/typography']">Typography</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'tabs'}"><a
+                        [routerLink]="['/ui-elements/tabs']">Tabs</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'buttons'}"><a
+                        [routerLink]="['/ui-elements/buttons']">Buttons</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'bootstrap'}"><a
+                        [routerLink]="['/ui-elements/bootstrap']">Bootstrap UI</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'icons'}"><a
+                        [routerLink]="['/ui-elements/icons']">Icons</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'notifications'}"><a
+                        [routerLink]="['/ui-elements/notifications']">Notifications</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'colors'}"><a
+                        [routerLink]="['/ui-elements/colors']">Colors</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'dialogs'}"><a
+                        [routerLink]="['/ui-elements/dialogs']">Dialogs</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'list-group'}"><a
+                        [routerLink]="['/ui-elements/list-group']">List Group</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'media-object'}"><a
+                        [routerLink]="['/ui-elements/media-object']">Media Object</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'modals'}"><a
+                        [routerLink]="['/ui-elements/modals']">Modals</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'nestable'}"><a
+                        [routerLink]="['/ui-elements/nestable']">Nestable</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'progress-bars'}"><a
+                        [routerLink]="['/ui-elements/progress-bars']">Progress Bars</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'range-slider'}"><a
+                        [routerLink]="['/ui-elements/range-slider']">Range Sliders</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'treeview'}"><a
+                        [routerLink]="['/ui-elements/treeview']">Treeview</a></li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active':currentActiveMenu == 'charts'}">
+                  <a href="javascript:void(0)" (click)="changeNavTab('charts')" class="has-arrow"><i
+                      class="fa fa-area-chart"></i><span>Charts</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'charts') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'apex'}"><a
+                        [routerLink]="['/charts/apex']">Apex</a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'c3-charts'}"><a
+                        [routerLink]="['/charts/c3-charts']">C3 Charts</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'gauges'}"><a
+                        [routerLink]="['/charts/gauges']">Gauges</a></li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active':currentActiveMenu == 'forms'}">
+                  <a href="javascript:void(0)" (click)="changeNavTab('forms')" class="has-arrow"><i
+                      class="fa fa-pencil"></i><span>Forms</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'forms') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'form-validation'}"><a
+                        [routerLink]="['/forms/form-validation']">Form Validation</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'advanced-elements'}"><a
+                        [routerLink]="['/forms/advanced-elements']">Advanced Elements</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'basic-elements'}"><a
+                        [routerLink]="['/forms/basic-elements']">Basic Elements</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'drag-drop'}"><a
+                        [routerLink]="['/forms/drag-drop']">Drag &amp; Drop Upload</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'image-cropping'}"><a
+                        [routerLink]="['/forms/image-cropping']">Image Cropping</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'summernote'}"><a
+                        [routerLink]="['/forms/summernote']">Summernote</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'ck-editor'}"><a
+                        [routerLink]="['/forms/ck-editor']">CKEditor</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'markdown'}"><a
+                        [routerLink]="['/forms/markdown']">Markdown</a></li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active':currentActiveMenu == 'tables'}">
+                  <a href="javascript:void(0)" (click)="changeNavTab('tables')" class="has-arrow"><i
+                      class="fa fa-table"></i><span>Tables</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'tables') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'table-example'}"><a
+                        [routerLink]="['tables/table-example']">Tables Example<span
+                          class="badge badge-info float-right">New</span></a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'normal-tables'}"><a
+                        [routerLink]="['tables/normal-tables']">Normal Tables</a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'jquery-datatables'}"><a
+                        [routerLink]="['tables/jquery-datatables']">Datatables</a> </li> <!--  Jquery -->
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'editable-tables'}"><a
+                        [routerLink]="['tables/editable-tables']">Editable Tables</a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'tables-color'}"><a
+                        [routerLink]="['tables/tables-color']">Tables Color</a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'table-filter'}"><a
+                        [routerLink]="['tables/table-filter']">Table Filter <span
+                          class="badge badge-info float-right">New</span></a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'table-dragger'}"><a
+                        [routerLink]="['tables/table-dragger']">Table dragger <span
+                          class="badge badge-info float-right">New</span></a> </li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active':currentActiveMenu == 'authentication'}">
+                  <a href="javascript:void(0)" (click)="changeNavTab('authentication')" class="has-arrow"><i
+                      class="fa fa-lock"></i><span>Authentication</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'authentication') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'login'}"><a
+                        [routerLink]="['authentication/login']">Login</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'register'}"><a
+                        [routerLink]="['authentication/register']">Register</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'lock-screen'}"><a
+                        [routerLink]="['authentication/lock-screen']">Lockscreen</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'forgot-password'}"><a
+                        [routerLink]="['authentication/forgot-password']">Forgot Password</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'page-404'}"><a
+                        [routerLink]="['authentication/page-404']">Page 404</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'page-403'}"><a
+                        [routerLink]="['authentication/page-403']">Page 403</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'page-500'}"><a
+                        [routerLink]="['authentication/page-500']">Page 500</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'page-503'}"><a
+                        [routerLink]="['authentication/page-503']">Page 503</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'maintenance'}"><a
+                        [routerLink]="['authentication/maintenance']"> Maintenance</a></li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active':currentActiveMenu == 'extra-pages'}">
+                  <a href="javascript:void(0)" (click)="changeNavTab('extra-pages')" class="has-arrow"><i
+                      class="fa fa-file"></i><span>Extra Pages</span></a>
+                  <ul [ngClass]="(currentActiveMenu == 'extra-pages') ? 'collapse in':'collapse'">
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'blank-page'}"><a
+                        [routerLink]="['extra-pages/blank-page']"> Blank Page</a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'profile'}"><a
+                        [routerLink]="['extra-pages/profile']"> Profile <span
+                          class="badge badge-default float-right">v1</span></a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'profile-v2'}"><a
+                        [routerLink]="['extra-pages/profile-v2']"> Profile <span
+                          class="badge badge-warning float-right">v2</span></a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'image-gallery'}"><a
+                        [routerLink]="['extra-pages/image-gallery']"> Image Gallery <span
+                          class="badge badge-default float-right">v1</span></a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'image-gallery-v2'}"><a
+                        [routerLink]="['extra-pages/image-gallery-v2']"> Image Gallery <span
+                          class="badge badge-warning float-right">v2</span></a> </li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'timeline'}"><a
+                        [routerLink]="['extra-pages/timeline']"> Timeline</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'pricing'}"><a
+                        [routerLink]="['extra-pages/pricing']"> Pricing</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'invoices'}"><a
+                        [routerLink]="['extra-pages/invoices']"> Invoices</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'invoices-v2'}"><a
+                        [routerLink]="['extra-pages/invoices-v2']"> Invoices <span
+                          class="badge badge-warning float-right">v2</span></a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'search-result'}"><a
+                        [routerLink]="['extra-pages/search-result']"> Search Results</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'helper-classes'}"><a
+                        [routerLink]="['extra-pages/helper-classes']"> Helper Classes</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'teams-board'}"><a
+                        [routerLink]="['extra-pages/teams-board']"> Teams Board</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'projects-list'}"><a
+                        [routerLink]="['extra-pages/projects-list']"> Projects List</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'testimonials'}"><a
+                        [routerLink]="['extra-pages/testimonials']"> Testimonials</a></li>
+                    <li [ngClass]="{'active':currentActiveSubMenu == 'faq'}"><a [routerLink]="['extra-pages/faq']">
+                        FAQ</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#Maps" class="has-arrow"><i class="fa fa-map"></i><span>Maps</span></a>
+                  <ul>
+                    <li><a [routerLink]="['maps/yandex-maps']">Yandex Map</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle><i class="icon-book-open"></i></ng-template>
+        <ng-template ngbTabContent>
+          <div class="tab-pane" id="Chat">
+            <form>
+              <div class="input-group m-b-20">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-magnifier"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search...">
+              </div>
+            </form>
+            <ul class="right_chat list-unstyled li_animation_delay">
+              <li>
+                <a href="javascript:void(0);" class="media">
+                  <img class="media-object" src="assets/images/xs/avatar1.jpg" alt="">
+                  <div class="media-body">
+                    <span class="name d-flex justify-content-between">Chris Fox <i
+                        class="fa fa-heart-o font-12"></i></span>
+                    <span class="message">chrisfox@gmail.com</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="media">
+                  <img class="media-object" src="assets/images/xs/avatar2.jpg" alt="">
+                  <div class="media-body">
+                    <span class="name d-flex justify-content-between">Joge Lucky <i
+                        class="fa fa-heart-o font-12"></i></span>
+                    <span class="message">Jogelucky@gmail.com</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="media">
+                  <img class="media-object" src="assets/images/xs/avatar3.jpg" alt="">
+                  <div class="media-body">
+                    <span class="name d-flex justify-content-between">Isabella <i
+                        class="fa fa-heart-o font-12"></i></span>
+                    <span class="message">Isabella@gmail.com</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="media">
+                  <img class="media-object" src="assets/images/xs/avatar4.jpg" alt="">
+                  <div class="media-body">
+                    <span class="name d-flex justify-content-between">Folisise Chosielie <i
+                        class="fa fa-heart font-12"></i></span>
+                    <span class="message">FolisiseChosielie@gmail.com</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="media">
+                  <img class="media-object" src="assets/images/xs/avatar5.jpg" alt="">
+                  <div class="media-body">
+                    <span class="name d-flex justify-content-between">Alexander <i
+                        class="fa fa-heart-o font-12"></i></span>
+                    <span class="message">Alexander@gmail.com</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle><i class="icon-settings"></i></ng-template>
+        <ng-template ngbTabContent>
+          <div class="tab-pane" id="setting">
+            <h6>Choose Skin</h6>
+            <ul class="choose-skin list-unstyled">
+              <li [ngClass]="{'active':themeClass == 'theme-purple'}">
+                <div class="purple" (click)="changeTheme('theme-purple')"></div>
+              </li>
+              <li [ngClass]="{'active':themeClass == 'theme-blue'}">
+                <div class="blue" (click)="changeTheme('theme-blue')"></div>
+              </li>
+              <li [ngClass]="{'active':themeClass == 'theme-cyan'}">
+                <div class="cyan" (click)="changeTheme('theme-cyan')"></div>
+              </li>
+              <li [ngClass]="{'active':themeClass == 'theme-green'}">
+                <div class="green" (click)="changeTheme('theme-green')"></div>
+              </li>
+              <li [ngClass]="{'active':themeClass == 'theme-orange'}">
+                <div class="orange" (click)="changeTheme('theme-orange')"></div>
+              </li>
+              <li [ngClass]="{'active':themeClass == 'theme-blush'}">
+                <div class="blush" (click)="changeTheme('theme-blush')"></div>
+              </li>
+              <li [ngClass]="{'active':themeClass == 'theme-red'}">
+                <div class="red" (click)="changeTheme('theme-red')"></div>
+              </li>
+            </ul>
+
+            <ul class="list-unstyled font_setting mt-3">
+              <li>
+                <label class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" class="custom-control-input" name="font" value="font-nunito"
+                    (change)="onItemChange($event.target.value)">
+                  <span class="custom-control-label">Nunito Google Font</span>
+                </label>
+              </li>
+              <li>
+                <label class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" class="custom-control-input" name="font" value="font-ubuntu"
+                    (change)="onItemChange($event.target.value)">
+                  <span class="custom-control-label">Ubuntu Font</span>
+                </label>
+              </li>
+              <li>
+                <label class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" class="custom-control-input" name="font" value="font-raleway"
+                    (change)="onItemChange($event.target.value)">
+                  <span class="custom-control-label">Raleway Google Font</span>
+                </label>
+              </li>
+              <li>
+                <label class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" class="custom-control-input" name="font" value="font-IBMplex"
+                    (change)="onItemChange($event.target.value)">
+                  <span class="custom-control-label">IBM Plex Google Font</span>
+                </label>
+              </li>
+            </ul>
+
+            <ul class="list-unstyled mt-3">
+              <li class="d-flex align-items-center mb-2">
+                <label class="toggle-switch theme-switch">
+                  <input type="checkbox" [checked]="isHorizontalMenu" (change)="toggleHorizontalMenu()">
+                  <span class="toggle-switch-slider"></span>
+                </label>
+                <span class="ml-3">Enable Verticle Mode</span>
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <label class="toggle-switch theme-switch">
+                  <input type="checkbox" [checked]="themeDarkClass == 'dark'" (change)="changeDarkClass($event)">
+                  <span class="toggle-switch-slider"></span>
+                </label>
+                <span class="ml-3">Enable Dark Mode!</span>
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <label class="toggle-switch theme-rtl">
+                  <input type="checkbox" [checked]="isRtl" (change)="changeRtlClass($event)">
+                  <span class="toggle-switch-slider"></span>
+                </label>
+                <span class="ml-3">Enable RTL Mode!</span>
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <label class="toggle-switch theme-high-contrast">
+                  <input type="checkbox" [checked]="themeHighContClass == 'high-contrast'"
+                    (change)="changeHighContClass($event)">
+                  <span class="toggle-switch-slider"></span>
+                </label>
+                <span class="ml-3">Enable High Contrast Mode!</span>
+              </li>
+            </ul>
+
+            <hr>
+            <h6>General Settings</h6>
+            <ul class="setting-list list-unstyled">
+              <li>
+                <label class="fancy-checkbox">
+                  <input type="checkbox" name="checkbox" checked>
+                  <span>Allowed Notifications</span>
+                </label>
+              </li>
+              <li>
+                <label class="fancy-checkbox">
+                  <input type="checkbox" name="checkbox">
+                  <span>Offline</span>
+                </label>
+              </li>
+              <li>
+                <label class="fancy-checkbox">
+                  <input type="checkbox" name="checkbox">
+                  <span>Location Permission</span>
+                </label>
+              </li>
+            </ul>
+
+            <a href="#" target="_blank" class="btn btn-block btn-primary">Buy this item</a>
+            <a href="https://themeforest.net/user/wrraptheme/portfolio" target="_blank"
+              class="btn btn-block btn-secondary">View portfolio</a>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle><i class="icon-question"></i></ng-template>
+        <ng-template ngbTabContent>
+          <div class="tab-pane" id="question">
+            <form>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-magnifier"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search...">
+              </div>
+            </form>
+            <ul class="list-unstyled question">
+              <li class="menu-heading">HOW-TO</li>
+              <li><a href="javascript:void(0);">How to Create Campaign</a></li>
+              <li><a href="javascript:void(0);">Boost Your Sales</a></li>
+              <li><a href="javascript:void(0);">Website Analytics</a></li>
+              <li class="menu-heading">ACCOUNT</li>
+              <li><a href="javascript:void(0);">Cearet New Account</a></li>
+              <li><a href="javascript:void(0);">Change Password?</a></li>
+              <li><a href="javascript:void(0);">Privacy &amp; Policy</a></li>
+              <li class="menu-heading">BILLING</li>
+              <li><a href="javascript:void(0);">Payment info</a></li>
+              <li><a href="javascript:void(0);">Auto-Renewal</a></li>
+              <li class="menu-button mt-3">
+                <a href="https://wrraptheme.com/templates/iconic/docs/index.html" class="btn btn-primary btn-block" target="_blank">Documentation</a>
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>

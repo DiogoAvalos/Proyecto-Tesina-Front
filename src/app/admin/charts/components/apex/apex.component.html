@@ -1,0 +1,336 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>C3 Chart</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">Charts</li>
+        <li class="breadcrumb-item active">C3 Chart</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-xl-8 col-lg-7 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Simple Bubble</h2>
+      </div>
+      <div class="body">
+        <div id="apex-simple-bubble">
+          <apx-chart [series]="bubblechartOptions.series" [chart]="bubblechartOptions.chart"
+            [xaxis]="bubblechartOptions.xaxis" [yaxis]="bubblechartOptions.yaxis"
+            [dataLabels]="bubblechartOptions.dataLabels" [colors]="bubblechartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Area Datetime</h2>
+        <ul class="header-dropdown dropdown">
+          <button class="btn btn-sm btn-outline-secondary mr-1" id="one_month" (click)="updateOptions( '1m' )"
+            [class.active]="activeOptionButton=='1m'"> 1M </button>
+          <button class="btn btn-sm btn-outline-secondary mr-1" id="six_months" (click)="updateOptions( '6m' )"
+            [class.active]="activeOptionButton=='6m'"> 6M </button>
+          <button class="btn btn-sm btn-outline-secondary mr-1" id="one_year" (click)="updateOptions( '1y' )"
+            [class.active]="activeOptionButton=='1y'"> 1Y </button>
+          <button class="btn btn-sm btn-outline-secondary mr-1" id="one_year" (click)="updateOptions( '1yd' )"
+            [class.active]="activeOptionButton=='1yd'"> YD </button>
+          <button class="btn btn-sm btn-outline-secondary" (click)="updateOptions( 'all' )"
+            [class.active]="activeOptionButton=='all'"> all </button>
+        </ul>
+      </div>
+      <div class="body">
+        <div id="apex-timeline-chart">
+          <apx-chart #areachart [series]="areachartOptions.series" [chart]="areachartOptions.chart"
+            [colors]="areachartOptions.colors" [yaxis]="areachartOptions.yaxis"
+            [dataLabels]="areachartOptions.dataLabels" [markers]="areachartOptions.markers"
+            [stroke]="areachartOptions.stroke" [xaxis]="areachartOptions.xaxis" [tooltip]="areachartOptions.tooltip"
+            [annotations]="areachartOptions.annotations"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Stacked Area</h2>
+      </div>
+      <div class="body">
+        <div id="apex-stacked-area">
+          <apx-chart [series]="stackedChartOptions.series" [chart]="stackedChartOptions.chart"
+            [xaxis]="stackedChartOptions.xaxis" [dataLabels]="stackedChartOptions.dataLabels"
+            [yaxis]="stackedChartOptions.yaxis" [colors]="stackedChartOptions.colors"
+            [legend]="stackedChartOptions.legend" [fill]="stackedChartOptions.fill"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Basic Column</h2>
+      </div>
+      <div class="body">
+        <div id="apex-basic-column">
+          <apx-chart [series]="basicColumnChartOptions.series" [chart]="basicColumnChartOptions.chart"
+            [colors]="basicColumnChartOptions.colors" [dataLabels]="basicColumnChartOptions.dataLabels"
+            [plotOptions]="basicColumnChartOptions.plotOptions" [yaxis]="basicColumnChartOptions.yaxis"
+            [legend]="basicColumnChartOptions.legend" [fill]="basicColumnChartOptions.fill"
+            [stroke]="basicColumnChartOptions.stroke" [tooltip]="basicColumnChartOptions.tooltip"
+            [xaxis]="basicColumnChartOptions.xaxis"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Basic Heatmap Chart</h2>
+      </div>
+      <div class="body">
+        <div id="apex-basic-heatmap">
+          <apx-chart [series]="hitChartOptions.series" [chart]="hitChartOptions.chart"
+            [dataLabels]="hitChartOptions.dataLabels" [colors]="hitChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Basic Scatter Chart</h2>
+      </div>
+      <div class="body">
+        <div id="apex-basic-scatter">
+          <apx-chart [series]="scatterChartOptions.series" [chart]="scatterChartOptions.chart"
+            [xaxis]="scatterChartOptions.xaxis" [yaxis]="scatterChartOptions.yaxis"
+            [colors]="scatterChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Timeline</h2>
+      </div>
+      <div class="body">
+        <div id="apex-timeline">
+          <apx-chart [series]="timelineChartOptions.series" [chart]="timelineChartOptions.chart"
+            [fill]="timelineChartOptions.fill" [legend]="timelineChartOptions.legend"
+            [plotOptions]="timelineChartOptions.plotOptions" [xaxis]="timelineChartOptions.xaxis"
+            [colors]="timelineChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Basic Bar</h2>
+      </div>
+      <div class="body">
+        <div id="apex-basic-bar">
+          <apx-chart [series]="basicBarChartOptions.series" [chart]="basicBarChartOptions.chart"
+            [dataLabels]="basicBarChartOptions.dataLabels" [plotOptions]="basicBarChartOptions.plotOptions"
+            [xaxis]="basicBarChartOptions.xaxis" [colors]="basicBarChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Basic CandleStick</h2>
+      </div>
+      <div class="body">
+        <div id="apex-CandleStick">
+          <apx-chart [series]="candlestickChartOptions.series" [chart]="candlestickChartOptions.chart"
+            [xaxis]="candlestickChartOptions.xaxis" [yaxis]="candlestickChartOptions.yaxis"
+            [plotOptions]="candlestickChartOptions.plotOptions"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Basic Line Column</h2>
+      </div>
+      <div class="body">
+        <div id="apex-chart-line-column">
+          <apx-chart [series]="lineColumnChartOptions.series" [chart]="lineColumnChartOptions.chart"
+            [yaxis]="lineColumnChartOptions.yaxis" [xaxis]="lineColumnChartOptions.xaxis"
+            [labels]="lineColumnChartOptions.labels" [stroke]="lineColumnChartOptions.stroke"
+            [dataLabels]="lineColumnChartOptions.dataLabels" [fill]="lineColumnChartOptions.fill"
+            [tooltip]="lineColumnChartOptions.tooltip" [colors]="lineColumnChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-lg-5 col-md-12">
+    <div class="card">
+      <div class="body">
+        <div id="apexspark-chart1">
+          <apx-chart [series]="lineChartOptions.series" [chart]="lineChartOptions.chart"
+            [xaxis]="lineChartOptions.xaxis" [dataLabels]="lineChartOptions.dataLabels" [grid]="lineChartOptions.grid"
+            [stroke]="lineChartOptions.stroke" [title]="lineChartOptions.title" [colors]="lineChartOptions.colors"
+            [tooltip]="lineChartOptions.tooltip"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="body">
+        <div id="apexspark-chart2">
+          <apx-chart [series]="lineChartOption2.series" [chart]="lineChartOption2.chart"
+            [xaxis]="lineChartOption2.xaxis" [dataLabels]="lineChartOption2.dataLabels" [grid]="lineChartOption2.grid"
+            [stroke]="lineChartOption2.stroke" [title]="lineChartOption2.title" [colors]="lineChartOption2.colors"
+            [tooltip]="lineChartOption2.tooltip"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="body">
+        <div id="apexspark-chart3">
+          <apx-chart [chart]="miniBarChartOptions.chart" [stroke]="miniBarChartOptions.stroke"
+            [plotOptions]="radarPoligonChartOptions.plotOptions" [colors]="miniBarChartOptions.colors"
+            [series]="miniBarChartOptions.series" [labels]="circleChartOptions.labels"
+            [xaxis]="miniBarChartOptions.xaxis" [tooltip]="miniBarChartOptions.tooltip"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="body">
+        <div id="apexspark-chart4">
+          <apx-chart [chart]="miniBarChartOptions2.chart" [stroke]="miniBarChartOptions2.stroke"
+            [plotOptions]="miniBarChartOptions2.plotOptions" [colors]="miniBarChartOptions2.colors"
+            [series]="miniBarChartOptions2.series" [labels]="miniBarChartOptions2.labels"
+            [xaxis]="miniBarChartOptions2.xaxis" [tooltip]="miniBarChartOptions2.tooltip"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Basic Radar</h2>
+      </div>
+      <div class="body">
+        <div id="apex-basic-radar">
+          <apx-chart [series]="basicRadarChartOptions.series" [chart]="basicRadarChartOptions.chart"
+            [xaxis]="basicRadarChartOptions.xaxis" [title]="basicRadarChartOptions.title"
+            [colors]="basicBarChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="body">
+        <div id="apexspark1">
+          <apx-chart [chart]="areaChart1.chart" [stroke]="areaChart1.stroke" [series]="areaChart1.series"
+            [colors]="areaChart1.colors" [title]="areaChart1.title" [subtitle]="areaChart1.subtitle"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="body">
+        <div id="apexspark2">
+          <apx-chart [chart]="areaChart2.chart" [stroke]="areaChart2.stroke" [series]="areaChart2.series"
+            [colors]="areaChart2.colors" [title]="areaChart2.title" [subtitle]="areaChart2.subtitle"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="body">
+        <div id="apexspark3">
+
+          <apx-chart [chart]="areaChart3.chart" [stroke]="areaChart3.stroke" [series]="areaChart3.series"
+            [colors]="areaChart3.colors" [title]="areaChart3.title" [subtitle]="areaChart3.subtitle"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Radar Multiple Series</h2>
+      </div>
+      <div class="body">
+        <div id="apex-radar-multiple-series">
+          <apx-chart [chart]="multiRadarChartOptions.chart" [series]="multiRadarChartOptions.series"
+            [labels]="multiRadarChartOptions.labels" [plotOptions]="multiRadarChartOptions.plotOptions"
+            [colors]="multiRadarChartOptions.colors" [markers]="multiRadarChartOptions.markers"
+            [yaxis]="multiRadarChartOptions.yaxis"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Radar with Polygon Fill</h2>
+      </div>
+      <div class="body">
+        <div id="apex-radar-polygon-fill">
+          <apx-chart [series]="radarPoligonChartOptions.series" [chart]="radarPoligonChartOptions.chart"
+            [xaxis]="radarPoligonChartOptions.xaxis" [stroke]="radarPoligonChartOptions.stroke"
+            [colors]="radarPoligonChartOptions.colors" [labels]="radarPoligonChartOptions.labels"
+            [plotOptions]="radarPoligonChartOptions.plotOptions" [markers]="radarPoligonChartOptions.markers"
+            [yaxis]="radarPoligonChartOptions.yaxis" [fill]="radarPoligonChartOptions.fill"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Simple Donut</h2>
+      </div>
+      <div class="body">
+        <div id="apex-simple-donut">
+          <apx-chart [series]="donutChartOptions.series" [chart]="donutChartOptions.chart"
+            [labels]="donutChartOptions.labels" [responsive]="donutChartOptions.responsive"
+            [colors]="donutChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Circle Chart</h2>
+      </div>
+      <div class="body">
+        <div id="apex-circle-chart">
+          <apx-chart [series]="circleChartOptions.series" [chart]="circleChartOptions.chart"
+            [plotOptions]="circleChartOptions.plotOptions" [labels]="circleChartOptions.labels"
+            [colors]="circleChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Circle Chart Multiple</h2>
+      </div>
+      <div class="body">
+        <div id="apex-circle-chart-multiple">
+          <apx-chart [series]="multipleCircleChartOptions.series" [chart]="multipleCircleChartOptions.chart"
+            [plotOptions]="multipleCircleChartOptions.plotOptions" [labels]="multipleCircleChartOptions.labels"
+            [colors]="multipleCircleChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Circle Gradient</h2>
+      </div>
+      <div class="body">
+        <div id="apex-circle-gradient">
+          <apx-chart [series]="gradientChartOptions.series" [chart]="gradientChartOptions.chart"
+            [plotOptions]="gradientChartOptions.plotOptions" [labels]="gradientChartOptions.labels"
+            [stroke]="gradientChartOptions.stroke" [fill]="gradientChartOptions.fill"
+            [colors]="gradientChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>Stroked Gauge</h2>
+      </div>
+      <div class="body">
+        <div id="apex-stroked-gauge">
+          <apx-chart [series]="strokedChartOptions.series" [chart]="strokedChartOptions.chart"
+            [plotOptions]="strokedChartOptions.plotOptions" [labels]="strokedChartOptions.labels"
+            [fill]="strokedChartOptions.fill" [stroke]="strokedChartOptions.stroke"
+            [colors]="strokedChartOptions.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

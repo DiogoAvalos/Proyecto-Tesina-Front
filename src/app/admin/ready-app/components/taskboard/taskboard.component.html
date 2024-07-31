@@ -1,0 +1,151 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>TaskBoard</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">App</li>
+        <li class="breadcrumb-item active">TaskBoard</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1">Generate Report</button>
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#new_task">Add New</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix row-deck">
+
+  <div class="col-lg-4 col-md-12">
+    <div class="card planned_task">
+      <div class="header">
+        <h2>Planned</h2>
+      </div>
+      <div class="body taskboard">
+        <div #activeList="cdkDropList" class="box-list" cdkDropList cdkDropListOrientation="vertical"
+          [cdkDropListData]="planned" [cdkDropListConnectedTo]="[activeList, inactiveList, deactiveList]"
+          (cdkDropListDropped)="drop($event)">
+          <div class="dd" data-plugin="nestable">
+            <div [ngClass]="{'dd-empty': plannedBlank === 0, '': plannedBlank > 0 }">
+            </div>
+            <div *ngFor="let plan of planned" cdkDrag class="dd-item" data-id="1">
+              <div class="dd-handle">{{plan.code}}</div>
+              <div class="dd-content p-15">
+                <h5>{{plan.title}}</h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <ul class="list-unstyled team-info m-t-20 m-b-20">
+                  <li class="m-r-15"><small class="text-muted">Team</small></li>
+                  <li><img src="assets/images/xs/avatar1.jpg" title="Avatar" alt="Avatar"></li>
+                  <li><img src="assets/images/xs/avatar2.jpg" title="Avatar" alt="Avatar"></li>
+                  <li><img src="assets/images/xs/avatar5.jpg" title="Avatar" alt="Avatar"></li>
+                </ul>
+                <hr>
+                <div class="action">
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Edit"><i
+                      class="icon-note"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Time"><i
+                      class="icon-clock"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Comment"><i
+                      class="icon-bubbles"></i></button>
+                  <button type="button" data-type="confirm"
+                    class="btn btn-sm btn-outline-danger float-right js-sweetalert" title="Delete"><i
+                      class="icon-trash"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-12">
+    <div class="card progress_task">
+      <div class="header">
+        <h2>In progress</h2>
+      </div>
+      <div class="body taskboard">
+        <div #inactiveList="cdkDropList" class="box-list" cdkDropList cdkDropListOrientation="vertical"
+          [cdkDropListData]="inprogress" [cdkDropListConnectedTo]="[activeList, inactiveList, deactiveList]"
+          (cdkDropListDropped)="drop($event)">
+          <div class="dd" data-plugin="nestable">
+            <div [ngClass]="{'dd-empty': inprogressBlank === 0, '': inprogressBlank > 0 }">
+            </div>
+            <div *ngFor="let inprogress of inprogress" cdkDrag class="dd-item" data-id="1">
+              <div class="dd-handle">{{inprogress.code}}</div>
+              <div class="dd-content p-15">
+                <h5>{{inprogress.title}}</h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <hr>
+                <div class="action">
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Edit"><i
+                      class="icon-note"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Time"><i
+                      class="icon-clock"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Comment"><i
+                      class="icon-bubbles"></i></button>
+                  <button type="button" data-type="confirm"
+                    class="btn btn-sm btn-outline-danger float-right js-sweetalert" title="Delete"><i
+                      class="icon-trash"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-12">
+    <div class="card completed_task">
+      <div class="header">
+        <h2>Completed</h2>
+      </div>
+      <div class="body taskboard">
+        <div #deactiveList="cdkDropList" class="box-list" cdkDropList cdkDropListOrientation="vertical"
+          [cdkDropListData]="completed" [cdkDropListConnectedTo]="[activeList, inactiveList, deactiveList]"
+          (cdkDropListDropped)="drop($event)">
+          <div class="dd" data-plugin="nestable">
+            <div [ngClass]="{'dd-empty': completedBlank === 0, '': completedBlank > 0  }">
+            </div>
+            <div *ngFor="let complete of completed" cdkDrag class="dd-item" data-id="1">
+              <div class="dd-handle">{{complete.code}}</div>
+              <div class="dd-content p-15">
+                <h5>{{complete.code}}</h5>
+                <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+                  embarrassing hidden in the middle of text.</p>
+                <ul class="list-unstyled team-info m-t-20 m-b-20">
+                  <li class="m-r-15"><small class="text-muted">Team</small></li>
+                  <li><img src="assets/images/xs/avatar4.jpg" title="Avatar" alt="Avatar"></li>
+                  <li><img src="assets/images/xs/avatar5.jpg" title="Avatar" alt="Avatar"></li>
+                  <li><img src="assets/images/xs/avatar6.jpg" title="Avatar" alt="Avatar"></li>
+                  <li><img src="assets/images/xs/avatar8.jpg" title="Avatar" alt="Avatar"></li>
+                </ul>
+                <hr>
+                <div class="action">
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Edit"><i
+                      class="icon-note"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Time"><i
+                      class="icon-clock"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" title="Comment"><i
+                      class="icon-bubbles"></i></button>
+                  <button type="button" data-type="confirm"
+                    class="btn btn-sm btn-outline-danger float-right js-sweetalert" title="Delete"><i
+                      class="icon-trash"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

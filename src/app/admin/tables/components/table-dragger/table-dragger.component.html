@@ -1,0 +1,206 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Table Dragger</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">Table</li>
+        <li class="breadcrumb-item active">Table Dragger</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Default <small>With no options, sort columns, handler was the first row</small></h2>
+      </div>
+      <div class="body">
+        <table id="table" class="table table-striped">
+          <thead>
+            <tr>
+              <th class='handle'>Movie Title<i class="table-dragger-handle"></i></th>
+              <th class='handle'>Genre<i class="table-dragger-handle"></i></th>
+              <th class='handle'>Year<i class="table-dragger-handle"></i></th>
+              <th class='handle'>Gross<i class="table-dragger-handle"></i></th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Star Wars</td>
+            <td>Adventure, Sci-fi</td>
+            <td>1977</td>
+            <td>$460,935,665</td>
+          </tr>
+          <tr>
+            <td>Howard The Duck</td>
+            <td>"Comedy"</td>
+            <td>1986</td>
+            <td>$16,295,774</td>
+          </tr>
+          <tr>
+            <td>American Graffiti</td>
+            <td>Comedy, Drama</td>
+            <td>1973</td>
+            <td>$115,000,000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Handler <small>Specify drag handler wherever within the table</small></h2>
+      </div>
+      <div class="body">
+        <table id="handle-table" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Movie Title <i class="table-dragger-handle handle">dragme</i></th>
+              <th>Genre</th>
+              <th>Year</th>
+              <th>Gross</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Star Wars</td>
+            <td>Adventure, Sci-fi</td>
+            <td>1977</td>
+            <td>$460,935,665</td>
+          </tr>
+          <tr>
+            <td>Howard The Duck</td>
+            <td>"Comedy"</td>
+            <td>1986</td>
+            <td>$16,295,774</td>
+          </tr>
+          <tr>
+            <td>American Graffiti</td>
+            <td>Comedy, Drama</td>
+            <td>1973</td>
+            <td>$115,000,000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Only Body <small>Setting onlyBody to true in row mode, user can only lift rows in tBody</small></h2>
+      </div>
+      <div class="body">
+        <table id="only-bodytable" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Movie Title</th>
+              <th>Genre</th>
+              <th>Year</th>
+              <th>Gross</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Star Wars<i class="table-dragger-handle"></i></td>
+            <td>Adventure, Sci-fi</td>
+            <td>1977</td>
+            <td>$460,935,665</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Sort Rows <small>Sort rows, handler was the first column</small></h2>
+      </div>
+      <div class="body">
+        <table id="row-table" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Movie Title<i class="table-dragger-handle"></i></th>
+              <th>Genre</th>
+              <th>Year</th>
+              <th>Gross</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Star Wars<i class="table-dragger-handle"></i></td>
+            <td>Adventure, Sci-fi</td>
+            <td>1977</td>
+            <td>$460,935,665</td>
+          </tr>
+          <tr>
+            <td>Howard The Duck<i class="table-dragger-handle"></i></td>
+            <td>"Comedy"</td>
+            <td>1986</td>
+            <td>$16,295,774</td>
+          </tr>
+          <tr>
+            <td>American Graffiti<i class="table-dragger-handle"></i></td>
+            <td>Comedy, Drama</td>
+            <td>1973</td>
+            <td>$115,000,000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Free <small>After mousedown, move mouse horizontally or vertically, see what happens. Don't forget to
+            specify drag handler</small></h2>
+      </div>
+      <div class="body">
+        <table id="free-table" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Movie Title</th>
+              <th>Genre</th>
+              <th>Year</th>
+              <th>Gross</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Star Wars<i class="table-dragger-handle handle"></i></td>
+            <td>Adventure, Sci-fi</td>
+            <td>1977</td>
+            <td>$460,935,665</td>
+          </tr>
+          <tr>
+            <td>Howard The Duck</td>
+            <td>"Comedy"</td>
+            <td>1986</td>
+            <td>$16,295,774</td>
+          </tr>
+          <tr>
+            <td>American Graffiti</td>
+            <td>Comedy, Drama</td>
+            <td>1973</td>
+            <td>$115,000,000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

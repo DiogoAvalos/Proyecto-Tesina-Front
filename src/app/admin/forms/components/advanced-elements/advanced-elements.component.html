@@ -1,0 +1,472 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Advanced Form Elements</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">Forms</li>
+        <li class="breadcrumb-item active">Form Advanced</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Color Pickers -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="header">
+        <h2>Color Pickers <small>Taken from <a href="https://github.com/mjolnic/bootstrap-colorpicker/"
+              target="_blank">github.com/mjolnic/bootstrap-colorpicker</a></small> </h2>
+      </div>
+      <div class="body">
+        <div class="row clearfix">
+          <div class="col-md-6"> <b>HEX CODE</b>
+            <div class="input-group colorpicker">
+              <input type="text" class="form-control" [value]="color1">
+              <span class="input-group-text">
+                <span class="input-group-addon">
+                  <input [style.background]="color1" [(colorPicker)]="color1"
+                    (colorPickerOpen)="onEventLog('colorPickerOpen', $event)"
+                    (colorPickerClose)="onEventLog('colorPickerClose', $event)"
+                    (cpInputChange)="onEventLog('cpInputChange', $event)"
+                    (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)"
+                    (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)" />
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-6"> <b>RGB(A) CODE</b>
+            <div class="input-group colorpicker">
+              <input type="text" class="form-control" [value]="color2">
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <span class="input-group-addon">
+                    <input [style.background]="color2" [cpOutputFormat]="'rgba'" [(colorPicker)]="color2" />
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Masked Input -->
+<div class="row clearfix">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Masked Text Inputs</h2>
+      </div>
+      <div class="body">
+        <div class="row clearfix">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="phone" class="control-label">Phone</label>
+              <input type="text" id="phone" [mask]="'(000) 000-0000'" class="form-control">
+              <span class="help-block">(999) 999-9999</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="phone-ex" class="control-label">Phone + Ext</label>
+              <input type="text" id="phone-ex" [mask]="'(000) 000-0000-00000'" class="form-control">
+              <span class="help-block">(999) 999-9999? x99999</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="tax-id" class="control-label">Tax ID</label>
+              <input type="text" id="tax-id" [mask]="'00-0000000'" class="form-control">
+              <span class="help-block">99-9999999</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="ssn" class="control-label">SSN</label>
+              <input type="text" id="ssn" [mask]="'000-00-0000'" class="form-control">
+              <span class="help-block">999-99-9999</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="product-key" class="control-label">Product Key</label>
+              <input type="text" [mask]="'S0-000-S000'" id="product-key" class="form-control">
+              <span class="help-block">a9-999-a999</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Masked Input with icons <small>Taken from <a href="https://github.com/RobinHerbots/jquery.inputmask"
+              target="_blank">github.com/RobinHerbots/jquery.inputmask</a></small> </h2>
+        <ul class="header-dropdown">
+          <ico-common-action-dropdown></ico-common-action-dropdown>
+        </ul>
+      </div>
+      <div class="body">
+        <div class="demo-masked-input">
+          <div class="row clearfix">
+            <div class="col-lg-3 col-md-6">
+              <b>Date</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-calendar"></i></span>
+                </div>
+                <input type="text" class="form-control date" [mask]="'00/00/0000'" placeholder="Ex: 30/07/2016">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Time (24 hour)</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-clock"></i></span>
+                </div>
+                <input type="text" class="form-control time24" [mask]="'00:00'" placeholder="Ex: 23:59">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Time (12 hour)</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-clock"></i></span>
+                </div>
+                <input type="text" class="form-control time12" [mask]="'00:00:00'" placeholder="Ex: 11:59:00">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Date Time</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+                <input type="text" class="form-control datetime" [mask]="'d0/M0/0000 00:00'"
+                  placeholder="Ex: 30/07/2016 23:59">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Mobile Phone Number</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
+                </div>
+                <input type="text" class="form-control mobile-phone-number" [mask]="'+00 (000) 000-00-00'"
+                  placeholder="Ex: +00 (000) 000-00-00">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Phone Number</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                </div>
+                <input type="text" class="form-control phone-number" [mask]="'+00 (000) 000-00-00'"
+                  placeholder="Ex: +00 (000) 000-00-00">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Money (Dollar)</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-dollar"></i></span>
+                </div>
+                <input type="text" class="form-control money-dollar" [mask]="'00,00'" suffix=" $"
+                  placeholder="Ex: 99,99 $">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>IP Address</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-desktop"></i></span>
+                </div>
+                <input type="text" class="form-control ip" [mask]="'000.000.000.000'" placeholder="Ex: 255.255.255.255">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Credit Card</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+                </div>
+                <input type="text" class="form-control credit-card" [mask]="'0000 0000 0000 0000'"
+                  placeholder="Ex: 0000 0000 0000 0000">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Email Address</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
+                </div>
+                <input type="text" class="form-control email" placeholder="Ex: example@example.com">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <b>Serial Key</b>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-key"></i></span>
+                </div>
+                <input type="text" class="form-control key" placeholder="Ex: XXX0-XXXX-XX00-0XXX">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Multiselect</h2>
+      </div>
+      <div class="body demo-card">
+        <div class="row clearfix">
+          <div class="col-lg-4 col-md-12">
+            <label>Default</label>
+            <div class="c_multiselect mb-30">
+              <ng-multiselect-dropdown class="multiselect" [settings]="defaultDropdownSettings" [data]="dropdownList"
+                [(ngModel)]="selectedItems">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <label>"Select All" Option Enabled</label>
+            <div class="c_multiselect">
+              <ng-multiselect-dropdown class="multiselect" id="select_item_id" [settings]="selectAllDropdownSettings"
+                [data]="selectAllOptionDropdown">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <label>Options Group</label>
+            <div class="c_multiselect">
+              <ng-multiselect-dropdown class="multiselect" id="group_item_id" [settings]="groupByDropdownSettings"
+                [data]="groupByOption">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <label>Smaller Size</label>
+            <div class="c_multiselect">
+              <ng-multiselect-dropdown class="multiselect multiselect-custom" id="group_item_id"
+                [settings]="groupByDropdownSettings" [data]="groupByOption">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <label>Custom Checkbox</label>
+            <div class="c_multiselect">
+              <ng-multiselect-dropdown class="multiselect multiselect-custom" id="group_item_id"
+                [settings]="groupByDropdownSettings" [data]="groupByOption">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <label>Single Selection</label>
+            <div class="c_multiselect">
+              <ng-multiselect-dropdown class="multiselect multiselect-custom" id="group_item_id"
+                [settings]="singleSelectionSetting" [data]="groupByOption">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <label>Filter Enabled</label>
+            <div class="c_multiselect">
+              <ng-multiselect-dropdown class="multiselect multiselect-custom" id="group_item_id"
+                [settings]="filterSetting" [data]="groupByOption">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <label>Disabled Options</label>
+            <div class="c_multiselect">
+              <ng-multiselect-dropdown class="multiselect multiselect-custom" id="group_item_id"
+                [settings]="groupByDropdownSettings" [data]="groupByOption" [disabled]="disabledItems">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <label>Custom Button Class (btn-primary)</label>
+            <div class="c_multiselect">
+              <ng-multiselect-dropdown class="multiselect multiselect-custom" id="group_item_id"
+                [settings]="groupByDropdownSettings" [data]="groupByOption">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tags Input -->
+<div class="row clearfix">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Tags Input <small>Taken from <a href="https://github.com/bootstrap-tagsinput/bootstrap-tagsinput"
+              target="_blank">github.com/bootstrap-tagsinput/bootstrap-tagsinput</a></small> </h2>
+        <ul class="header-dropdown">
+          <ico-common-action-dropdown></ico-common-action-dropdown>
+        </ul>
+      </div>
+      <div class="body">
+        <div class="input-group demo-tagsinput-area">
+          <!-- <input type="text" class="form-control" data-role="tagsinput" value="Amsterdam,Washington,Sydney,Beijing,Cairo"> -->
+          <tag-input [ngModel]="['BMW', 'Audi', 'Landrover', 'TATA']" style="width: 1000px;">
+            <tag-input-dropdown [showDropdownIfEmpty]="true" [dynamicUpdate]="false">
+            </tag-input-dropdown>
+          </tag-input>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Input Slider -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="header">
+        <h2>Input Slider <small>Taken from <a href="http://refreshless.com/nouislider"
+              target="_blank">refreshless.com/nouislider</a> & <a href="http://materializecss.com"
+              target="_blank">materializecss.com</a></small> </h2>
+        <ul class="header-dropdown">
+          <ico-common-action-dropdown></ico-common-action-dropdown>
+        </ul>
+      </div>
+      <div class="body">
+        <div class="row clearfix">
+          <div class="col-lg-6 col-md-12">
+            <p><b>Basic Example</b></p>
+            <div id="nouislider_basic_example"></div>
+            <nouislider [connect]="'lower'" [min]="0" [max]="15" [(ngModel)]="someRange"></nouislider>
+            <!-- <div class="m-t-20 font-12"><b>Value: </b><span class="js-nouislider-value"></span></div> -->
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <p><b>Range Example</b></p>
+            <div id="nouislider_range_example"></div>
+            <!-- <div class="m-t-20 font-12"><b>Value: </b><span class="js-nouislider-value"></span></div> -->
+            <nouislider [connect]="true" [tooltips]="[ true, true ]" [min]="25000" [max]="100000" [step]="1"
+              [(ngModel)]="someRange2" (ngModelChange)="onChange($event)"></nouislider>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Date Picker</h2>
+      </div>
+      <div class="body">
+        <div class="row">
+          <div class="col-lg-4 col-md-12">
+            <label>Default</label>
+            <div class="input-group mb-3">
+              <input data-provide="datepicker" data-date-autoclose="true" class="form-control" ngbDatepicker
+                #d="ngbDatepicker" (click)="d.toggle()">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <label>Custom Format (dd/mm/yyyy)</label>
+            <div class="input-group mb-3">
+              <input data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="dd/mm/yyyy"
+                ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <label>With Component</label>
+            <div class="input-group date" data-date-autoclose="true" data-provide="datepicker">
+              <input type="text" class="form-control" ngbDatepicker #d3="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="d3.toggle()"><i
+                    class="fa fa-calendar"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <label>Range</label>
+            <div class="input-daterange input-group" data-provide="datepicker">
+              <form class="form-inline">
+                <div class="form-group hidden">
+                  <div class="input-group">
+                    <input name="datepicker" class="form-control" ngbDatepicker #datepicker="ngbDatepicker"
+                      [autoClose]="'outside'" (dateSelect)="onDateSelection($event)" [displayMonths]="2"
+                      [dayTemplate]="t" outsideDays="hidden" [startDate]="fromDate!" tabindex="-1">
+                    <ng-template #t let-date let-focused="focused">
+                      <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)"
+                        [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+                        (mouseleave)="hoveredDate = null">
+                        {{ date.day }}
+                      </span>
+                    </ng-template>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input #dpFromDate class="form-control" placeholder="yyyy-mm-dd" name="dpFromDate"
+                      [value]="formatter.format(fromDate)"
+                      (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+                        <i class="fa fa-calendar"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group ml-2">
+                  <div class="input-group">
+                    <input #dpToDate class="form-control" placeholder="yyyy-mm-dd" name="dpToDate"
+                      [value]="formatter.format(toDate)" (input)="toDate = validateInput(toDate, dpToDate.value)">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+                        <i class="fa fa-calendar"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <label>Inline</label>
+            <div class="inline-datepicker">
+              <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+</div>

@@ -1,0 +1,274 @@
+<header class="header" id="header-sroll">
+  <div class="container">
+    <div class="desk-menu">
+      <div class="logo">
+        <div class="d-flex">
+          <h1 class="logo-adn"><a title="Iconic" href="#">Iconic <span>Admin</span></a></h1>
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                <i class="fa fa-bell"></i>
+                <span class="notification-dot"></span>
+              </a>
+              <ul class="dropdown-menu notifications">
+                <li class="header"><strong>You have 4 new Notifications</strong></li>
+                <li>
+                  <a href="javascript:void(0);">
+                    <div class="media">
+                      <div class="media-left">
+                        <i class="icon-info text-warning"></i>
+                      </div>
+                      <div class="media-body">
+                        <p class="text">Campaign <strong>Holiday Sale</strong> is nearly reach budget limit.</p>
+                        <span class="timestamp">10:00 AM Today</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    <div class="media">
+                      <div class="media-left">
+                        <i class="icon-like text-success"></i>
+                      </div>
+                      <div class="media-body">
+                        <p class="text">Your New Campaign <strong>Holiday Sale</strong> is approved.</p>
+                        <span class="timestamp">11:30 AM Today</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    <div class="media">
+                      <div class="media-left">
+                        <i class="icon-pie-chart text-info"></i>
+                      </div>
+                      <div class="media-body">
+                        <p class="text">Website visits from Twitter is 27% higher than last week.</p>
+                        <span class="timestamp">04:00 PM Today</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    <div class="media">
+                      <div class="media-left">
+                        <i class="icon-info text-danger"></i>
+                      </div>
+                      <div class="media-body">
+                        <p class="text">Error on website analytics configurations</p>
+                        <span class="timestamp">Yesterday</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="footer"><a href="javascript:void(0);" class="more">See all notifications</a></li>
+              </ul>
+            </li>
+            <li><a href="#" class="icon-menu right_setting"><i class="fa fa-gear"></i></a></li>
+            <li><a href="/authentication/login" class="icon-menu"><i class="fa fa-power-off"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav class="box-menu">
+        <div class="menu-container">
+          <div class="menu-head">
+            <h4 class="text-left mb-0">Menu</h4>
+          </div>
+          <div class="menu-header-container">
+            <ul id="cd-primary-nav" class="menu">
+              <li class="menu-item menu-item-has-children">
+                <a href="#">Dashboard</a>
+                <ul class="sub-menu">
+                  <li><a [routerLink]="['/dashboard/analytical']">Analytical</a></li>
+                  <li><a [routerLink]="['/dashboard/iot-dashboard']">IoT Dashboard</a></li>
+                  <li><a [routerLink]="['/dashboard/demographic']">Demographic</a></li>
+                  <li><a [routerLink]="['/dashboard/project-board']">Project Board</a></li>
+                  <li><a [routerLink]="['/dashboard/crypto-dashboard']">Crypto Dashboard</a></li>
+                  <li><a [routerLink]="['/dashboard/ecommerce']">eCommerce</a></li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#">App</a>
+                <ul class="sub-menu">
+                  <li><a [routerLink]="['/ready-app/inbox']">Inbox</a></li>
+                  <li><a [routerLink]="['/ready-app/chat']">Chat</a></li>
+                  <li><a [routerLink]="['/ready-app/calendar']">Calendar</a></li>
+                  <li><a [routerLink]="['/ready-app/contact-list']">Contact list</a></li>
+                  <li><a [routerLink]="['/ready-app/contact-card']">Contact Card <span
+                        class="badge badge-warning float-right">New</span></a></li>
+                  <li><a [routerLink]="['/ready-app/taskboard']">Taskboard</a></li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Blog<i class="fa fa-angle-right"></i></a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/ready-app/blog/dashboard']">Dashboard</a></li>
+                      <li><a [routerLink]="['/ready-app/blog/new-post']">New Post</a></li>
+                      <li><a [routerLink]="['/ready-app/blog/blog-list']">Blog List</a></li>
+                      <li><a [routerLink]="['/ready-app/blog/blog-detail']">Blog Detail</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">File Manager<i class="fa fa-angle-right"></i></a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/ready-app/file-manager/dashboard']">Dashboard</a></li>
+                      <li><a [routerLink]="['/ready-app/file-manager/documents']">Documents</a></li>
+                      <li><a [routerLink]="['/ready-app/file-manager/media']">Media</a></li>
+                      <li><a [routerLink]="['/ready-app/file-manager/images']">Images</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#">Component</a>
+                <ul class="sub-menu">
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Widgets<i class="fa fa-angle-right"></i></a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/widget/statistics']">Statistics</a></li>
+                      <li><a [routerLink]="['/widget/data']">Data</a></li>
+                      <li><a [routerLink]="['/widget/chart']">Chart</a></li>
+                      <li><a [routerLink]="['/widget/weather']">Weather</a></li>
+                      <li><a [routerLink]="['/widget/social']">Social</a></li>
+                      <li><a [routerLink]="['/widget/blog']">Blog</a></li>
+                      <li><a [routerLink]="['/widget/ecommerce']">eCommerce</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">UI Elements<i class="fa fa-angle-right"></i></a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/ui-elements/typography']">Typography</a></li>
+                      <li><a [routerLink]="['/ui-elements/tabs']">Tabs</a></li>
+                      <li><a [routerLink]="['/ui-elements/buttons']">Buttons</a></li>
+                      <li><a [routerLink]="['/ui-elements/bootstrap']">Bootstrap UI</a></li>
+                      <li><a [routerLink]="['/ui-elements/icons']">Icons</a></li>
+                      <li><a [routerLink]="['/ui-elements/notifications']">Notifications</a></li>
+                      <li><a [routerLink]="['/ui-elements/colors']">Colors</a></li>
+                      <li><a [routerLink]="['/ui-elements/dialogs']">Dialogs</a></li>
+                      <li><a [routerLink]="['/ui-elements/list-group']">List Group</a></li>
+                      <li><a [routerLink]="['/ui-elements/media-object']">Media Object</a></li>
+                      <li><a [routerLink]="['/ui-elements/modals']">Modals</a></li>
+                      <li><a [routerLink]="['/ui-elements/nestable']">Nestable</a></li>
+                      <li><a [routerLink]="['/ui-elements/progress-bars']">Progress Bars</a></li>
+                      <li><a [routerLink]="['/ui-elements/range-slider']">Range Sliders</a></li>
+                      <li><a [routerLink]="['/ui-elements/treeview']">Treeview</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Charts<i class="fa fa-angle-right"></i></a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/charts/apex']">Apex</a> </li>
+                      <li><a [routerLink]="['/charts/c3-charts']">C3 Charts</a></li>
+                      <li><a [routerLink]="['/charts/morris']">Morris</a> </li>
+                      <li><a [routerLink]="['/charts/flot']">Flot</a> </li>
+                      <li><a [routerLink]="['/charts/chartsjs']">ChartJS</a> </li>
+                      <li><a [routerLink]="['/charts/jquery-knob']">Jquery Knob</a> </li>
+                      <li><a [routerLink]="['/charts/sparkline-chart']">Sparkline Chart</a></li>
+                      <li><a [routerLink]="['/charts/piety']">Peity</a></li>
+                      <li><a [routerLink]="['/charts/gauges']">Gauges</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Forms<i class="fa fa-angle-right"></i></a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/forms/form-validation']">Form Validation</a></li>
+                      <li><a [routerLink]="['/forms/advanced-elements']">Advanced Elements</a></li>
+                      <li><a [routerLink]="['/forms/basic-elements']">Basic Elements</a></li>
+                      <li><a [routerLink]="['/forms/form-wizard']">Form Wizard</a></li>
+                      <li><a [routerLink]="['/forms/drag-drop']">Drag &amp; Drop Upload</a></li>
+                      <li><a [routerLink]="['/forms/image-cropping']">Image Cropping</a></li>
+                      <li><a [routerLink]="['/forms/summernote']">Summernote</a></li>
+                      <li><a [routerLink]="['/forms/ck-editor']">CKEditor</a></li>
+                      <li><a [routerLink]="['/forms/markdown']">Markdown</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Tables<i class="fa fa-angle-right"></i></a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['tables/table-example']">Tables Example<span
+                            class="badge badge-info float-right">New</span></a> </li>
+                      <li><a [routerLink]="['tables/normal-tables']">Normal Tables</a> </li>
+                      <li><a [routerLink]="['tables/jquery-datatables']">Jquery Datatables</a> </li>
+                      <li><a [routerLink]="['tables/editable-tables']">Editable Tables</a> </li>
+                      <li><a [routerLink]="['tables/tables-color']">Tables Color</a> </li>
+                      <li><a [routerLink]="['tables/table-filter']">Table Filter <span
+                            class="badge badge-info float-right">New</span></a> </li>
+                      <li><a [routerLink]="['tables/table-dragger']">Table dragger <span
+                            class="badge badge-info float-right">New</span></a> </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Authentication<i class="fa fa-angle-right"></i></a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['authentication/login']">Login</a></li>
+                      <li><a [routerLink]="['authentication/register']">Register</a></li>
+                      <li><a [routerLink]="['authentication/lock-screen']">Lockscreen</a></li>
+                      <li><a [routerLink]="['authentication/forgot-password']">Forgot Password</a></li>
+                      <li><a [routerLink]="['authentication/page-404']">Page 404</a></li>
+                      <li><a [routerLink]="['authentication/page-403']">Page 403</a></li>
+                      <li><a [routerLink]="['authentication/page-500']">Page 500</a></li>
+                      <li><a [routerLink]="['authentication/page-503']">Page 503</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#">More Pages</a>
+                <ul class="sub-menu">
+                  <li><a [routerLink]="['extra-pages/blank-page']"> Blank Page</a> </li>
+                  <li><a [routerLink]="['extra-pages/pricing']"> Pricing</a></li>
+                  <li><a [routerLink]="['extra-pages/invoices']"> Invoices</a></li>
+                  <li><a [routerLink]="['extra-pages/invoices-v2']"> Invoices <span
+                        class="badge badge-warning float-right">v2</span></a></li>
+                  <li><a [routerLink]="['extra-pages/search-result']"> Search Results</a></li>
+                  <li><a [routerLink]="['extra-pages/helper-classes']"> Helper Classes</a></li>
+                  <li><a [routerLink]="['extra-pages/teams-board']"> Teams Board</a></li>
+                  <li><a [routerLink]="['extra-pages/projects-list']"> Projects List</a></li>
+                  <li><a [routerLink]="['extra-pages/maintenance']"> Maintenance</a></li>
+                  <li><a [routerLink]="['extra-pages/testimonials']"> Testimonials</a></li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children li_right_side">
+                <a href="#">User</a>
+                <ul class="sub-menu">
+                  <li><a [routerLink]="['extra-pages/profile']"> Profile <span
+                        class="badge badge-default float-right">v1</span></a></li>
+                  <li><a [routerLink]="['extra-pages/profile-v2']"> Profile <span
+                        class="badge badge-warning float-right">v2</span></a></li>
+                  <li><a [routerLink]="['extra-pages/image-gallery']"> Image Gallery <span
+                        class="badge badge-default float-right">v1</span></a> </li>
+                  <li><a [routerLink]="['extra-pages/image-gallery-v2']"> Image Gallery <span
+                        class="badge badge-warning float-right">v2</span></a> </li>
+                  <li><a [routerLink]="['extra-pages/timeline']"> Timeline</a></li>
+                  <li><a [routerLink]="['extra-pages/horizontal-timeline']"> Horizontal Timeline</a></li>
+                  <li><a [routerLink]="['extra-pages/faq']"> FAQ</a></li>
+                </ul>
+              </li>
+              <li class="contact menu-item ">
+                <a href="#">Link</a>
+              </li>
+              <li class="line"></li>
+            </ul>
+          </div>
+          <div class="menu-foot">
+            <div class="social">
+              <a href="#" target="_blank"><i class="fa fa-facebook-f"></i></a>
+              <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+              <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+              <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+            </div>
+            <hr />
+            <address>
+              <span class="email"><i class="icon-mail"></i> info@thememakker.com</span>
+            </address>
+          </div>
+        </div>
+        <div class="hamburger-menu">
+          <div class="bar"></div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,8 @@
+<div class="card number-chart">
+  <div class="body">
+    <span class="text-uppercase">{{title}}</span>
+    <h4 class="mb-0 mt-2">{{value}} <i class="fa {{icon}} font-12"></i></h4>
+    <small class="text-muted">{{text}}</small>
+  </div>
+  <div echarts [options]="chartOptions" class="echart-line-chart-area" style="height:50px;"></div>
+</div>

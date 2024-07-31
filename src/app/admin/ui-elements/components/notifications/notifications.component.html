@@ -1,0 +1,79 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Notifications</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">UI Elements</li>
+        <li class="breadcrumb-item active">Notifications</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clealfix">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Message Context</h2>
+      </div>
+      <div class="body">
+        <button type="button" class="btn btn-primary btn-toastr" (click)="showInfo()">General Info</button>&nbsp;
+        <button type="button" class="btn btn-success btn-toastr" (click)="showSuccess()">Success Info</button>&nbsp;
+        <button type="button" class="btn btn-warning btn-toastr" (click)="showWarning()">Warning Info</button>&nbsp;
+        <button type="button" class="btn btn-danger btn-toastr" (click)="showError()">Error Info</button>&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clealfix">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Popup Positions</h2>
+      </div>
+      <div class="body">
+        <button type="button" class="btn btn-default btn-toastr" (click)="showBottomRight()">Bottom Right</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr" (click)="showBottomLeft()">Bottom Left</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr" (click)="showTopLeft()">Top Left</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr" (click)="showTopRight()">Top Right</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr" (click)="showTopFull()">Top Full Width</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr" (click)="showBottomFull()">Bottom Full
+          Width</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr" (click)="showTopCenter()">Top Center</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr" (click)="showBottomCenter()">Bottom
+          Center</button>&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clealfix">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Callback Events</h2>
+      </div>
+      <div class="body">
+        <button type="button" class="btn btn-default btn-toastr-callback" id="toastr-callback1" data-context="info"
+          data-message="onShown and onHidden callback demo">onShown and onHidden</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr-callback" id="toastr-callback2" data-context="info"
+          data-message="Please click me">onclick</button>&nbsp;
+        <button type="button" class="btn btn-default btn-toastr-callback" id="toastr-callback3" data-context="info"
+          data-message="Please click close button">onCloseClick</button>&nbsp;
+      </div>
+    </div>
+  </div>
+</div>

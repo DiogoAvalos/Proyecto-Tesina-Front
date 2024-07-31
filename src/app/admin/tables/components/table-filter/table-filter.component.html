@@ -1,0 +1,66 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Table Filter</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">Table</li>
+        <li class="breadcrumb-item active">Table Filter</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Table Filter</h2>
+      </div>
+      <div class="body">
+        <button type="button" class="btn mb-1 btn-simple btn-sm btn-default btn-filter"
+          (click)="todo('all')">Todos</button>&nbsp;
+        <button type="button" class="btn mb-1 btn-simple btn-sm btn-success btn-filter"
+          (click)="todo('approved')">Approved</button>&nbsp;
+        <button type="button" class="btn mb-1 btn-simple btn-sm btn-warning btn-filter"
+          (click)="todo('suspended')">Suspended</button>&nbsp;
+        <button type="button" class="btn mb-1 btn-simple btn-sm btn-info btn-filter"
+          (click)="todo('pending')">Pending</button>&nbsp;
+        <button type="button" class="btn mb-1 btn-simple btn-sm btn-danger btn-filter"
+          (click)="todo('blocked')">Blocked</button>&nbsp;
+        <div class="table-responsive m-t-20">
+          <table class="table table-filter table-hover mb-0">
+            <tbody *ngFor="let todo of todoList">
+              <tr [attr.data-status]="todo.status">
+                <td>{{todo.id}}</td>
+                <td>
+                  <div class="media-object"><img src="{{todo.url}}" alt="" width="35px" class="rounded-circle"></div>
+                </td>
+                <td>{{todo.name}}</td>
+                <td>{{todo.email}}</td>
+                <td width="250px">
+                  <div class="progress progress-xs">
+                    <div class="progress-bar l-green" role="progressbar" aria-valuenow="87" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 87%;"></div>
+                  </div>
+                </td>
+                <td><span class="{{todo.class}}">{{todo.status}}</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

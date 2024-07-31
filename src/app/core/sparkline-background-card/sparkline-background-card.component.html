@@ -1,0 +1,11 @@
+<div class="card top_widget {{mainClass}}">
+  <div class="body">
+    <div class="icon bg-light"><i class="fa {{icon}}"></i> </div>
+    <div class="content text-light">
+      <div class="text mb-2 text-uppercase">{{title}}</div>
+      <h4 class="number mb-0">{{value}} <span class="font-12"><i class="fa {{secIcon}}"></i> {{perValue}}</span></h4>
+      <small>{{text}}</small>
+    </div>
+    <div echarts [options]="chartOptions" class="echart-line-chart-area" style="height:40px;"></div>
+  </div>
+</div>

@@ -1,0 +1,310 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Tabs</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">UI Elements</li>
+        <li class="breadcrumb-item active">Tabs</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Bootstrap Simple Example Tab
+          <small>Takes the basic nav from above and adds the <code class="highlighter-rouge">.nav-tabs</code> class to
+            generate a tabbed interface. Use them to create tabbable regions with our <a href="#javascript-behavior">tab
+              JavaScript plugin</a>.</small>
+        </h2>
+      </div>
+      <div class="body">
+        <ngb-tabset>
+          <ngb-tab>
+            <ng-template ngbTabTitle>Home</ng-template>
+            <ng-template ngbTabContent>
+              <b>Home Content</b>
+              <p> Lorem ipsum dolor sit amet, Pri ut tation electram moderatius.
+                Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
+                pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
+                sadipscing mel. </p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>Profile</ng-template>
+            <ng-template ngbTabContent>
+              <b>Profile Content</b>
+              <p> Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation
+                electram moderatius.
+                Per te suavitate essent aliquid
+                pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
+                sadipscing mel. </p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>Contact</ng-template>
+            <ng-template ngbTabContent>
+              <b>Message Content</b>
+              <p> ius impedit mediocritatem an. Pri ut tation electram moderatius.
+                Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
+                pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
+                sadipscing mel. </p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Example Tab 2 <small><code class="highlighter-rouge">.nav-tabs-new</code></small></h2>
+      </div>
+      <div class="body">
+        <ngb-tabset [ngClass]="'nav-tabs-new'">
+          <ngb-tab>
+            <ng-template ngbTabTitle>Home</ng-template>
+            <ng-template ngbTabContent>
+              <b>Home Content</b>
+              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro
+                synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate
+                nisi qui.</p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>Profile</ng-template>
+            <ng-template ngbTabContent>
+              <b>Profile Content</b>
+              <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro
+                fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone
+                skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings
+                gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork
+                biodiesel </p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>Contact</ng-template>
+            <ng-template ngbTabContent>
+              <b>Message Content</b>
+              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation
+                +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+                craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+                helvetica</p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Example Tab 3 <small><code class="highlighter-rouge">.nav-tabs-new2</code></small></h2>
+      </div>
+      <div class="body">
+        <ngb-tabset [ngClass]="'nav-tabs-new2'">
+          <ngb-tab>
+            <ng-template ngbTabTitle>Home</ng-template>
+            <ng-template ngbTabContent>
+              <b>Home Content</b>
+              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro
+                synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate
+                nisi qui.</p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>Profile</ng-template>
+            <ng-template ngbTabContent>
+              <b>Profile Content</b>
+              <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro
+                fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone
+                skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings
+                gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork
+                biodiesel </p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>Contact</ng-template>
+            <ng-template ngbTabContent>
+              <b>Message Content</b>
+              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation
+                +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+                craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+                helvetica</p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Tabs With Icon</h2>
+      </div>
+      <div class="body">
+        <ngb-tabset>
+          <ngb-tab>
+            <ng-template ngbTabTitle><i class="fa fa-home"></i> Home</ng-template>
+            <ng-template ngbTabContent>
+              <b>Home Content</b>
+              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro
+                synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate
+                nisi qui.</p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle><i class="fa fa-user"></i> Profile</ng-template>
+            <ng-template ngbTabContent>
+              <b>Profile Content</b>
+              <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro
+                fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone
+                skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings
+                gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork
+                biodiesel </p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle><i class="fa fa-vcard"></i> Contact</ng-template>
+            <ng-template ngbTabContent>
+              <b>Message Content</b>
+              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation
+                +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+                craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+                helvetica</p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Tabs With Only Icon Title</h2>
+      </div>
+      <div class="body">
+        <ngb-tabset>
+          <ngb-tab>
+            <ng-template ngbTabTitle><i class="fa fa-home"></i></ng-template>
+            <ng-template ngbTabContent>
+              <b>Home Content</b>
+              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro
+                synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate
+                nisi qui.</p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle><i class="fa fa-user"></i></ng-template>
+            <ng-template ngbTabContent>
+              <b>Profile Content</b>
+              <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro
+                fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone
+                skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings
+                gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork
+                biodiesel </p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle><i class="fa fa-vcard"></i></ng-template>
+            <ng-template ngbTabContent>
+              <b>Message Content</b>
+              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation
+                +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+                craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+                helvetica</p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Tabs with dropdowns</h2>
+      </div>
+      <div class="body">
+        <ngb-tabset>
+          <ngb-tab>
+            <ng-template ngbTabTitle>Active </ng-template>
+            <ng-template ngbTabContent>
+              <b>Home Content</b>
+              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro
+                synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate
+                nisi qui.</p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              <li class="dropdown" ngbDropdown>
+                <span ngbDropdownToggle href="javascript:void(0);">Dropdown</span>
+                <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+              <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li>
+      </div>
+      </li>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <b>Home Content</b>
+        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+          master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+          keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+          salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+      </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle>Link</ng-template>
+        <ng-template ngbTabContent>
+          <b>Link Content</b>
+          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny
+            pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard
+            locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid
+            8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel </p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle>Disabled</ng-template>
+      </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+</div>

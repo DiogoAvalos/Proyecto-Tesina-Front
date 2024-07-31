@@ -1,0 +1,100 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Dashboard</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">App</li>
+        <li class="breadcrumb-item active">File Manager</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1">Generate Report</button>
+          <button type="button" class="btn btn-secondary">Upload new</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    <div class="card">
+      <a href="javascript:void(0);" class="folder">
+        <h6><i class="fa fa-folder m-r-10"></i> Iconic Project</h6>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    <div class="card">
+      <a href="javascript:void(0);" class="folder">
+        <h6><i class="fa fa-folder m-r-10"></i> Themeforest</h6>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    <div class="card">
+      <a href="javascript:void(0);" class="folder">
+        <h6><i class="fa fa-folder m-r-10"></i> New Website</h6>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    <div class="card">
+      <a href="javascript:void(0);" class="folder">
+        <h6><i class="fa fa-folder m-r-10"></i> My Folder</h6>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-3 col-md-5 col-sm-12">
+    <div class="card">
+      <div class="body">
+        <h4>1TB <i class="fa fa-server float-right"></i></h4>
+        <p class="mb-0">Storage <small class="text-muted float-right">of 1Tb</small></p>
+        <ngb-progressbar type="warning" [showValue]="true" [value]="43" [striped]="true"></ngb-progressbar>
+      </div>
+    </div>
+    <div class="card">
+      <div class="body">
+        <h6>2GB</h6>
+        <p class="mb-0">Documents <small class="text-muted float-right">of 1Tb</small></p>
+      </div>
+      <ngb-progressbar class="progress-bar progress progress-xs progress-transparent custom-color-blue mb-0"
+        [value]="18"></ngb-progressbar>
+    </div>
+    <div class="card">
+      <div class="body">
+        <h6>10GB</h6>
+        <p class="mb-0">Media <small class="text-muted float-right">of 1Tb</small></p>
+      </div>
+      <ngb-progressbar class="progress-bar progress progress-xs progress-transparent custom-color-purple mb-0"
+        [value]="34"></ngb-progressbar>
+    </div>
+    <div class="card">
+      <div class="body">
+        <h6>20GB</h6>
+        <p class="mb-0">Images <small class="text-muted float-right">of 1Tb</small></p>
+      </div>
+      <ngb-progressbar class="progress-bar progress progress-xs progress-transparent custom-color-green mb-0"
+        [value]="67"></ngb-progressbar>
+    </div>
+  </div>
+  <div class="col-lg-9 col-md-7 col-sm-12">
+    <div class="card">
+      <div class="header">
+        <h2>File Reports</h2>
+      </div>
+      <div class="body">
+        <div id="chart-area-spline"></div>
+      </div>
+    </div>
+  </div>
+</div>

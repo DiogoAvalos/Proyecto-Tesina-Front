@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="header">
+    <h2>{{options.title}}</h2>
+    <ul class="header-dropdown m-r--5" ngbDropdown [ngClass]="{'d-none':(options && options.hideActions)}">
+      <li class="dropdown">
+        <a href="javascript:void(0);" class="dropdown-toggle" role="button" ngbDropdownToggle>
+          <i class="zmdi zmdi-more-vert"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><a (click)="allOn()">All On</a></li>
+          <li><a (click)="allOff()">All Off</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="body">
+    <ul class="list-group" *ngIf="options && options.appliances">
+      <li *ngFor="let appliance of options.appliances; let i = index"
+        [ngClass]="{'text-warning':(appliance.status && !appliance.error),'text-danger':(appliance.error)}"
+        class="d-flex justify-content-between list-group-item align-items-center">
+        <h6 class="mb-0">{{appliance.title}}</h6>
+        <label class="toggle-switch">
+          <span class="badge" [ngClass]="{'d-none':(!appliance.status || appliance.error)}"
+            (click)="toggleLight(i)">Off</span>
+          <span class="badge" [ngClass]="{'d-none':(appliance.status || appliance.error)}"
+            (click)="toggleLight(i)">On</span>
+          <span *ngIf="appliance.error">{{appliance.errorMessage}}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Treeview</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">UI Elements</li>
+        <li class="breadcrumb-item active">Treeview</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          <button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row clealfix">
+  <div class="col-md-12">
+    <div div class="card">
+      <div class="header">
+        <h2>Bootstrap treeview</h2>
+      </div>
+      <div class="body">
+        <div class="row clealfix">
+          <div class="col-lg-4 col-md-6">
+            <h6>Default</h6>
+            <div class="example-warp treeview">
+              <tree-root class="list-group" [focused]="true" [nodes]="nodes"></tree-root>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h6>Collapsed</h6>
+            <div class="example-warp">
+              <tree-root [focused]="true" [nodes]="nodes"></tree-root>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h6>Expanded</h6>
+            <div class="example-warp">
+              <tree-root #tree [focused]="true" [nodes]="nodes"></tree-root>
+            </div>
+          </div>
+          <div class="col-12">
+            <hr>
+          </div>
+        </div>
+        <div class="row clealfix">
+          <div class="col-lg-4 col-md-6">
+            <h6>Custom Icons</h6>
+            <div class="example-warp">
+              <div id="treeview4"></div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h6>Tags as Badges</h6>
+            <div class="example-warp">
+              <div id="treeview5"></div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h6>Checkable Tree</h6>
+            <div class="example-warp">
+              <div id="treeview6"></div>
+            </div>
+          </div>
+          <div class="col-12">
+            <hr>
+          </div>
+        </div>
+        <div class="row clealfix">
+          <div class="col-lg-4 col-md-6">
+            <h6>Searchable Tree</h6>
+            <div class="example-warp">
+              <ngx-treeview [config]="config" [items]="searchWithFilter" (filterChange)="onFilterChange($event)"
+                (selectedChange)="values = $event">
+              </ngx-treeview>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h6>Selectable Tree</h6>
+            <div class="example-warp">
+              <div class="example-warp">
+                <ngx-treeview [config]="selectable" [items]="selectableNodes" (selectedChange)="values = $event">
+                </ngx-treeview>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h6>Json Data</h6>
+            <div class="example-warp">
+              <div id="treeview9">
+                <div class="example-warp">
+                  <ngx-treeview [config]="selectable" [items]="selectableNodes" (selectedChange)="values = $event">
+                  </ngx-treeview>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

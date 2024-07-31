@@ -1,0 +1,31 @@
+<div class="{{themeFontClass}}">
+  <div id="wrapper" [attr.data-theme]="themeDarkClass" [attr.data-theme]="themeHighContClass"
+    class="{{themeClass}} {{rtlClass}}">
+
+    <div class="page-loader-wrapper" *ngIf="isStopLoading">
+      <div class="loader">
+        <div class="m-t-30"><img src="./assets/images/logo-icon.svg" width="48" height="48" alt="Iconic"></div>
+        <p>Please wait...</p>
+      </div>
+    </div>
+
+    <!-- Top navbar div start -->
+    <app-top-menu *ngIf="!isHorizontalMenu"></app-top-menu>
+
+    <!-- main left menu -->
+    <app-leftbar *ngIf="!isHorizontalMenu"></app-leftbar>
+
+    <!-- Horizontal menu -->
+    <ico-h-menu *ngIf="isHorizontalMenu"></ico-h-menu>
+
+    <!-- rightbar icon div -->
+    <app-rightbar *ngIf="!isHorizontalMenu"></app-rightbar>
+
+    <!-- mani page content body part -->
+    <div id="main-content">
+      <div [ngClass]="{'container': isHorizontalMenu, 'container-fluid': !isHorizontalMenu}">
+        <router-outlet (activate)="getActiveRoutes()"></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

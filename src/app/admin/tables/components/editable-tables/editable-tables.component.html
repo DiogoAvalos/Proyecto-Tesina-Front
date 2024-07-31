@@ -1,0 +1,73 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Editable</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">Table</li>
+        <li class="breadcrumb-item active">Editable</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1"><i class="fa fa-download"></i> Download report</button>
+          &nbsp;<button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>Editable Tables <small>You can edit any columns except header/footer</small></h2>
+      </div>
+      <div class="body">
+        <table id="mainTable" class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Cost</th>
+              <th>Profit</th>
+              <th>Fun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of editableData">
+              <td>
+                <span class="editable-span" contenteditable="true" (keydown.enter)="$event.preventDefault()">
+                  {{data.name}} </span>
+              </td>
+              <td>
+                <span class="editable-span" contenteditable="true" (keydown.enter)="$event.preventDefault()">
+                  {{data.cost}} </span>
+              </td>
+              <td>
+                <span class="editable-span" contenteditable="true" (keydown.enter)="$event.preventDefault()">
+                  {{data.profit}} </span>
+              </td>
+              <td>
+                <span class="editable-span" contenteditable="true" (keydown.enter)="$event.preventDefault()">
+                  {{data.fun}} </span>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th><strong>TOTAL</strong></th>
+              <th>1290</th>
+              <th>1420</th>
+              <th>5</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,227 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h2>Dashboard</h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-dashboard"></i></a></li>
+        <li class="breadcrumb-item">App</li>
+        <li class="breadcrumb-item active">Blog</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="d-flex flex-row-reverse">
+        <div class="page_action">
+          <button type="button" class="btn btn-primary mr-1">Generate Report</button>
+          <a href="/ready-app/blog/new-post" class="btn btn-secondary" title="new post">New post</a>
+        </div>
+        <div class="p-2 d-flex">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let card of iconDetailSparklineOptions">
+    <ico-sparkline-icondetail-widget [title]="card.title" [value]="card.value" [mainIcon]="card.mainIcon"
+      [icon]="card.icon" [text]="card.text" [chartOptions]="card.sparklineOption"></ico-sparkline-icondetail-widget>
+  </div>
+</div>
+
+<div class="row clearfix row-deck">
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card">
+      <div class="body text-center">
+        <div echarts [options]="twitterKnob" style="height:100px;"></div>
+        <h5 class="mt-4 mb-0">Twitter</h5>
+        <small>56% Increase</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card">
+      <div class="body text-center">
+        <div echarts [options]="facebook" style="height:100px;"></div>
+        <h5 class="mt-4 mb-0">Facebook</h5>
+        <small>87% Increase</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card">
+      <div class="body text-center">
+        <div echarts [options]="instagram" style="height:100px;"></div>
+        <h5 class="mt-4 mb-0">Instagram</h5>
+        <small>16% Increase</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card">
+      <div class="body text-center">
+        <div echarts [options]="googlePlus" style="height:100px;"></div>
+        <h5 class="mt-4 mb-0">Google +</h5>
+        <small>37% Increase</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix row-deck">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Bounce Rate</h2>
+        <ul class="header-dropdown">
+          <li><a href="#" title=""><i class="fa fa-envelope"></i></a></li>
+          <li><a href="#" title=""><i class="fa fa-download"></i></a></li>
+          <ico-common-action-dropdown></ico-common-action-dropdown>
+        </ul>
+      </div>
+      <div class="body">
+        <div id="Bounce-Rate">
+          <apx-chart [series]="lineColumnChartOptions.series" [chart]="lineColumnChartOptions.chart"
+            [yaxis]="lineColumnChartOptions.yaxis" [xaxis]="lineColumnChartOptions.xaxis"
+            [labels]="lineColumnChartOptions.labels" [stroke]="lineColumnChartOptions.stroke"
+            [title]="lineColumnChartOptions.title" [dataLabels]="lineColumnChartOptions.dataLabels"
+            [fill]="lineColumnChartOptions.fill" [tooltip]="lineColumnChartOptions.tooltip"></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row clearfix row-deck">
+  <div class="col-xl-7 col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Return Visitor Information</h2>
+        <ul class="header-dropdown">
+          <li><a href="#" title=""><i class="fa fa-envelope"></i></a></li>
+          <li><a href="#" title=""><i class="fa fa-download"></i></a></li>
+          <ico-common-action-dropdown></ico-common-action-dropdown>
+        </ul>
+      </div>
+      <div class="body">
+        <div id="Return-Visitor-Information">
+          <apx-chart [series]="basicColumnChartOptions.series" [chart]="basicColumnChartOptions.chart"
+            [dataLabels]="basicColumnChartOptions.dataLabels" [plotOptions]="basicColumnChartOptions.plotOptions"
+            [yaxis]="basicColumnChartOptions.yaxis" [legend]="basicColumnChartOptions.legend"
+            [fill]="basicColumnChartOptions.fill" [stroke]="basicColumnChartOptions.stroke"
+            [tooltip]="basicColumnChartOptions.tooltip" [xaxis]="basicColumnChartOptions.xaxis"></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-5 col-lg-6 col-md-12">
+    <div class="card">
+      <div class="header">
+        <h2>Marketing Campaign <small>This Month </small></h2>
+      </div>
+      <div class="body">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <tbody>
+              <tr>
+                <td>
+                  <i class="fa fa-facebook fa-2x"></i>
+                </td>
+                <td>
+                  <h6 class="margin-0">Facebook Ads</h6>
+                  <span>1.2k Likes, 418 Shares</span>
+                </td>
+                <td>
+                  <h6 class="mb-0">$ 402</h6>
+                  <span class="text-muted">Spent</span>
+                </td>
+                <td class="text-right">
+                  <div class="text-success">
+                    23 <i class="fa fa-long-arrow-up"></i>
+                  </div>
+                  <div class="text-muted">up</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-twitter fa-2x"></i>
+                </td>
+                <td>
+                  <h6 class="margin-0">Twitter Ads</h6>
+                  <span>1k Likes, 128 Shares</span>
+                </td>
+                <td>
+                  <h6 class="mb-0">$ 489</h6>
+                  <span class="text-muted">Spent</span>
+                </td>
+                <td class="text-right">
+                  <div class="text-danger">
+                    -9 <i class="fa fa-long-arrow-down"></i>
+                  </div>
+                  <div class="text-muted">down</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-instagram fa-2x"></i>
+                </td>
+                <td>
+                  <h6 class="margin-0">Instagram Post</h6>
+                  <span>1k Follows, 228 Likes</span>
+                </td>
+                <td>
+                  <h6 class="mb-0">$ 718 </h6>
+                  <span class="text-muted">Spent</span>
+                </td>
+                <td class="text-right">
+                  <div class=" text-success">
+                    16 <i class="fa  fa-long-arrow-up"></i>
+                  </div>
+                  <div class="text-muted">up</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-linkedin fa-2x"></i>
+                </td>
+                <td>
+                  <h6 class="margin-0">LinkedIn Post</h6>
+                  <span>1k Follows, 228 Likes</span>
+                </td>
+                <td>
+                  <h6 class="mb-0">$ 768</h6>
+                  <span class="text-muted">Spent</span>
+                </td>
+                <td class="text-right">
+                  <div class=" text-success">
+                    27 <i class="fa  fa-long-arrow-up"></i>
+                  </div>
+                  <div class="text-muted">up</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-google-plus-circle fa-2x"></i>
+                </td>
+                <td>
+                  <h6 class="margin-0">Google +</h6>
+                  <span>1k Follows, 228 Likes</span>
+                </td>
+                <td>
+                  <h6 class="mb-0">$ 1768</h6>
+                  <span class="text-muted">Spent</span>
+                </td>
+                <td class="text-right">
+                  <div class=" text-success">
+                    27 <i class="fa fa-long-arrow-up"></i>
+                  </div>
+                  <div class="text-muted">up</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
