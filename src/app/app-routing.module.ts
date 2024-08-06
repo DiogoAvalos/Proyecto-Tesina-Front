@@ -1,32 +1,25 @@
-import { TablePreviewComponent } from './admin/tables/components/table-preview/table-preview.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+
+import { FullLayoutComponent } from "./layouts/full/full-layout.component";
+import { ContentLayoutComponent } from "./layouts/content/content-layout.component";
+
+import { Full_ROUTES } from "./shared/routes/full-layout.routes";
+import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('../app/admin/admin.module').then((m) => m.AdminModule),
+    redirectTo: 'dashboard/e-commerce',
+    pathMatch: 'full',
   },
-  {
-    path: 'authentication',
-    loadChildren: () =>
-      import('../app/authentication/authentication.module').then(
-        (m) => m.AuthenticationModule
-      ),
-  },
-  {
-    path: 'print',
-    outlet: 'print',
-    component: TablePreviewComponent,
-    children: [
-      { path: 'invoice/:invoiceIds', component: TablePreviewComponent },
-    ],
-  },
+  { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES },
+  { path: '', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
+  { path: '**', redirectTo: 'dashboard/e-commerce' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

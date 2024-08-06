@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "iconicangular": {
+    "Admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,147 +12,106 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "ico",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/iconicangular",
+            "allowedCommonJsDependencies": [
+             "apexcharts"
+            ],
+            "outputPath": "dist/admin",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "./node_modules/ng-drag-drop/style.css",
-              "./node_modules/round-slider/dist/roundslider.min.css",
-              "./node_modules/ngx-lightbox/lightbox.css",
-              "./node_modules/bootstrap/scss/bootstrap.scss",
-              "./node_modules/font-awesome/scss/font-awesome.scss",
-              "src/styles.scss",
-              "./src/assets/scss/main.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/assets/scss/theme.scss",
+              "src/assets/scss/app.scss",
+              "src/styles.scss"
+
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.slim.js",
-              "./node_modules/raphael/raphael.js",
-              "./node_modules/morris.js/morris.js",
-              "./node_modules/table-dragger/dist/table-dragger.min.js"
-            ],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+              "node_modules/apexcharts/dist/apexcharts.min.js"
+            ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "3mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
-              ]
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "iconicangular:build"
-          },
           "configurations": {
             "production": {
-              "browserTarget": "iconicangular:build:production"
+              "buildTarget": "Admin:build:production"
+            },
+            "development": {
+              "buildTarget": "Admin:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "iconicangular:build"
+            "buildTarget": "Admin:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "./node_modules/ng-drag-drop/style.css",
-              "./node_modules/round-slider/dist/roundslider.min.css",
-              "./node_modules/ngx-lightbox/lightbox.css",
-              "src/styles.scss",
-              "./src/assets/scss/main.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
             ],
-            "scripts": [
-              "./node_modules/jquery/dist/jquery.slim.js",
-              "./node_modules/raphael/raphael.js",
-              "./node_modules/morris.js/morris.js",
-              "./node_modules/table-dragger/dist/table-dragger.min.js"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "iconicangular:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "iconicangular:serve:production"
-            }
+            "scripts": []
           }
         }
       }
     }
   },
-  "defaultProject": "iconicangular",
   "cli": {
-    "analytics": "689a0b02-06db-47c8-90d1-72589d5d36dd"
+    "analytics": false
   }
 }
