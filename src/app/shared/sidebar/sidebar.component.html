@@ -6,6 +6,9 @@
   <nav class="sidebar-menu">
 
     <mat-accordion class="example-headers-align" multi>
+      <mat-nav-list>
+        <a mat-list-item routerLink="profile/user-profile"><mat-icon class="material-icons-outlined">account_circle</mat-icon>Perfil</a>
+      </mat-nav-list>
         <mat-expansion-panel [class.mat-elevation-z0]="true">
           <mat-expansion-panel-header>
             <mat-icon class="material-icons-outlined">dashboard</mat-icon>Dashboard
@@ -80,10 +83,6 @@
             <a mat-list-item routerLink="auth/lock-screen" target="_blank"><mat-icon>arrow_right</mat-icon>Lock Screen</a>
           </mat-nav-list>
         </mat-expansion-panel>
-        
-        <mat-nav-list>
-          <a mat-list-item routerLink="profile/user-profile"><mat-icon class="material-icons-outlined">account_circle</mat-icon>User Profile</a>
-        </mat-nav-list>
         <mat-nav-list>
           <a mat-list-item routerLink="pricing/pricing"><mat-icon class="material-icons-outlined">credit_card</mat-icon>Pricing</a>
         </mat-nav-list>
