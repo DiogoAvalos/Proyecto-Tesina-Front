@@ -49,6 +49,9 @@ export const Full_ROUTES: Routes = [
     {
         path: 'downloads',
         loadChildren: () => import('../../downloads/downloads.module').then(m => m.DownloadsModule)
+    },
+    {
+        path: 'modules',
+        loadChildren: () => import('../../modules/auth-routing.module').then(m => m.AuthRoutingModule)
     }
-    
 ];

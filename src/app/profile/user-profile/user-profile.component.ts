@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatModule } from 'src/app/appModules/mat.module';
+import { UserServiceService } from 'src/app/auth/services/userService.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,9 +10,23 @@ import { MatModule } from 'src/app/appModules/mat.module';
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit {
+  userData: any;
 
-  
+  constructor(private US: UserServiceService) { }
+
+  ngOnInit(){
+    this.loadUserData()
+  }
+
+  loadUserData(): void {
+    this.US.getUsers().subscribe(data => {
+      this.userData = data; // Asigna los datos del usuario a la propiedad
+      console.log(this.userData); // Opcional: muestra los datos en la consola
+    }, error => {
+      console.error('Error al cargar los datos del usuario', error); // Maneja errores en caso de que ocurran
+    });
+  }
 
   countries: string[] = [
     'India',
