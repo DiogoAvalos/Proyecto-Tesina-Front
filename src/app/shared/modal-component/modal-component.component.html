@@ -1,11 +1,11 @@
-<div [class.d-none]="!isModal" class="modal">
+<div [ngStyle]="{ 'min-width': style }" [class.d-none]="!isModal" class="modal">
   <section
     class="modal fade show"
     #modalContent
     (mousedown)="click_fuera($event.target)"
     aria-modal="true"
   >
-  <div class="modal__content">
+  <aside class="modal__content" [style]="style">
       <header class="modal__head">
           <h5 class="modal-title">{{ titulo }}</h5>
           <button type="button" class="btn-close" (click)="hiddenModal()" aria-label="Close"></button>
@@ -15,6 +15,6 @@
       </section>
       <footer class="modal-footer">
       </footer>
-  </div>
+  </aside>
   </section>
 </div>

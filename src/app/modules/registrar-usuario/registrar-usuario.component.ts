@@ -23,6 +23,7 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   form: FormGroup
   nombreBtn: string = 'REGISTRAR'
+  nombreTitulo: string = 'Registrar Usuario'
   dataUsuarios: any
   columnas: Array<SortingTableColumnComponent> = [
     { name: 'id', display: 'ID'},

@@ -19,11 +19,6 @@ export const Full_ROUTES: Routes = [
     },
 
     {
-        path: 'tables',
-        loadChildren: () => import('../../tables/tables.module').then(m => m.TablesModule)
-    },
-
-    {
         path: 'widgets',
         loadChildren: () => import('../../widgets/widgets.module').then(m => m.WidgetsModule)
     },
