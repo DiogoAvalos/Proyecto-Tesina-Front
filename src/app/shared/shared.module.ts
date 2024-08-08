@@ -7,6 +7,7 @@ import { HeaderComponent } from "./header/header.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 // import { ColorSwitcherComponent } from './color-switcher/color-switcher.component';
 import { MatModule } from '../appModules/mat.module';
+import { ModalComponent } from './modal-component/modal-component.component';
 
 
 
@@ -17,6 +18,7 @@ import { MatModule } from '../appModules/mat.module';
         FooterComponent,
         HeaderComponent,
         SidebarComponent,
+        ModalComponent
         // ColorSwitcherComponent
     ],
     imports: [
@@ -28,6 +30,7 @@ import { MatModule } from '../appModules/mat.module';
         FooterComponent,
         HeaderComponent,
         SidebarComponent,
+        ModalComponent
         // ColorSwitcherComponent
     ],
     providers: [ ],
