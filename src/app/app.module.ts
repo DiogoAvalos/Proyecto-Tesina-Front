@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { ContentLayoutComponent } from "./layouts/content/content-layout.component";
 import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 import { MatModule } from './appModules/mat.module';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -30,7 +31,8 @@ import { MatModule } from './appModules/mat.module';
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
-    MatModule
+    MatModule,
+    MatSortModule
   ],
   
   providers: [

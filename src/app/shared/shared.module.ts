@@ -8,6 +8,9 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
 // import { ColorSwitcherComponent } from './color-switcher/color-switcher.component';
 import { MatModule } from '../appModules/mat.module';
 import { ModalComponent } from './modal-component/modal-component.component';
+import { SortingTableComponent } from './sorting-table/sorting-table.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -18,19 +21,23 @@ import { ModalComponent } from './modal-component/modal-component.component';
         FooterComponent,
         HeaderComponent,
         SidebarComponent,
-        ModalComponent
+        ModalComponent,
+        SortingTableComponent
         // ColorSwitcherComponent
     ],
     imports: [
         RouterModule,
         CommonModule,
-        MatModule
+        MatModule,
+        MatSortModule,
+        MatPaginatorModule
     ],
     declarations: [
         FooterComponent,
         HeaderComponent,
         SidebarComponent,
-        ModalComponent
+        ModalComponent,
+        SortingTableComponent
         // ColorSwitcherComponent
     ],
     providers: [ ],
