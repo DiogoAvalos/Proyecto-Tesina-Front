@@ -1,22 +1,20 @@
-<div [class.hidden]="!isModal">
+<div [class.d-none]="!isModal" class="modal">
   <section
-    class="modal"
+    class="modal fade show"
     #modalContent
     (mousedown)="click_fuera($event.target)"
     aria-modal="true"
   >
-    <aside class="modal__content" [style]="style">
+  <div class="modal__content">
       <header class="modal__head">
-        <h2 class="text__subtitle">{{ titulo }}</h2>
-        <img
-          class="img__icon"
-          (click)="hiddenModal()"
-        />
+          <h5 class="modal-title">{{ titulo }}</h5>
+          <button type="button" class="btn-close" (click)="hiddenModal()" aria-label="Close"></button>
       </header>
       <section class="modal__body" [class.overflow__auto]="scroll">
-        <ng-content></ng-content>
+          <ng-content></ng-content>
       </section>
-      <footer class="modal__footer"></footer>
-    </aside>
+      <footer class="modal-footer">
+      </footer>
+  </div>
   </section>
 </div>

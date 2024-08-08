@@ -4,8 +4,9 @@ import { filter, Observable, tap } from 'rxjs';
 @Component({
   selector: 'app-modal-component',
   templateUrl: './modal-component.component.html',
-  styleUrls: ['./modal-component.component.css']
+  styleUrls: ['./modal-component.component.scss']
 })
+
 export class ModalComponent implements OnInit {
 
   @ViewChild('modalContent') modalContent!: ElementRef;

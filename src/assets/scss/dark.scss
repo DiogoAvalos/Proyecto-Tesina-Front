@@ -4,8 +4,9 @@
     --bs-border-color-translucent: rgba(255, 255, 255, 0.1);
 
     body {
+        transition: background-color 0.4s ease;
         color: #d1d1d1;
-        background: #1c1c1c;
+        background: #121212;
     }
 
     h1,
@@ -14,24 +15,29 @@
     h4,
     h5,
     h6 {
-        color: #fff !important;
+        transition: background-color 0.4s ease;
+        color: #e0e0e0  !important;
     }
 
     p {
-        color: #eee7e7;
+        transition: background-color 0.4s ease;
+        color: #dcdcdc;
     }
 
 
     .top-header {
-        background-color: #424242 !important;
+        transition: background-color 0.4s ease;
+        background-color: #333333 !important;
 
         button {
-            color: #eee7e7 !important;
+            transition: background-color 0.4s ease;
+            color: #e0e0e0 !important;
         }
 
 
         .app-name {
-            color: #eee7e7 !important;
+            transition: background-color 0.4s ease;
+            color: #e0e0e0 !important;
         }
 
     }
@@ -41,38 +47,46 @@
     .dropdown-apps {
 
         mat-grid-tile:hover {
-            background-color: #575656;
+            transition: background-color 0.4s ease;
+            background-color: #4a4a4a;
         }
     }
 
 
     .searchbar {
-        background-color: #424242 !important;
+        transition: background-color 0.4s ease;
+        background-color: #333333 !important;
 
         .search-control {
-            color: #fff !important;
-            background-color: #424242 !important;
-            border-bottom: 2px solid #424242 !important;
+            transition: background-color 0.4s ease;
+            color: #e0e0e0 !important;
+            background-color: #333333 !important;
+            border-bottom: 2px solid #333333 !important;
 
             &:focus {
+                transition: background-color 0.4s ease;
                 border-bottom: 2px solid #3f51b5 !important;
             }
         }
 
         ::placeholder {
-            color: #fff !important;
-            opacity: 0.5 !important;
+            transition: background-color 0.4s ease;
+            color: #e0e0e0 !important;
+            opacity: 0.7 !important;
         }
     }
 
 
     .sidebar-wrapper {
+        transition: background-color 0.4s ease;
         background-color: #424242 !important;
 
         .sidebar-header {
+            transition: background-color 0.4s ease;
             background-color: #424242 !important;
 
             .logo-name {
+                transition: background-color 0.4s ease;
                 color: #fff !important;
             }
         }
@@ -83,16 +97,19 @@
     .apexcharts-datalabel-value,
     .apexcharts-datalabels,
     .apexcharts-pie-label {
-        fill: #fff
+        transition: background-color 0.4s ease;
+        fill: #e0e0e0
     }
 
 
     .apexcharts-datalabel-value {
-        fill: #fff !important;
+        transition: background-color 0.4s ease;
+        fill: #e0e0e0 !important;
     }
 
     .price {
-        color: #fff !important;
+        transition: background-color 0.4s ease;
+        color: #e0e0e0 !important;
     }
 
 }
