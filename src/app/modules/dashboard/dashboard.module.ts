@@ -5,7 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
-import { MatModule } from '../appModules/mat.module';
+import { MatModule } from 'src/app/appModules/mat.module';
 
 
 @NgModule({

@@ -5,7 +5,7 @@ import { Routes } from '@angular/router';
 export const Full_ROUTES: Routes = [
     {
         path: 'dashboard',
-        loadChildren: () => import('../../dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren: () => import('../../modules/dashboard/dashboard.module').then(m => m.DashboardModule)
     },
 
     {
@@ -30,13 +30,9 @@ export const Full_ROUTES: Routes = [
 
     {
         path: 'profile',
-        loadChildren: () => import('../../profile/profile.module').then(m => m.ProfileModule)
+        loadChildren: () => import('../../modules/profile/profile.module').then(m => m.ProfileModule)
     },
 
-    {
-        path: 'downloads',
-        loadChildren: () => import('../../downloads/downloads.module').then(m => m.DownloadsModule)
-    },
     {
         path: 'modules',
         loadChildren: () => import('../../modules/auth-routing.module').then(m => m.AuthRoutingModule)
