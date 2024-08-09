@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatModule } from 'src/app/appModules/mat.module';
-import { UserServiceService } from 'src/app/auth/services/userService.service';
+import { UserService } from 'src/app/auth/services/userService.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,7 +13,7 @@ import { UserServiceService } from 'src/app/auth/services/userService.service';
 export class UserProfileComponent implements OnInit {
   userData: any;
 
-  constructor(private US: UserServiceService) { }
+  constructor(private US: UserService) { }
 
   ngOnInit(){
     this.loadUserData()
