@@ -43,7 +43,7 @@ export class RegistrarUsuarioComponent implements OnInit {
     { name: 'numdoc', display: 'N° DOCUMENTO' },
     { name: 'telefono', display: 'TELÉFONO' },
     { name: 'rol', display: 'ROL' },
-    { name: 'editar', display: 'EDITAR', accion: 'editar', style: 'font-size: 10px;' }
+    { name: 'editar', display: 'EDITAR', accion: 'editar' }
   ]
 
   constructor() { }
@@ -104,6 +104,7 @@ export class RegistrarUsuarioComponent implements OnInit {
           console.log("Valor del formular ->",this.form.value)
           this.SA.SuccessAlert("¡Usuario creado con éxito!")
           this.modal.hiddenModal()
+          this.loadTabla()
         }),
       ).subscribe({
         error: (err) => {

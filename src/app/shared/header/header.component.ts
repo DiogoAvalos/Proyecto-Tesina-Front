@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AppIcon } from './app-icon';
 import { SidebarService } from './../sidebar/sidebar.service'
+import { SweetAlertService } from 'src/app/auth/services/sweetAlertService.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +12,12 @@ import { SidebarService } from './../sidebar/sidebar.service'
 
 export class HeaderComponent implements OnInit {
 
+  SA = inject(SweetAlertService)
+
   nombre: string = 'DPADILLA'
   correo: string = 'dpadilla@clinicasantaisabel.com'
 
-  constructor( public sidebarservice: SidebarService ) {
-
-  }
+  constructor( public sidebarservice: SidebarService, private router: Router ) {}
 
   theme_name = 'dark_mode'
 
@@ -82,6 +84,15 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   
 
+  }
+
+  async logout(){
+    const confirmar = await this.SA.ConfirmAlert("¿Cerrar sesión?")
+    if(confirmar.isConfirmed){
+      this.SA.SuccessAlert("¡Sesión cerrada correctamente!")
+      this.router.navigate(['/auth/cover-signin'])
+    }
+    //routerLink="auth/cover-signin"
   }
 
 }
