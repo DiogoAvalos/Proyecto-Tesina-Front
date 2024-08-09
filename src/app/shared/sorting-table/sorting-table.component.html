@@ -21,12 +21,18 @@
             <ng-container *ngIf="columna.name === 'checkbox'">
               <input type="checkbox" [checked]="row[columna.name]" (change)="Accion(columna, row, $event)" [disabled]="row['disabled']"/>
             </ng-container>
+            <ng-container *ngIf="columna.accion">
+              <button mat-mini-fab color="primary" (click)="Accion(columna, row, $event)" [ngClass]="columna.clases">
+                <!-- <img *ngIf="columna.imagen" [src]="columna.imagen" [ngStyle]="columna.style"/> -->
+                {{ columna.icon }}
+              </button>
+            </ng-container>
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">Datos no encontrados</td>
+          <td class="mat-cell" colspan="{{ displayedColumns.length }}">Datos no encontrados</td>
         </tr>
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>

@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AppIcon } from './app-icon';
 import { SidebarService } from './../sidebar/sidebar.service'
 
-
-
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,6 +9,9 @@ import { SidebarService } from './../sidebar/sidebar.service'
 })
 
 export class HeaderComponent implements OnInit {
+
+  nombre: string = 'DPADILLA'
+  correo: string = 'dpadilla@clinicasantaisabel.com'
 
   constructor( public sidebarservice: SidebarService ) {
 

@@ -6,6 +6,7 @@
     <tabla-dinamica
     [data]="dataUsuarios"
     [columnas]="columnas"
+    (accion)="accion($event)"
     >
     <div class="example-button-row">
         <button mat-flat-button color="primary" (click)="registroNuevo()">REGISTRAR</button>

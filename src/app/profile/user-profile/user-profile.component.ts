@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatModule } from 'src/app/appModules/mat.module';
 import { UserService } from 'src/app/auth/services/userService.service';
+import { Observable } from 'rxjs';
+import { Pais, TipoDoc } from 'src/app/auth/interfaces/ficheros';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SweetAlertService } from 'src/app/auth/services/sweetAlertService.service';
+import { FicheroSevice } from 'src/app/auth/services/ficheroSevice.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,99 +16,48 @@ import { UserService } from 'src/app/auth/services/userService.service';
   styleUrl: './user-profile.component.scss'
 })
 export class UserProfileComponent implements OnInit {
-  userData: any;
+
+  SA = inject(SweetAlertService)
+  FB = inject(FormBuilder)
+  FS = inject(FicheroSevice)
+
+  pais$: Observable<Pais[]>
+  paises: any[]
+  tipoDoc$: Observable<TipoDoc[]>
+  tipoDoc: any[]
+  form: FormGroup
+  nombreBtn: string = 'REGISTRAR'
+  nombreTitulo: string = 'Registrar Usuario'
+  dataUsuarios: any
 
   constructor(private US: UserService) { }
 
   ngOnInit(){
-    this.loadUserData()
+    this.pais$ = this.FS.getPais();
+    this.pais$.subscribe(data => {
+      this.paises = data
+    })
+    this.tipoDoc$ = this.FS.getTipoDoc()
+    this.tipoDoc$.subscribe(data => {
+      this.tipoDoc = data
+    })
+    this.form = this.FB.group({
+      username: [null, Validators.required],
+      nombres: [null, Validators.required],
+      apellidos: [null, Validators.required],
+      email: [null, Validators.required],
+      birthdate: [null, Validators.required],
+      clave: [null, Validators.required],
+      tipodoc: [null, Validators.required],
+      numdoc: [null, Validators.required],
+      pais_id: [null],
+      departamento: [null],
+      distrito: [null],
+      genero: [null, Validators.required],
+      telefono: [null],
+      //*fecha_creacion: moment().format(),
+      rol: [null, Validators.required],
+      activo: [true]
+    })
   }
-
-  loadUserData(): void {
-    this.US.getUsers().subscribe(data => {
-      this.userData = data; // Asigna los datos del usuario a la propiedad
-      console.log(this.userData); // Opcional: muestra los datos en la consola
-    }, error => {
-      console.error('Error al cargar los datos del usuario', error); // Maneja errores en caso de que ocurran
-    });
-  }
-
-  countries: string[] = [
-    'India',
-    'America',
-    'China',
-    'Arab',
-    'Dubai',
-    'Japan',
-    'Nepal',
-    'England',
-    'Canada',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming',
-  ];
-
-
-
-  
-  states: string[] = [
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming',
-  ];
-
 }

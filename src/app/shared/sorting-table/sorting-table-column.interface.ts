@@ -4,7 +4,7 @@ export interface SortingTableColumnComponent {
     default?: string
     title?: string
     style?: string
-    imagen?: string
+    icon?: string
     class?: string
     headerstyle?: string
     seleccion?: boolean
