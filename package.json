@@ -24,10 +24,12 @@
     "chart.js": "^4.4.1",
     "moment": "^2.30.1",
     "ng-apexcharts": "^1.8.0",
+    "ng-particles": "^3.12.0",
     "ng2-charts": "^5.0.4",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.12.4",
     "tslib": "^2.3.0",
+    "tsparticles-engine": "^2.12.0",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
