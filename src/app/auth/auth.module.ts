@@ -10,7 +10,6 @@ import { CoverForgotPasswordComponent } from './login/cover-forgot-password/cove
 import { CoverResetPasswordComponent } from './login/cover-reset-password/cover-reset-password.component';
 import { CoverSigninComponent } from './login/cover-signin/cover-signin.component';
 import { CoverSignupComponent } from './login/cover-signup/cover-signup.component';
-import { NgParticlesModule } from 'ng-particles';
 
 
 
@@ -26,8 +25,7 @@ import { NgParticlesModule } from 'ng-particles';
     CoverSigninComponent,
     CoverSignupComponent,
     CoverForgotPasswordComponent,
-    CoverResetPasswordComponent,
-    NgParticlesModule
+    CoverResetPasswordComponent
   ]
 })
 export class AuthModule { }
