@@ -3,6 +3,7 @@ import { AppIcon } from './app-icon';
 import { SidebarService } from './../sidebar/sidebar.service'
 import { SweetAlertService } from 'src/app/auth/services/sweetAlertService.service';
 import { Router } from '@angular/router';
+import { UserToken } from 'src/app/auth/interfaces/usuario';
 
 @Component({
   selector: 'app-header',
@@ -14,8 +15,10 @@ export class HeaderComponent implements OnInit {
 
   SA = inject(SweetAlertService)
 
-  nombre: string = 'DPADILLA'
-  correo: string = 'dpadilla@clinicasantaisabel.com'
+  nombres: any
+  apellidos: any
+  correo: any
+  username: any
 
   constructor( public sidebarservice: SidebarService, private router: Router ) {}
 
@@ -82,8 +85,17 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit() {
-  
-
+    const user = localStorage.getItem('user');
+    if (user) {
+      try {
+        const parsedUser: UserToken = JSON.parse(user)
+        this.nombres = `${parsedUser.nombres} ${parsedUser.apellidos}`
+        this.correo = parsedUser.correo
+        this.username = parsedUser.username
+      } catch (error) {
+        console.error('Error al parsear los datos del usuario:', error)
+      }
+    }
   }
 
   async logout(){
@@ -91,6 +103,8 @@ export class HeaderComponent implements OnInit {
     if(confirmar.isConfirmed){
       this.SA.SuccessAlert("¡Sesión cerrada correctamente!")
       this.router.navigate(['/auth/cover-signin'])
+      localStorage.removeItem('user')
+      localStorage.removeItem('access_token')
     }
     //routerLink="auth/cover-signin"
   }

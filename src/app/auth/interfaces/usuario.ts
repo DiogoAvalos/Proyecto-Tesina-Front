@@ -39,3 +39,17 @@ export interface UsuarioCabecera {
     activo?: boolean
     imagen_base64?: string
 }
+
+export interface Token {
+    access_token: string
+    token_type: string
+    user: UserToken
+}
+
+export interface UserToken {
+    username: string
+    nombres: string
+    apellidos: string
+    correo: string
+    imagen_base64: string | null;
+}

@@ -1,64 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatModule } from 'src/app/appModules/mat.module';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { SweetAlertService } from '../../services/sweetAlertService.service';
+import { LoginService } from '../../services/login.service';
+import { catchError, of, tap } from 'rxjs';
+import { Token } from '../../interfaces/usuario';
 
 @Component({
   selector: 'app-cover-signin',
   standalone: true,
-  imports: [CommonModule, MatModule, RouterModule],
+  imports: [CommonModule, MatModule, RouterModule, ReactiveFormsModule],
   templateUrl: './cover-signin.component.html',
   styleUrl: './cover-signin.component.scss'
 })
-export class CoverSigninComponent {
 
-  hide = true;
+export class CoverSigninComponent implements OnInit {
+  FB = inject(FormBuilder)
+  SA = inject(SweetAlertService)
+  LG = inject(LoginService)
+  RT = inject(Router)
 
-  particlesOptions = {
-    particles: {
-      number: {
-        value: 100,
-        density: {
-          enable: true,
-          value_area: 800
-        }
-      },
-      color: {
-        value: '#ffffff'
-      },
-      shape: {
-        type: 'circle'
-      },
-      opacity: {
-        value: 0.5,
-        random: true
-      },
-      size: {
-        value: 3,
-        random: true
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: '#ffffff',
-        opacity: 0.4,
-        width: 1
-      }
-    },
-    interactivity: {
-      detect_on: 'canvas',
-      events: {
-        onhover: {
-          enable: true,
-          mode: 'repulse'
-        },
-        onclick: {
-          enable: true,
-          mode: 'push'
-        },
-        resize: true
-      }
+  hide: any
+  form: FormGroup
+
+  ngOnInit(){
+    this.form = this.FB.group({
+      username: [null, Validators.required],
+      password: [null, Validators.required]
+    })
+  }
+
+  login() {
+    if (this.form.invalid) {
+      this.SA.ErrorAlert('¡Nombre de usuario y/o contraseña incorrectos!');
+      return
+    }else{
+      this.LG.Login(this.form.value).pipe(
+        tap((response: Token) => {
+          if(response && response.access_token){
+            localStorage.setItem('access_token', response.access_token)
+            localStorage.setItem('user', JSON.stringify(response.user))
+            const { nombres, apellidos } = response.user
+            this.SA.SuccessAlert(`BIENVENIDO ${nombres} ${apellidos}`)
+            this.RT.navigate(['dashboard/e-commerce'])
+          } else {
+            this.SA.ErrorAlert('¡Nombre de usuario y/o contraseña incorrectos!')
+          }
+        })
+      ).subscribe();
     }
-  };
-
+  }
+  
 }
