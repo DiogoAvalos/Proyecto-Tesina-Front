@@ -1,6 +1,5 @@
 export interface Pais {
     id: number
-    iso: string
     nombre: string
 }
 

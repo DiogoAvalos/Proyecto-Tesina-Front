@@ -13,11 +13,6 @@ export class LoginService {
 constructor(private http: HttpClient) { }
 
   Login(data: any): Observable<Token> {
-    return this.http.post<Token>(`${environment.apiUrl}/usuarios/login`, data).pipe(
-      catchError(error => {
-        console.error('Error en el login:', error);
-        return throwError(() => new Error('Error en el login'));
-      })
-    );
+    return this.http.post<Token>(`${environment.apiUrl}/usuarios/login`, data)
   }
 }

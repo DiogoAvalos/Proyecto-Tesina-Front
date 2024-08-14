@@ -4,6 +4,7 @@ import { SidebarService } from './../sidebar/sidebar.service'
 import { SweetAlertService } from 'src/app/auth/services/sweetAlertService.service';
 import { Router } from '@angular/router';
 import { UserToken } from 'src/app/auth/interfaces/usuario';
+import { LocalStorageService } from 'src/app/auth/services/localStorageService.service';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ import { UserToken } from 'src/app/auth/interfaces/usuario';
 export class HeaderComponent implements OnInit {
 
   SA = inject(SweetAlertService)
+  LS = inject(LocalStorageService)
 
   nombres: any
   apellidos: any
@@ -27,7 +29,6 @@ export class HeaderComponent implements OnInit {
   toggleSearch: boolean = false;
 
   darkMode() {
-    
     if(this.theme_name == 'light_mode' ) {
       document.querySelector("html").classList.replace('dark_mode' , 'light_mode');
       this.theme_name = 'dark_mode'
@@ -44,7 +45,6 @@ export class HeaderComponent implements OnInit {
     return this.sidebarservice.getSidebarState();
   }
   
-
   toggleSidebar() {
     this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
   }
@@ -56,7 +56,6 @@ export class HeaderComponent implements OnInit {
   searchClose() {
     this.toggleSearch = false;
   }
-
 
   appIcon: AppIcon[] = [
     { src: 'assets/images/app/apple.png', name: 'Apple' },
@@ -83,10 +82,9 @@ export class HeaderComponent implements OnInit {
 
   ];
 
-
   ngOnInit() {
     const user = localStorage.getItem('user');
-    if (user) {
+    if(user){
       try {
         const parsedUser: UserToken = JSON.parse(user)
         this.nombres = `${parsedUser.nombres} ${parsedUser.apellidos}`
@@ -103,8 +101,8 @@ export class HeaderComponent implements OnInit {
     if(confirmar.isConfirmed){
       this.SA.SuccessAlert("¡Sesión cerrada correctamente!")
       this.router.navigate(['/auth/cover-signin'])
-      localStorage.removeItem('user')
-      localStorage.removeItem('access_token')
+      this.LS.removeItem('usuario')
+      this.LS.removeItem('token_acceso')
     }
     //routerLink="auth/cover-signin"
   }
