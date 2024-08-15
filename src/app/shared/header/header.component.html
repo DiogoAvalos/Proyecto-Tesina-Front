@@ -65,7 +65,7 @@
     <mat-menu #UserProfile class="rounded-4 dropdown-userprofile">
       <button mat-menu-item class="d-flex align-items-center justify-content-center text-center py-2">
         <div>
-          <img src="assets/images/avatars/avatar-1.png" width="80" height="80" class="rounded-circle" alt="">
+          <img [src]="thumbnailImage" width="80" height="80" class="rounded-circle" (change)="onFileChange($event)">
         </div>
         <div>
           <h4 class="username mb-0" style="font-size: 20px;">{{ nombres }}</h4>

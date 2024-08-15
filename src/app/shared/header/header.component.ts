@@ -22,39 +22,42 @@ export class HeaderComponent implements OnInit {
   correo: any
   username: any
 
+  profileImage: string | ArrayBuffer = ''
+  thumbnailImage: string | ArrayBuffer = 'https://placehold.co/110x110'
+
   constructor( public sidebarservice: SidebarService, private router: Router ) {}
 
   theme_name = 'dark_mode'
 
-  toggleSearch: boolean = false;
+  toggleSearch: boolean = false
 
   darkMode() {
     if(this.theme_name == 'light_mode' ) {
-      document.querySelector("html").classList.replace('dark_mode' , 'light_mode');
+      document.querySelector("html").classList.replace('dark_mode' , 'light_mode')
       this.theme_name = 'dark_mode'
       
     } else if(this.theme_name == 'dark_mode' ) {
-      document.querySelector("html").classList.replace('light_mode' , 'dark_mode');
+      document.querySelector("html").classList.replace('light_mode' , 'dark_mode')
       this.theme_name = 'light_mode'
 
     }
-     return this.theme_name;
+     return this.theme_name
   }
 
   getSideBarSate() {
-    return this.sidebarservice.getSidebarState();
+    return this.sidebarservice.getSidebarState()
   }
   
   toggleSidebar() {
-    this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
+    this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState())
   }
 
   openSearch() {
-    this.toggleSearch = true;
+    this.toggleSearch = true
   }
 
   searchClose() {
-    this.toggleSearch = false;
+    this.toggleSearch = false
   }
 
   appIcon: AppIcon[] = [
@@ -80,10 +83,10 @@ export class HeaderComponent implements OnInit {
     { src: 'assets/images/app/safari.png', name: 'Safari' },
 
 
-  ];
+  ]
 
   ngOnInit() {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem('user')
     if(user){
       try {
         const parsedUser: UserToken = JSON.parse(user)
@@ -94,6 +97,7 @@ export class HeaderComponent implements OnInit {
         console.error('Error al parsear los datos del usuario:', error)
       }
     }
+    this.loadUserImage()
   }
 
   async logout(){
@@ -102,6 +106,29 @@ export class HeaderComponent implements OnInit {
       this.LS.clear()
       this.SA.SuccessAlert("¡Sesión cerrada correctamente!")
       this.router.navigate(['/auth/cover-signin'])
+    }
+  }
+
+  onFileChange(event: Event) {
+    const input = event.target as HTMLInputElement
+    if (input.files && input.files[0]) {
+      const file = input.files[0]
+      const reader = new FileReader()
+      reader.onload = () => {
+        const base64Image = (reader.result as string).split(',')[1]
+        const base64ImageWithPrefix = `data:image/jpeg;base64,${base64Image}`
+        this.profileImage = base64ImageWithPrefix
+        this.thumbnailImage = base64ImageWithPrefix
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
+  loadUserImage() {
+    const user = this.LS.getItem<any>('user')
+    if(user && user.imagen_base64){
+      this.profileImage = user.imagen_base64
+      this.thumbnailImage = user.imagen_base64
     }
   }
 }

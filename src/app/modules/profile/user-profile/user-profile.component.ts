@@ -20,83 +20,83 @@ import { HttpClient } from '@angular/common/http';
 
 export class UserProfileComponent implements OnInit {
 
-  SA = inject(SweetAlertService);
-  FB = inject(FormBuilder);
-  FS = inject(FicheroSevice);
-  LS = inject(LocalStorageService);
-  US = inject(UserService);
+  SA = inject(SweetAlertService)
+  FB = inject(FormBuilder)
+  FS = inject(FicheroSevice)
+  LS = inject(LocalStorageService)
+  US = inject(UserService)
 
-  nombresUser: string;
-  apellidosUser: string;
-  paisUser: string;
-  departamentoUser: string;
-  pais$: Observable<Pais[]>;
-  paises: Pais[] = [];
-  profileImage: string | ArrayBuffer = 'assets/images/gallery/profile-cover.png';
-  thumbnailImage: string | ArrayBuffer = 'https://placehold.co/110x110';
+  nombresUser: string
+  apellidosUser: string
+  paisUser: string
+  departamentoUser: string
+  pais$: Observable<Pais[]>
+  paises: Pais[] = []
+  profileImage: string | ArrayBuffer = ''
+  thumbnailImage: string | ArrayBuffer = 'https://placehold.co/110x110'
 
   constructor() { }
 
   ngOnInit() {
-    this.pais$ = this.FS.getPais();
+    this.pais$ = this.FS.getPais()
     this.pais$.subscribe(data => {
-      this.paises = data;
-      this.loadUserData();
+      this.paises = data
+      this.loadUserData()
     })
     this.loadUserImage()
   }
 
   loadUserData() {
-    const user = this.LS.getItem<any>('user');
-    if (user) {
-      this.apellidosUser = user.apellidos;
-      this.nombresUser = user.nombres;
-      const pais = this.paises.find(p => p.id === user.pais_id);
-      this.departamentoUser = user.departamento;
-      this.paisUser = pais ? pais.nombre : '';
-
-      // Si existe imagen en base64, la formateamos para mostrarla
-      this.thumbnailImage = user.imagen_base64 ? `data:image/jpeg;base64,${user.imagen_base64}` : 'https://placehold.co/110x110';
-      this.profileImage = this.thumbnailImage; // Usa la misma imagen de perfil
+    const user = this.LS.getItem<any>('user')
+    if(user){
+      this.apellidosUser = user.apellidos
+      this.nombresUser = user.nombres
+      const pais = this.paises.find(p => p.id === user.pais_id)
+      this.departamentoUser = user.departamento
+      this.paisUser = pais ? pais.nombre : ''
+      this.thumbnailImage = user.imagen_base64 ? `${user.imagen_base64}` : 'https://placehold.co/110x110'
+      this.profileImage = this.thumbnailImage
     }
   }
 
   onFileChange(event: Event) {
-    const input = event.target as HTMLInputElement;
+    const input = event.target as HTMLInputElement
     if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
+      const file = input.files[0]
+      if (file.size > 1 * 1024 * 1024) {
+        this.SA.InfoAlert('El archivo es demasiado grande. El tamaño máximo permitido es 1 MB.')
+        return
+      }
+      const reader = new FileReader()
       reader.onload = () => {
-        const base64Image = (reader.result as string).split(',')[1];
-        this.profileImage = `${base64Image}`;
-        this.thumbnailImage = this.profileImage;
-        this.saveImageToDatabase(this.profileImage);
-      };
-      reader.readAsDataURL(file);
+        const base64Image = (reader.result as string).split(',')[1]
+        const base64ImageWithPrefix = `data:image/jpeg;base64,${base64Image}`
+        this.profileImage = base64ImageWithPrefix
+        this.thumbnailImage = base64ImageWithPrefix
+        this.saveImageToDatabase(base64ImageWithPrefix)
+      }
+      reader.readAsDataURL(file)
     }
   }
+  
 
   saveImageToDatabase(base64Image: string) {
-    const user = this.LS.getItem<any>('user');
+    const user = this.LS.getItem<any>('user')
     if (user) {
-      this.US.putUserImagen(user.id, base64Image).subscribe({
-        next: (response) => {
-          console.log('Imagen actualizada con éxito', response);
-          user.imagen_base64 = base64Image;
-          this.LS.setItem('user', user);
-        },
-        error: (error) => {
-          console.error('Error al actualizar la imagen', error);
+      this.US.putUserImagen(user.id_usuario, base64Image).subscribe({
+        next: () => {
+          user.imagen_base64 = base64Image
+          this.LS.setItem('user', user)
         }
-      });
+      })
     }
   }
 
   loadUserImage() {
-    const user = this.LS.getItem<any>('user');
-    if (user && user.imagen_base64) {
-      this.profileImage = user.imagen_base64;
-      this.thumbnailImage = user.imagen_base64;
+    const user = this.LS.getItem<any>('user')
+    if(user && user.imagen_base64){
+      this.profileImage = user.imagen_base64
+      this.thumbnailImage = user.imagen_base64
     }
   }
 }
