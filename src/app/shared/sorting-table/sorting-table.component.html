@@ -1,13 +1,15 @@
 <mat-card>
   <mat-card-content class="p-4">
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Filtrar datos</mat-label>
-      <input matInput (keyup)="applyFilter($event)" #input>
-    </mat-form-field>
-    <div>
-      <ng-content></ng-content>
+    <div class="d-flex align-items-center">
+      <mat-form-field appearance="outline" class="flex-grow-1 me-2">
+        <mat-label>Filtrar datos</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+      </mat-form-field>
+      <div class="btn-container ms-2">
+        <ng-content></ng-content>
+      </div>
     </div>
-    <div class="sorting-table">
+    <div class="sorting-table mt-3">
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container *ngFor="let columna of columnas" [matColumnDef]="columna.name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="columna.headerstyle">{{ columna.display }}</th>
@@ -23,10 +25,9 @@
             </ng-container>
             <ng-container *ngIf="columna.accion">
               <button mat-mini-fab color="primary" (click)="Accion(columna, row, $event)" [ngClass]="columna.clases">
-                <!-- <img *ngIf="columna.imagen" [src]="columna.imagen" [ngStyle]="columna.style"/> -->
-                {{ columna.icon }}
+                <mat-icon *ngIf="columna.icon">{{ columna.icon }}</mat-icon>
               </button>
-            </ng-container>
+            </ng-container>            
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

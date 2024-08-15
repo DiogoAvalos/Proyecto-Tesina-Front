@@ -1,0 +1,77 @@
+<div>
+  <h3 class="titulo">Lista de Médicos</h3>
+</div>
+
+<div class="row">
+  <tabla-dinamica
+    [data]="dataUsuarios"
+    [columnas]="columnas"
+    (accion)="accion($event)"
+  >
+    <div class="example-button-row">
+      <button mat-flat-button color="primary" (click)="registroNuevo()" class="full-width-button">
+        REGISTRAR
+      </button>
+    </div>
+  </tabla-dinamica>
+</div>
+
+<app-modal-component [titulo]="nombreTitulo" [style]="'min-width: 55%'" #modal>
+  <div class="row">
+      <div class="col-12">
+        <mat-card-content class="p-4">
+          <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+            <div class="row g-3">
+              <div class="col-12 col-md-4">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Nombres</mat-label>
+                  <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="nombres">
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-4">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Apellido Paterno</mat-label>
+                  <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="apellido_p">
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-4">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Apellido Materno</mat-label>
+                  <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="apellido_m">
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-4">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Tipo de documento</mat-label>
+                    <mat-select formControlName="tipodoc">
+                    <mat-option *ngFor="let tipo of tipoDoc" [value]="tipo.id">
+                      {{ tipo.descripcion }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-4">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>N° Documento</mat-label>
+                  <input matInput formControlName="numdoc">
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-4">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Especialidad del médico</mat-label>
+                    <mat-select formControlName="especialidad_id">
+                    <mat-option *ngFor="let tipo of tipoDoc" [value]="tipo.id">
+                      {{ tipo.descripcion }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <button mat-raised-button class="px-5 py-4 text-uppercase" color="primary">
+                {{ nombreBtn }}
+            </button>
+          </form>
+        </mat-card-content>
+      </div>
+  </div>
+</app-modal-component>

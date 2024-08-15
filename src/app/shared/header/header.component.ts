@@ -99,12 +99,9 @@ export class HeaderComponent implements OnInit {
   async logout(){
     const confirmar = await this.SA.ConfirmAlert("¿Cerrar sesión?")
     if(confirmar.isConfirmed){
+      this.LS.clear()
       this.SA.SuccessAlert("¡Sesión cerrada correctamente!")
       this.router.navigate(['/auth/cover-signin'])
-      this.LS.removeItem('usuario')
-      this.LS.removeItem('token_acceso')
     }
-    //routerLink="auth/cover-signin"
   }
-
 }

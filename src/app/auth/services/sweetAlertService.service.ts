@@ -11,6 +11,7 @@ constructor() { }
 
   SuccessAlert(mensaje: string){
     Swal.fire({
+      title: '¡Éxito!',
       icon: 'success',
       text: `${mensaje}`,
       showConfirmButton: true

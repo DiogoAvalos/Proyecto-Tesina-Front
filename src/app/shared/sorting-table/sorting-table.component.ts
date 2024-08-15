@@ -62,12 +62,11 @@ export class SortingTableComponent implements AfterViewInit, OnInit {
   }
 
   Accion(accion: any, item: any, event: any) {
-    const index = this.data.findIndex(d => d === item)
     if(accion){
       if(accion.name === 'checkbox'){
-        this.data[index]['checkbox'] = event.target.checked
+        item['checkbox'] = event.target.checked
       }
-      this.accion.emit([accion, index, event])
+      this.accion.emit([accion, item, event])
     }
   }
 }

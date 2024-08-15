@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { MatModule } from 'src/app/appModules/mat.module';
 import { SharedModule } from "../../shared/shared.module";
 import { ModalComponent } from 'src/app/shared/modal-component/modal-component.component';
@@ -32,9 +32,11 @@ export class RegistrarUsuarioComponent implements OnInit {
   tipoDoc$: Observable<TipoDoc[]>
   tipoDoc: any[]
   form: FormGroup
-  nombreBtn: string = 'REGISTRAR'
-  nombreTitulo: string = 'Registrar Usuario'
+  nombreBtn: string = ''
+  nombreTitulo: string = ''
   dataUsuarios: any
+  VERB_HTTP: string = ''
+
   columnas: Array<SortingTableColumnComponent> = [
     { name: 'id', display: 'ID'},
     { name: 'nombres', display: 'NOMBRES' },
@@ -43,7 +45,7 @@ export class RegistrarUsuarioComponent implements OnInit {
     { name: 'numdoc', display: 'N° DOCUMENTO' },
     { name: 'telefono', display: 'TELÉFONO' },
     { name: 'rol', display: 'ROL' },
-    { name: 'editar', display: 'EDITAR', accion: 'editar' }
+    { name: 'editar', display: 'EDITAR', accion: 'editar', icon: 'edit' }
   ]
 
   constructor() { }
@@ -85,12 +87,18 @@ export class RegistrarUsuarioComponent implements OnInit {
   registroNuevo(){
     this.form.reset()
     this.modal.showModal()
+    this.nombreTitulo = 'Registrar Usuario'
+    this.nombreBtn = 'REGISTRAR'
+    this.VERB_HTTP = 'POST'
   }
 
   accion([a, i, data]){
     if(a.accion == 'editar'){
-      console.log(data)
-      this.SA.SuccessAlert("Detalle modal")
+      this.nombreBtn = 'ACTUALIZAR'
+      this.nombreTitulo = 'Actualizar Usuario'
+      this.VERB_HTTP = 'PUT'
+      this.form.patchValue(i)
+      this.modal.showModal()
     }
   }
 
@@ -98,10 +106,10 @@ export class RegistrarUsuarioComponent implements OnInit {
     if(this.form.invalid){
       this.SA.InfoAlert("Complete los campos requeridos (*).")
       return
-    }else{
+    }
+    if(this.VERB_HTTP == 'POST'){
       this.US.postUser(this.form.value).pipe(
         tap(() => {
-          console.log("Valor del formular ->",this.form.value)
           this.SA.SuccessAlert("¡Usuario creado con éxito!")
           this.modal.hiddenModal()
           this.loadTabla()
@@ -111,6 +119,8 @@ export class RegistrarUsuarioComponent implements OnInit {
           this.SA.ErrorAlert(`${err}`);
         }
       })
+    }else{
+      this.SA.SuccessAlert("¡Usuario actualizado correctamente!")
     }
   }
 }

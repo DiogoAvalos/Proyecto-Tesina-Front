@@ -10,3 +10,10 @@ table {
 td, th {
   width: 25%;
 }
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding-bottom: 20px;
+}

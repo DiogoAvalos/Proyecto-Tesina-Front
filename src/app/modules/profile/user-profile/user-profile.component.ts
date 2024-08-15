@@ -74,7 +74,6 @@ export class UserProfileComponent implements OnInit {
       const pais = this.paises.find(p => p.id === user.pais_id)
       this.departamentoUser = user.departamento
       this.paisUser = pais ? pais.nombre : ''
-      console.log(pais)
       this.form.patchValue({
         username: user.username,
         nombres: user.nombres,
