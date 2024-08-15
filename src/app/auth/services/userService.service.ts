@@ -19,4 +19,8 @@ constructor(private http: HttpClient) {}
   postUser(data: any){
     return this.http.post(`${environment.apiUrl}/usuarios/usuarios/`, data)
   }
+
+  putUserImagen(id: number, base64Image: string){
+    return this.http.put(`${environment.apiUrl}/usuarios/imagen/${id}`, base64Image)
+  }
 }

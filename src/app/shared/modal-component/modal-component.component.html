@@ -6,15 +6,15 @@
     aria-modal="true"
   >
   <aside class="modal__content" [style]="style">
-      <header class="modal__head">
-          <h5 class="modal-title">{{ titulo }}</h5>
-          <button type="button" class="btn-close" (click)="hiddenModal()" aria-label="Close"></button>
-      </header>
-      <section class="modal__body" [class.overflow__auto]="scroll">
-          <ng-content></ng-content>
-      </section>
-      <footer class="modal-footer">
-      </footer>
+    <header class="modal__head">
+      <h5 class="modal-title">{{ titulo }}</h5>
+      <mat-icon (click)="hiddenModal()">cancel</mat-icon>
+    </header>
+    <section class="modal__body" [class.overflow__auto]="scroll">
+      <ng-content></ng-content>
+    </section>
+    <footer class="modal-footer">
+    </footer>
   </aside>
   </section>
 </div>

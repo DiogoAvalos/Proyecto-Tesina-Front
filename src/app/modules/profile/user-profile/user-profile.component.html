@@ -1,126 +1,25 @@
 <mat-card class="rounded-4">
-    <mat-card-content class="p-4">
-        <div class="position-relative mb-5">
-            <img src="assets/images/gallery/profile-cover.png" class="img-fluid rounded-4" alt="">
-            <div class="position-absolute top-100 start-50 translate-middle">
-              <img src="https://placehold.co/110x110" width="170" height="170" class="rounded-circle raised p-1 mat-bg-white mat-elevation-z8" alt="">
-            </div>
-          </div>
-          <div class="pt-5 d-flex flex-column flex-lg-row align-items-start justify-content-between gap-4">
-            <div class="">
-              <h3 class="mb-2">{{ apellidosUser }} {{ nombresUser }}</h3>
-              <p>{{ paisUser }}, {{ departamentoUser }} </p>
-            </div>
-          </div>
-    </mat-card-content>
+  <mat-card-content class="p-4">
+    <div class="position-relative mb-5">
+      <img src="assets/images/gallery/test.gif" class="img-fluid rounded-4" alt="Profile Image">
+      <div class="position-absolute top-100 start-50 translate-middle">
+        <img [src]="thumbnailImage" width="170" height="170" class="rounded-circle raised p-1 mat-bg-white mat-elevation-z8" alt="Profile Thumbnail">
+        <div class="upload-container">
+          <input type="file" (change)="onFileChange($event)" accept="image/*" id="file-upload" />
+          <label for="file-upload">
+            <mat-icon class="upload-icon">cloud_upload</mat-icon>
+          </label>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
 </mat-card>
+
 
 <div class="row">
     <div class="col-12 col-xl-8">
         <mat-card class="rounded-4">
             <mat-card-content class="p-4">
-                <div class="d-flex flex-row gap-3 align-items-center justify-content-between mb-3">
-                  <div class="">
-                    <h5 class="">Editar datos de la cuenta</h5>
-                  </div>
-                </div>
-                <div class="row g-3">
-                  <div class="col-12 col-md-2">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Username</mat-label>
-                      <input type="text" matInput formControlName="username" disabled>
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-3">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Nombres</mat-label>
-                      <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="nombres">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-3">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Apellidos</mat-label>
-                      <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="apellidos">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Email</mat-label>
-                      <input type="email" matInput formControlName="email">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-2">
-                    <mat-form-field appearance="outline" class="w-100">
-                      <mat-label>Cumpleaños</mat-label>
-                      <input matInput type="date" formControlName="birthdate">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-2">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Teléfono</mat-label>
-                      <input matInput formControlName="telefono">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <mat-form-field appearance="outline" class="w-100">
-                      <mat-label>Tipo de documento</mat-label>
-                        <mat-select formControlName="tipodoc">
-                        <mat-option *ngFor="let tipo of tipoDoc" [value]="tipo.id">
-                          {{ tipo.descripcion }}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-2">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>N° Documento</mat-label>
-                      <input matInput formControlName="numdoc">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-2">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Género</mat-label>
-                      <mat-select formControlName="genero">
-                        <mat-option value="MASCULINO">MASCULINO</mat-option>
-                        <mat-option value="FEMENINO">FEMENINO</mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-12">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Contraseña</mat-label>
-                      <input type="password" matInput formControlName="clave">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <mat-form-field appearance="outline" class="w-100">
-                      <mat-label>País</mat-label>
-                      <mat-select formControlName="pais_id">
-                        <mat-option *ngFor="let pais of paises" [value]="pais.id">
-                          {{ pais.nombre }}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Departamento</mat-label>
-                      <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="departamento">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Distrito</mat-label>
-                      <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="distrito">
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label>Rol de usuario</mat-label>
-                      <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="rol">
-                    </mat-form-field>
-                  </div>
-                </div>
             </mat-card-content>
         </mat-card>
     </div>

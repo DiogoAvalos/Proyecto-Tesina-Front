@@ -1,14 +1,22 @@
+.table-container {
+  overflow-x: auto;
+}
+
 table {
-    width: 100%;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  word-wrap: break-word;
+}
+
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
-}
-
-td, th {
-  width: 25%;
 }
 
 .btn-container {

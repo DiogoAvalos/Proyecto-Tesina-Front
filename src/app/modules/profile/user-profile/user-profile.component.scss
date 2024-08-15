@@ -1,0 +1,24 @@
+.upload-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.upload-container input[type="file"] {
+  display: none;
+}
+
+.upload-container label {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.upload-icon {
+  color: #fff;
+  font-size: 2rem;
+}
+  
