@@ -16,8 +16,12 @@ constructor(private http: HttpClient) {}
     return this.http.get<Usuario[]>(`${environment.apiUrl}/usuarios/usuarios/`)
   }
 
-  postUser(data: any){
-    return this.http.post(`${environment.apiUrl}/usuarios/usuarios/`, data)
+  crudUser(VERB_HTTP: string, data: any, id?: number): Observable<any>{
+    const API = {
+      PUT: this.http.put(`${environment.apiUrl}/usuarios/${id}`, data),
+      POST: this.http.post(`${environment.apiUrl}/usuarios/usuarios/`, data)
+    }
+    return API[VERB_HTTP]
   }
 
   putUserImagen(id: number, base64Image: string){

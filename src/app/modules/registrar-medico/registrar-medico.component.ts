@@ -73,21 +73,5 @@ export class RegistrarMedicoComponent implements OnInit {
   }
 
   OnSubmit(){
-    if(this.form.invalid){
-      this.SA.InfoAlert("Complete los campos requeridos (*).")
-      return
-    }else{
-      this.US.postUser(this.form.value).pipe(
-        tap(() => {
-          this.SA.SuccessAlert("¡Usuario creado con éxito!")
-          this.modal.hiddenModal()
-          this.loadTabla()
-        }),
-      ).subscribe({
-        error: (err) => {
-          this.SA.ErrorAlert(`${err}`);
-        }
-      })
-    }
   }
 }

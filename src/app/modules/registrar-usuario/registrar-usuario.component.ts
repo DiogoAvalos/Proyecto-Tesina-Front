@@ -7,9 +7,10 @@ import { SortingTableColumnComponent } from 'src/app/shared/sorting-table/sortin
 import { SweetAlertService } from 'src/app/auth/services/sweetAlertService.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FicheroSevice } from 'src/app/auth/services/ficheroSevice.service';
-import { firstValueFrom, Observable, tap } from 'rxjs';
+import { firstValueFrom, Observable, take, tap } from 'rxjs';
 import { Pais, TipoDoc } from 'src/app/auth/interfaces/ficheros';
 import { UserService } from 'src/app/auth/services/userService.service';
+import { ValidacionService } from 'src/app/auth/services/validacion.service';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -24,6 +25,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   FB = inject(FormBuilder)
   FS = inject(FicheroSevice)
   US = inject(UserService)
+  VA = inject(ValidacionService)
 
   @ViewChild('modal') modal: ModalComponent
 
@@ -36,6 +38,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   nombreTitulo: string = ''
   dataUsuarios: any
   VERB_HTTP: string = ''
+  id_registro: any
 
   columnas: Array<SortingTableColumnComponent> = [
     { name: 'id', display: 'ID'},
@@ -52,13 +55,9 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   ngOnInit() {
     this.pais$ = this.FS.getPais();
-    this.pais$.subscribe(data => {
-      this.paises = data
-    })
+    this.pais$.subscribe(data => { this.paises = data })
     this.tipoDoc$ = this.FS.getTipoDoc()
-    this.tipoDoc$.subscribe(data => {
-      this.tipoDoc = data
-    })
+    this.tipoDoc$.subscribe(data => { this.tipoDoc = data })
     this.form = this.FB.group({
       username: [null, Validators.required],
       nombres: [null, Validators.required],
@@ -97,30 +96,30 @@ export class RegistrarUsuarioComponent implements OnInit {
       this.nombreBtn = 'ACTUALIZAR'
       this.nombreTitulo = 'Actualizar Usuario'
       this.VERB_HTTP = 'PUT'
+      this.id_registro = i.id
       this.form.patchValue(i)
       this.modal.showModal()
     }
   }
 
   OnSubmit(){
-    if(this.form.invalid){
-      this.SA.InfoAlert("Complete los campos requeridos (*).")
-      return
-    }
-    if(this.VERB_HTTP == 'POST'){
-      this.US.postUser(this.form.value).pipe(
-        tap(() => {
-          this.SA.SuccessAlert("¡Usuario creado con éxito!")
-          this.modal.hiddenModal()
-          this.loadTabla()
-        }),
-      ).subscribe({
-        error: (err) => {
-          this.SA.ErrorAlert(`${err}`);
+    if(this.form.valid){
+      const data = this.form.getRawValue()
+      this.US.crudUser(this.VERB_HTTP, data, this.id_registro).pipe(take(1)).subscribe({
+        next: (r) => {
+          console.error(r)
+          if(r.status){
+            this.SA.ErrorAlert(r.message)
+          }else{
+            this.SA.SuccessAlert(r.message)
+            this.form.reset()
+            this.modal.hiddenModal()
+            this.registroNuevo()
+          }
         }
       })
     }else{
-      this.SA.SuccessAlert("¡Usuario actualizado correctamente!")
+      this.VA.validacionCampos(this.form.controls, this.SA)
     }
   }
 }
