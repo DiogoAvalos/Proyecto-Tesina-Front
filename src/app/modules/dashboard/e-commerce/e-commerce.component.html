@@ -103,25 +103,32 @@
     <mat-card class="rounded-4 w-100">
       <mat-card-content>
         <div class="d-flex align-items-center justify-content-between gap-3">
-          <div class="">
-            <h5 class="mb-0">Impression</h5>
+          <div>
+            <h5 class="mb-0" style="padding-bottom: 10px;">Impression</h5>
+            <mat-form-field appearance="outline" class="w-50">
+              <mat-label>Desde</mat-label>
+              <input matInput [(ngModel)]="fechaInicio" type="date">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-50" style="padding-left: 15px;">
+              <mat-label>Hasta</mat-label>
+              <input matInput [(ngModel)]="fechaFin" type="date">
+            </mat-form-field>
           </div>
+          <!-- <div>
+            <button mat-button (click)="load()">Actualizar</button>
+          </div> -->
           <div>
             <button mat-icon-button [matMenuTriggerFor]="menu">
               <mat-icon>more_horiz</mat-icon>
             </button>
             <mat-menu #menu="matMenu" class="rounded-4">
-              <button mat-menu-item>
+              <button mat-menu-item (click)="load()">
                 <mat-icon class="material-icons-outlined">refresh</mat-icon>
-                <span>Refresh</span>
+                <span>Actualizar</span>
               </button>
               <button mat-menu-item>
                 <mat-icon class="material-icons-outlined">cloud_download</mat-icon>
-                <span>Download</span>
-              </button>
-              <button mat-menu-item>
-                <mat-icon class="material-icons-outlined">delete</mat-icon>
-                <span>Delete</span>
+                <span>Descargar</span>
               </button>
             </mat-menu>
           </div>

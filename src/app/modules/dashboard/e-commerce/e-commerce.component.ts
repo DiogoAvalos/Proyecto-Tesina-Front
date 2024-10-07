@@ -1,18 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatModule } from 'src/app/appModules/mat.module';
-import { CommonModule } from '@angular/common';
-
-export interface TransactionsTable {
-  //name: string;
-  date: string;
-  time: string;
-  status: string;
-  amount: number;
-  source:string;
-  desc:string;
-  src?: string;
-}
-
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { DashboardService } from 'src/app/auth/services/dashboardService.service';
 
 const PAYMENT_DATA: TransactionsTable[] = [
   {date: '10 Sep,2024', time: '8:20 PM', src: 'assets/images/app/paypal.png', source:'Paypal', desc:'Business Plan',  status: 'Paid', amount: 5897},
@@ -22,9 +9,6 @@ const PAYMENT_DATA: TransactionsTable[] = [
   {date: '26 Sep,2024', time: '7:42 PM', src: 'assets/images/app/google-2.png', source:'Google', desc:'Business Plan',  status: 'Pending', amount: 9986},
   {date: '30 Sep,2024', time: '5:33 PM', src: 'assets/images/app/apple.png', source:'Apple', desc:'Business Plan',  status: 'Paid', amount: 6587},
 ];
-
-
-
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -45,6 +29,8 @@ import {
 } 
 
 from "ng-apexcharts";
+import { firstValueFrom } from 'rxjs';
+import { TransactionsTable } from './e-comerse.interface';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | ApexNonAxisChartSeries;
@@ -71,13 +57,17 @@ export type ChartOptions = {
   styleUrls: ['./e-commerce.component.scss']
 })
 
-
-export class ECommerceComponent {
+export class ECommerceComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = PAYMENT_DATA;
+  data: any
+  fechaInicio: string = '2023-01-01'
+  fechaFin: string = '2024-12-31'
 
   @ViewChild("chart") chart: ChartComponent;
+
+  DS = inject(DashboardService)
 
   public WidgetChart1: Partial<ChartOptions>;
   public WidgetChart2: Partial<ChartOptions>;
@@ -367,7 +357,7 @@ this.WidgetChart4 = {
 
 
 // chart 5
-this.WidgetChart5 = {
+/*this.WidgetChart5 = {
   series: [
     {
       type:'line',
@@ -454,7 +444,7 @@ this.WidgetChart5 = {
   tooltip: {
     theme: "dark",
   }
-};
+};*/
 
 
 // chart 6
@@ -769,4 +759,81 @@ this.WidgetChart8 = {
 
    }
 
+  ngOnInit(){
+    this.load()
+  }
+
+  async load() {
+    const rawData = await firstValueFrom(this.DS.dataVentaProducto(this.fechaInicio, this.fechaFin));
+    const categorias = rawData.map(item => item.mes)
+    const ventas = rawData.map(item => item['Total de productos por mes'])
+    this.WidgetChart5 = {
+      series: [{
+        name: "Total de productos por mes",
+        type: 'line',
+        data: ventas
+      }],
+      chart: {
+        foreColor: "#9ba7b2",
+        height: 320,
+        type: "line",
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        },
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        width: [5],
+        curve: "smooth"
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          gradientToColors: ["#f9f047", "#ee226e"],
+          shadeIntensity: 1,
+          type: "vertical",
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100, 100, 100]
+        }
+      },
+      colors: ["#0fd850"],
+      markers: {
+        size: 5,
+        colors: ["#fff"],
+        strokeColors: "#7343be",
+        strokeWidth: 2,
+        hover: {
+          size: 7,
+        }
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          borderRadius: 10,
+          columnWidth: '30%',
+        }
+      },
+      legend: {
+        show: false,
+      },
+      grid: {
+        show: true,
+        borderColor: 'rgba(0, 0, 0, 0.15)',
+        strokeDashArray: 4,
+      },
+      xaxis: {
+        categories: categorias,
+      },
+      tooltip: {
+        theme: "dark",
+      }
+    };
+  }
 }
