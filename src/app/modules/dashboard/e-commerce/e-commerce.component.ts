@@ -31,6 +31,7 @@ import {
 from "ng-apexcharts";
 import { firstValueFrom } from 'rxjs';
 import { TransactionsTable } from './e-comerse.interface';
+import { descargarChartImage } from '../utils/utils';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | ApexNonAxisChartSeries;
@@ -478,7 +479,7 @@ this.WidgetChart6 = {
       track: {
         background: "#eee",
         strokeWidth: "67%",
-        margin: 0, // margin is in pixels
+        margin: 0,
         dropShadow: {
           enabled: false,
           top: -3,
@@ -764,7 +765,7 @@ this.WidgetChart8 = {
   }
 
   async load() {
-    const rawData = await firstValueFrom(this.DS.dataVentaProducto(this.fechaInicio, this.fechaFin));
+    const rawData = await firstValueFrom(this.DS.dataVentaProducto(this.fechaInicio, this.fechaFin))
     const categorias = rawData.map(item => item.mes)
     const ventas = rawData.map(item => item['Total de productos por mes'])
     this.WidgetChart5 = {
@@ -835,5 +836,32 @@ this.WidgetChart8 = {
         theme: "dark",
       }
     };
+  }
+
+  downloadChartImage() {
+    this.chart.dataURI().then((uri) => {
+      if('imgURI' in uri){
+        const link = document.createElement("a")
+        link.href = uri.imgURI
+        link.download = "chart.png"
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      }else if ('blob' in uri){
+        const url = URL.createObjectURL(uri)
+        const link = document.createElement("a")
+        link.href = url
+        link.download = "chart.png";
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        URL.revokeObjectURL(url);
+      }
+    })
+  }
+
+  chart5Download(){
+    console.log("data")
+    descargarChartImage(this.WidgetChart5, 'ventas_productos.png')
   }
 }

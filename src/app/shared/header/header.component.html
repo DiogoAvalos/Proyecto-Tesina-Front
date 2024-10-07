@@ -73,13 +73,13 @@
         </div>
       </button>
       <mat-divider></mat-divider>
-      <button mat-menu-item>
+      <button mat-menu-item routerLink="profile/user-profile">
         <mat-icon class="material-icons-outlined">account_circle</mat-icon>
-        <span routerLink="profile/user-profile" >Perfil</span>
+        <span>Perfil</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item routerLink="dashboard/e-commerce">
         <mat-icon class="material-icons-outlined">dashboard</mat-icon>
-        <span routerLink="dashboard/e-commerce">Dashboard</span>
+        <span>Dashboard</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item (click)="logout()">

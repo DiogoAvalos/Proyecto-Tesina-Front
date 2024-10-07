@@ -104,7 +104,7 @@
       <mat-card-content>
         <div class="d-flex align-items-center justify-content-between gap-3">
           <div>
-            <h5 class="mb-0" style="padding-bottom: 10px;">Impression</h5>
+            <h5 class="mb-0" style="padding-bottom: 10px;">Ventas de productos</h5>
             <mat-form-field appearance="outline" class="w-50">
               <mat-label>Desde</mat-label>
               <input matInput [(ngModel)]="fechaInicio" type="date">
@@ -114,26 +114,23 @@
               <input matInput [(ngModel)]="fechaFin" type="date">
             </mat-form-field>
           </div>
-          <!-- <div>
-            <button mat-button (click)="load()">Actualizar</button>
-          </div> -->
           <div>
-            <button mat-icon-button [matMenuTriggerFor]="menu">
+            <button mat-icon-button [matMenuTriggerFor]="menu1">
               <mat-icon>more_horiz</mat-icon>
             </button>
-            <mat-menu #menu="matMenu" class="rounded-4">
+            <mat-menu #menu1="matMenu" class="rounded-4">
               <button mat-menu-item (click)="load()">
                 <mat-icon class="material-icons-outlined">refresh</mat-icon>
                 <span>Actualizar</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="downloadChartImage()">
                 <mat-icon class="material-icons-outlined">cloud_download</mat-icon>
                 <span>Descargar</span>
               </button>
             </mat-menu>
           </div>
         </div>
-        <apx-chart [series]="WidgetChart5.series" [chart]="WidgetChart5.chart" [xaxis]="WidgetChart5.xaxis"
+        <apx-chart #chart [series]="WidgetChart5.series" [chart]="WidgetChart5.chart" [xaxis]="WidgetChart5.xaxis"
           [title]="WidgetChart5.title" [stroke]="WidgetChart5.stroke" [colors]="WidgetChart5.colors"
           [fill]="WidgetChart5.fill" [legend]="WidgetChart5.legend" [plotOptions]="WidgetChart5.plotOptions"
           [markers]="WidgetChart5.markers" [tooltip]="WidgetChart5.tooltip" [grid]="WidgetChart5.grid">

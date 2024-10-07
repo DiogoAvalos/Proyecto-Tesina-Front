@@ -8,7 +8,6 @@ import { FormBuilder } from '@angular/forms';
 import { SweetAlertService } from 'src/app/auth/services/sweetAlertService.service';
 import { FicheroSevice } from 'src/app/auth/services/ficheroSevice.service';
 import { LocalStorageService } from 'src/app/auth/services/localStorageService.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-profile',
