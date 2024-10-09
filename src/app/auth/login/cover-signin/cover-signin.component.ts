@@ -36,7 +36,7 @@ export class CoverSigninComponent implements OnInit {
 
   login() {
     if (this.form.invalid) {
-      this.SA.ErrorAlert('¡Ingrese nombre usuario y/o contraseña!')
+      this.SA.InfoAlert('¡Ingrese nombre usuario y/o contraseña!')
       return
     }else{
       this.LG.Login(this.form.value).pipe(

@@ -91,13 +91,14 @@ export class RegistrarUsuarioComponent implements OnInit {
     this.VERB_HTTP = 'POST'
   }
 
-  accion([a, i, data]){
+  accion([a, data, i]){
+    console.log(data)
     if(a.accion == 'editar'){
       this.nombreBtn = 'ACTUALIZAR'
       this.nombreTitulo = 'Actualizar Usuario'
       this.VERB_HTTP = 'PUT'
-      this.id_registro = i.id
-      this.form.patchValue(i)
+      this.id_registro = data.id
+      this.form.patchValue(data)
       this.modal.showModal()
     }
   }

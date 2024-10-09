@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginator, MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table'
 import { CommonModule } from '@angular/common';
@@ -29,8 +29,17 @@ export class SortingTableComponent implements AfterViewInit, OnInit {
   @Input() estiloactivo: any = null
   @Input() estiloinactivo: any = null
   @Output() accion = new EventEmitter<[string, number, any]>()
+
   displayedColumns: string[]
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>()
+  length = 0
+  pageSize = 5 //* Paginacion de tabla al iniciar
+  pageSizeOptions: number[] = [5, 10, 25, 100] //* Opciones de tamaño de la tabla
+  pageIndex = 0
+  showFirstLastButtons = true
+  disabled = false
+  showPageSizeOptions = true
+  hidePageSize = false
 
   constructor() {}
 
@@ -53,7 +62,7 @@ export class SortingTableComponent implements AfterViewInit, OnInit {
     }
   }
 
-  applyFilter(event: Event) {
+  filtrarTodo(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value
     this.dataSource.filter = filterValue.trim().toLowerCase()
     if (this.dataSource.paginator) {
@@ -68,5 +77,10 @@ export class SortingTableComponent implements AfterViewInit, OnInit {
       }
       this.accion.emit([accion, item, event])
     }
+  }
+
+  handlePageEvent(event: PageEvent){
+    this.pageSize = event.pageSize
+    this.pageIndex = event.pageIndex
   }
 }

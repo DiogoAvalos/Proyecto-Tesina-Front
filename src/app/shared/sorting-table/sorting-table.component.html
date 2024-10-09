@@ -2,8 +2,8 @@
   <mat-card-content class="p-4">
     <div class="d-flex align-items-center">
       <mat-form-field appearance="outline" class="flex-grow-1 me-2">
-        <mat-label>Filtrar datos</mat-label>
-        <input matInput (keyup)="applyFilter($event)" #input>
+        <mat-label>Filtrar por todos los campos</mat-label>
+        <input matInput (keyup)="filtrarTodo($event)" #input>
       </mat-form-field>
       <div class="btn-container ms-2">
         <ng-content></ng-content>
@@ -36,7 +36,18 @@
           <td class="mat-cell" colspan="{{ displayedColumns.length }}">Datos no encontrados</td>
         </tr>
       </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      <mat-paginator #paginator
+          class="demo-paginator"
+          (page)="handlePageEvent($event)"
+          [length]="length"
+          [pageSize]="pageSize"
+          [disabled]="disabled"
+          [showFirstLastButtons]="showFirstLastButtons"
+          [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+          [hidePageSize]="hidePageSize"
+          [pageIndex]="pageIndex"
+          aria-label="Select page">
+      </mat-paginator>
     </div>
   </mat-card-content>
 </mat-card>
