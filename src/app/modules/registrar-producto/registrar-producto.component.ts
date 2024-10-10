@@ -6,19 +6,19 @@ import { MatModule } from 'src/app/appModules/mat.module';
 import { FicheroSevice } from 'src/app/auth/services/ficheroSevice.service';
 import { SweetAlertService } from 'src/app/auth/services/sweetAlertService.service';
 import { UserService } from 'src/app/auth/services/userService.service';
-import { ModalComponent } from 'src/app/shared/modal-component/modal-component.component';
+import { ModalComponent } from 'src/app/shared/components/modal-component/modal-component.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SortingTableColumnComponent } from 'src/app/shared/sorting-table/sorting-table-column.interface';
+import { SortingTableColumnComponent } from 'src/app/shared/components/sorting-table/sorting-table-column.interface';
 
 @Component({
   standalone: true,
   imports: [ ReactiveFormsModule, CommonModule, MatModule, SharedModule ],
   selector: 'app-registrar-medico',
-  templateUrl: './registrar-medico.component.html',
-  styleUrls: ['./registrar-medico.component.scss']
+  templateUrl: './registrar-producto.component.html',
+  styleUrls: ['./registrar-producto.component.scss']
 })
 
-export class RegistrarMedicoComponent implements OnInit {
+export class RegistrarProductoComponent implements OnInit {
   SA = inject(SweetAlertService)
   FB = inject(FormBuilder)
   FS = inject(FicheroSevice)

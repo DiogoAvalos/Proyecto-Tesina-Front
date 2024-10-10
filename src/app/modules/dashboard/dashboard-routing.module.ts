@@ -7,20 +7,8 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      {
-        path: 'e-commerce',
-        component: ECommerceComponent,
-        data: {
-          title: 'e-Commerce'
-        }
-      },
-      {
-        path: 'analytics',
-        component: AnalyticsComponent,
-        data: {
-          title: 'Analytics'
-        }
-      },
+      { path: 'e-commerce', component: ECommerceComponent, title: 'Dashboard' },
+      { path: 'analytics', component: AnalyticsComponent, title: 'Analytics' },
     ]
   }
 ];

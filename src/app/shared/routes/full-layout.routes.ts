@@ -34,7 +34,7 @@ export const Full_ROUTES: Routes = [
             },
             {
                 path: 'modules',
-                loadChildren: () => import('../../modules/auth-routing.module').then(m => m.AuthRoutingModule)
+                loadChildren: () => import('../../modules/modules-routing.module').then(m => m.ModuleRoutingModule)
             }
         ]
     }

@@ -13,48 +13,12 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      {
-        path: 'cover-signin',
-        component: CoverSigninComponent,
-        data: {
-          title: 'Cover Sign In'
-        }
-      },
-      {
-        path: 'cover-signup',
-        component: CoverSignupComponent,
-        data: {
-          title: 'Cover Sign Up'
-        }
-      },
-      {
-        path: 'forgot-password',
-        component: ForgotPasswordComponent,
-        data: {
-          title: 'Forgot Password'
-        }
-      },
-      {
-        path: 'cover-forgot-password',
-        component: CoverForgotPasswordComponent,
-        data: {
-          title: 'Cover Forgot Password'
-        }
-      },
-      {
-        path: 'reset-password',
-        component: ResetPasswordComponent,
-        data: {
-          title: 'Reset Password'
-        }
-      },
-      {
-        path: 'cover-reset-password',
-        component: CoverResetPasswordComponent,
-        data: {
-          title: 'Cover Reset Password'
-        }
-      },
+      { path: 'cover-signin', component: CoverSigninComponent, title: 'Iniciar Sesión' },
+      { path: 'cover-signup', component: CoverSignupComponent, title: 'Cover Sign Up' },
+      { path: 'forgot-password', component: ForgotPasswordComponent, title: 'Forgot Password' },
+      { path: 'cover-forgot-password', component: CoverForgotPasswordComponent, title: 'Cover Forgot Password' },
+      { path: 'reset-password', component: ResetPasswordComponent, title: 'Reset Password'  },
+      { path: 'cover-reset-password', component: CoverResetPasswordComponent, title: 'Cover Reset Password' },
     ]
   }
 ];

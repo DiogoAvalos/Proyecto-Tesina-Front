@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES },
   { path: '', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
-  { path: '**', redirectTo: 'auth/cover-signin' }
+  { path: '**', redirectTo: 'auth/cover-signin', }
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -7,7 +8,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
-
+    ReactiveFormsModule
   ]
 })
-export class AuthRoutingModule { }
+export class FicheroRoutingModule { }
