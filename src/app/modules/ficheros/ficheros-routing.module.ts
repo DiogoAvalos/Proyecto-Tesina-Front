@@ -5,7 +5,7 @@ import { TipoDocumentoComponent } from './tipo-documento/tipo-documento.componen
 
 const routes: Routes = [
   { path: 'tipo-documento', component: TipoDocumentoComponent, title: 'Tipo de Documento' },
-  { path: 'pais', component:  PaisComponent, title: 'País' }
+  { path: 'pais', component:  PaisComponent, title: 'Países' }
 ];
 
 

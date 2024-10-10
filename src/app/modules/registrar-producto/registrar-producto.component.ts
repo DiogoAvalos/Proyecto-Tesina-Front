@@ -13,7 +13,6 @@ import { SortingTableColumnComponent } from 'src/app/shared/components/sorting-t
 @Component({
   standalone: true,
   imports: [ ReactiveFormsModule, CommonModule, MatModule, SharedModule ],
-  selector: 'app-registrar-medico',
   templateUrl: './registrar-producto.component.html',
   styleUrls: ['./registrar-producto.component.scss']
 })

@@ -1,16 +1,16 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { MatModule } from 'src/app/appModules/mat.module';
-import { SharedModule } from "../../../shared/shared.module";
 import { SweetAlertService } from 'src/app/auth/services/sweetAlertService.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FicheroSevice } from 'src/app/auth/services/ficheroSevice.service';
-import { firstValueFrom, Observable, take, tap } from 'rxjs';
+import { firstValueFrom, Observable, take } from 'rxjs';
 import { Pais, TipoDoc } from 'src/app/auth/interfaces/ficheros';
 import { UserService } from 'src/app/auth/services/userService.service';
 import { ValidacionService } from 'src/app/auth/services/validacion.service';
 import { ModalComponent } from 'src/app/shared/components/modal-component/modal-component.component';
 import { SortingTableColumnComponent } from 'src/app/shared/components/sorting-table/sorting-table-column.interface';
+import { CommonModule } from '@angular/common';
+import { MatModule } from 'src/app/appModules/mat.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-registrar-usuario',

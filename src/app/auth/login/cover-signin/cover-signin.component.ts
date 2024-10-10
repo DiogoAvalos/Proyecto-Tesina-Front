@@ -27,6 +27,8 @@ export class CoverSigninComponent implements OnInit {
   hide: any
   form: FormGroup
 
+  constructor(private router: Router) {}
+
   ngOnInit(){
     this.form = this.FB.group({
       username: [null, Validators.required],
@@ -57,5 +59,9 @@ export class CoverSigninComponent implements OnInit {
         })
       ).subscribe()
     }
+  }
+
+  redireccionarContra(){
+    this.router.navigate(['auth/cover-forgot-password'])
   }
 }
