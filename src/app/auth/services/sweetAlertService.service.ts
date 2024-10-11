@@ -34,7 +34,7 @@ constructor() { }
     });
   }
 
-  HandleError(title: string, message: string){
+  HandleError(title?: string, message?: string){
     Swal.fire({
       title: `${title}`,
       icon: 'error',
