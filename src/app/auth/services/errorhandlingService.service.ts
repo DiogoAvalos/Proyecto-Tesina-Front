@@ -31,22 +31,28 @@ export class ErrorHandlingService {
       });
       switch (error.status) {
         case 400:
-          this.SA.HandleError('400 - Solicitud incorrecta', `${error.error.detail}`);
+          this.SA.HandleError('', `${error.error.detail}`);
+          //this.SA.HandleError('400 - Solicitud incorrecta', `${error.error.detail}`);
           break;
         case 401:
-          this.SA.HandleError('401 - No autorizado', `${error.error.detail}`);
+          this.SA.HandleError('', `${error.error.detail}`);
+          //this.SA.HandleError('401 - No autorizado', `${error.error.detail}`);
           break;
         case 405:
-          this.SA.HandleError('405 - No se encontró el recurso', `${error.error.detail}`)
+          this.SA.HandleError('', `${error.error.detail}`)
+          //this.SA.HandleError('405 - No se encontró el recurso', `${error.error.detail}`)
           break;
         case 422:
-          this.SA.HandleError('422 - Propiedad no procesable', `${error.error.detail}`)
+          this.SA.HandleError('', `${error.error.detail}`)
+          //this.SA.HandleError('422 - Propiedad no procesable', `${error.error.detail}`)
           break
         case 404:
-          this.SA.HandleError('404 - No encontrado', `${error.error.detail}`);
+          this.SA.HandleError('', `${error.error.detail}`)
+          //this.SA.HandleError('404 - No encontrado', `${error.error.detail}`)
           break;
         case 500:
-          this.SA.HandleError('500 - Error interno del servidor', `${error.error.detail}`);
+          this.SA.HandleError('', `${error.error.detail}`)
+          //this.SA.HandleError('500 - Error interno del servidor', `${error.error.detail}`)
           break;
         default:
           this.SA.HandleError(`${error.status}`, `${error.message}`);

@@ -6,7 +6,7 @@ export interface Usuario {
     nombres: FormControl<string>
     apellidos: FormControl<string>
     email: FormControl<string>
-    birthdate: FormControl<string>
+    fecha_nacimiento: FormControl<string>
     clave: FormControl<string>
     tipodoc: FormControl<number>
     numdoc: FormControl<string>
@@ -26,7 +26,7 @@ export interface UsuarioCabecera {
     nombres: string
     apellidos: string
     email: string
-    birthdate: string
+    fecha_nacimiento: string
     clave: string
     tipodoc: number
     numdoc: string

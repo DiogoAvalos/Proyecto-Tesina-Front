@@ -47,7 +47,7 @@
                 <div class="col-12 col-md-2">
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label data-for="birthdate">Fecha de Nacimiento</mat-label>
-                    <input matInput type="date" formControlName="birthdate">
+                    <input matInput type="date" formControlName="fecha_nacimiento">
                   </mat-form-field>
                 </div>
                 <div class="col-12 col-md-2">
@@ -81,11 +81,14 @@
                     </mat-select>
                   </mat-form-field>
                 </div>
-                <div class="col-12 col-md-12">
+                <div class="col-12 col-md-10">
                   <mat-form-field class="w-100" appearance="outline">
                     <mat-label data-for="password">Contraseña</mat-label>
                     <input type="password" matInput formControlName="clave">
                   </mat-form-field>
+                </div>
+                <div class="col-12 col-md-2">
+                  <mat-slide-toggle style="padding-top: 15px; padding-bottom: 30px;" formControlName="activo">Activo</mat-slide-toggle>
                 </div>
                 <div class="col-12 col-md-3">
                   <mat-form-field appearance="outline" class="w-100">

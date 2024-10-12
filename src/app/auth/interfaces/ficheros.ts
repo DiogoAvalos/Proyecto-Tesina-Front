@@ -4,6 +4,6 @@ export interface Pais {
 }
 
 export interface TipoDoc {
-    id: string
+    id: number
     descripcion: string
 }

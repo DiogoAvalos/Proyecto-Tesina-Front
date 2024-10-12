@@ -64,7 +64,7 @@ export class RegistrarUsuarioComponent implements OnInit {
       nombres: [null, Validators.required],
       apellidos: [null, Validators.required],
       email: [null, Validators.required],
-      birthdate: [null, Validators.required],
+      fecha_nacimiento: [null, Validators.required],
       clave: [null, Validators.required],
       tipodoc: [null, Validators.required],
       numdoc: [null, Validators.required],
@@ -75,7 +75,7 @@ export class RegistrarUsuarioComponent implements OnInit {
       telefono: [null],
       //*fecha_creacion: moment().format(),
       rol: [null, Validators.required],
-      activo: [true]
+      activo: [false]
     })
     this.loadTabla()
   }

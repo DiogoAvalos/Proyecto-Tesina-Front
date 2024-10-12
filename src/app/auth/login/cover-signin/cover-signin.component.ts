@@ -43,18 +43,18 @@ export class CoverSigninComponent implements OnInit {
     }else{
       this.LG.Login(this.form.value).pipe(
         tap((response: Token) => {
+          console.log("response ->",response)
           if(response && response.access_token){
             localStorage.setItem('access_token', response.access_token)
             localStorage.setItem('user', JSON.stringify(response.user))
             const { nombres, apellidos } = response.user
             this.SA.SuccessAlert(`BIENVENIDO ${nombres} ${apellidos}`)
             this.RT.navigate(['dashboard/e-commerce'])
-          } else {
-            this.SA.ErrorAlert('¡Nombre de usuario y/o contraseña incorrectos!')
           }
         }),
-        catchError(() => {
-          this.SA.ErrorAlert('¡Nombre de usuario y/o contraseña incorrectos!')
+        catchError((e) => {
+          console.log(e.error.detail)
+          this.SA.ErrorAlert(e.error.detail)
           return of(null)
         })
       ).subscribe()
