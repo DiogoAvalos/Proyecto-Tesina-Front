@@ -93,7 +93,6 @@ export class RegistrarUsuarioComponent implements OnInit {
   }
 
   accion([a, data, i]){
-    console.log(data)
     if(a.accion == 'editar'){
       this.nombreBtn = 'ACTUALIZAR'
       this.nombreTitulo = 'Actualizar Usuario'

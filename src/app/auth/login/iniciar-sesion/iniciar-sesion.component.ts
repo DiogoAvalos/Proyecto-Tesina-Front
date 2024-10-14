@@ -42,7 +42,6 @@ export class CoverSigninComponent implements OnInit {
     }else{
       this.LG.Login(this.form.value).pipe(
         tap((response: Token) => {
-          console.log("response ->",response)
           if(response && response.access_token){
             localStorage.setItem('access_token', response.access_token)
             localStorage.setItem('user', JSON.stringify(response.user))
@@ -52,7 +51,6 @@ export class CoverSigninComponent implements OnInit {
           }
         }),
         catchError((e) => {
-          console.log(e.error.detail)
           this.SA.ErrorAlert(e.error.detail)
           return of(null)
         })

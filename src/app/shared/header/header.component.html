@@ -1,11 +1,8 @@
-<header class="top-header mat-elevation-z5" [class.hidden]="toggleSearch" [ngClass]="{'test' : getSideBarSate()}">
+<header class="top-header mat-elevation-z5" [ngClass]="{'test' : getSideBarSate()}">
   <div class="flex-grow-1 gap-1 d-flex align-items-center">
     <button mat-icon-button (click)="toggleSidebar()" >
       <mat-icon class="material-icons-outlined">menu</mat-icon>
     </button>
-    <!-- <button mat-icon-button (click)="openSearch()">
-      <mat-icon class="material-icons-outlined">search</mat-icon>
-    </button> -->
   </div>
 
   <div class="d-flex align-items-center gap-1">
@@ -28,35 +25,6 @@
           </div>
         </mat-grid-tile>
       </mat-grid-list>
-    </mat-menu>
-    <mat-menu #Notification class="rounded-4 dropdown-notification">
-      <button mat-menu-item>
-        <mat-icon class="material-icons-outlined text-red">shopping_cart</mat-icon>
-        <span>New Sale from Gumroad</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon class="material-icons-outlined text-purple">email</mat-icon>
-        <span>Check your new message</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon class="material-icons-outlined text-green">task</mat-icon>
-        <span>You have 5 new task</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon class="material-icons-outlined text-blue">supervisor_account</mat-icon>
-        <span>10 New users registered</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon class="material-icons-outlined text-amber">card_giftcard</mat-icon>
-        <span>You have received 1 new gift</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon class="material-icons-outlined text-teal">done_all</mat-icon>
-        <span>Payment succesfully completed</span>
-      </button>
-      <div class="mx-3 my-2">
-        <button mat-raised-button color="primary" class="rounded-4 w-100">View All</button>
-      </div>
     </mat-menu>
 
     <button mat-icon-button [matMenuTriggerFor]="UserProfile">
@@ -89,16 +57,3 @@
     </mat-menu>
   </div>
 </header>
-
-
-<!--start search toolbar-->
-<mat-toolbar class="searchbar mat-elevation-z5 justify-content-between"  [ngClass]="{'full-search' : getSideBarSate()}" [class.searchVisible]="toggleSearch">
-  <button mat-icon-button class="btn-search">
-    <mat-icon class="material-icons-outlined">search</mat-icon>
-  </button>
-  <input class="w-100 search-control" placeholder="Search">
-  <button mat-icon-button class="btn-search" (click)="searchClose()">
-    <mat-icon class="material-icons-outlined">close</mat-icon>
-  </button>
-</mat-toolbar>
-<!--end search toolbar-->

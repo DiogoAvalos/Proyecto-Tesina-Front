@@ -29,8 +29,6 @@ export class HeaderComponent implements OnInit {
 
   theme_name = 'dark_mode'
 
-  toggleSearch: boolean = false
-
   darkMode() {
     if(this.theme_name == 'light_mode' ) {
       document.querySelector("html").classList.replace('dark_mode' , 'light_mode')
@@ -52,37 +50,13 @@ export class HeaderComponent implements OnInit {
     this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState())
   }
 
-  openSearch() {
-    this.toggleSearch = true
-  }
-
-  searchClose() {
-    this.toggleSearch = false
-  }
-
   appIcon: AppIcon[] = [
-    { src: 'assets/images/app/apple.png', name: 'Apple' },
-    { src: 'assets/images/app/behance.png', name: 'Behance' },
-    { src: 'assets/images/app/slack.png', name: 'Slack' },
-    { src: 'assets/images/app/bootstrap.png', name: 'Bootstrap' },
     { src: 'assets/images/app/google-drive.png', name: 'Drive' },
     { src: 'assets/images/app/outlook.png', name: 'Outlook' },
-    { src: 'assets/images/app/github.png', name: 'GitHub' },
-    { src: 'assets/images/app/stack-overflow.png', name: 'Overflow' },
-    { src: 'assets/images/app/figma.png', name: 'Figma' },
-    { src: 'assets/images/app/twitter.png', name: 'Twitter' },
     { src: 'assets/images/app/google-calendar.png', name: 'Calendar' },
     { src: 'assets/images/app/spotify.png', name: 'Spotify' },
-    { src: 'assets/images/app/google-photos.png', name: 'Photos' },
-    { src: 'assets/images/app/pinterest.png', name: 'Pinterest' },
-    { src: 'assets/images/app/linkedin.png', name: 'linkedin' },
-    { src: 'assets/images/app/dribble.png', name: 'Dribbble' },
     { src: 'assets/images/app/youtube.png', name: 'YouTube' },
     { src: 'assets/images/app/google.png', name: 'News' },
-    { src: 'assets/images/app/envato.png', name: 'Envato' },
-    { src: 'assets/images/app/safari.png', name: 'Safari' },
-
-
   ]
 
   ngOnInit() {
@@ -94,12 +68,13 @@ export class HeaderComponent implements OnInit {
         this.correo = parsedUser.correo
         this.username = parsedUser.username
       } catch (error) {
-        console.error('Error al parsear los datos del usuario:', error)
+        console.error('Error ->', error)
       }
     }
     this.loadUserImage()
   }
 
+  //* Cerrar Sesión
   async logout(){
     const confirmar = await this.SA.ConfirmAlert("¿Cerrar sesión?")
     if(confirmar.isConfirmed){
@@ -109,6 +84,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  //* Cargar imagen desde la base de datos
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement
     if (input.files && input.files[0]) {

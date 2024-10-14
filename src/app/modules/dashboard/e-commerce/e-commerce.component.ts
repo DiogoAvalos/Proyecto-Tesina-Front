@@ -861,7 +861,6 @@ this.WidgetChart8 = {
   }
 
   chart5Download(){
-    console.log("data")
     descargarChartImage(this.WidgetChart5, 'ventas_productos.png')
   }
 }

@@ -1,9 +1,7 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
-import {MatPaginator, MatPaginatorModule, PageEvent} from '@angular/material/paginator';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table'
-import { CommonModule } from '@angular/common';
-import { MatModule } from 'src/app/appModules/mat.module';
+import {MatPaginator, PageEvent} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import { SortingTableColumnComponent } from './sorting-table-column.interface';
 
 
