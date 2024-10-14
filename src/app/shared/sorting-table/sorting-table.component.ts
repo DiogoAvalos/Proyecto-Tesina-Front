@@ -17,7 +17,7 @@ export interface UserData {
 @Component({
   selector: 'tabla-dinamica',
   templateUrl: './sorting-table.component.html',
-  styleUrl: './sorting-table.component.scss'
+  styleUrls: ['./sorting-table.component.scss']
 })
 
 export class SortingTableComponent implements AfterViewInit, OnInit {

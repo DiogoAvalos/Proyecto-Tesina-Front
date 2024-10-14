@@ -8,9 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ModuleRoutingModule } from './modules-routing.module';
+import { RegistrarProductoComponent } from './registrar-producto/registrar-producto.component';
 
 @NgModule({
   declarations: [
+    RegistrarProductoComponent
   ],
   imports: [
     ModuleRoutingModule,
@@ -21,7 +23,7 @@ import { ModuleRoutingModule } from './modules-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
   ],
 })
 

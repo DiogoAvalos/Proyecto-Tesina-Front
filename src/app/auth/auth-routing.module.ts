@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CoverSigninComponent } from './login/cover-signin/cover-signin.component';
+import { CoverSigninComponent } from './login/iniciar-sesion/iniciar-sesion.component';
 import { CoverSignupComponent } from './login/cover-signup/cover-signup.component';
 import { CoverForgotPasswordComponent } from './login/cover-forgot-password/cover-forgot-password.component';
 import { CoverResetPasswordComponent } from './login/cover-reset-password/cover-reset-password.component';

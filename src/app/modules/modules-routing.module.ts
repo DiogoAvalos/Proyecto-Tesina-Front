@@ -7,7 +7,7 @@ import { RegistrarProductoComponent } from './registrar-producto/registrar-produ
 
 const routes: Routes = [
   { path: 'user-profile', component:  UserProfileComponent, title: 'Perfil de Usuario' },
-  { path: 'registrar-productos', component: RegistrarProductoComponent, title: 'Registrar Productos' },
+  { path: 'listar-productos', component: RegistrarProductoComponent, title: 'Lista de Productos' },
   { path: 'fichero', loadChildren: () => import('./ficheros/ficheros-routing.module').then(m => m.FicherosRoutingModule) },
   { path: 'configuracion', loadChildren: () => import('./configuracion/configuracion-routing.module').then(m => m.ConfiguracionesRoutingModule) }
 ];

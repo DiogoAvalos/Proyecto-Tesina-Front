@@ -7,8 +7,8 @@ import { HeaderComponent } from "./header/header.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 // import { ColorSwitcherComponent } from './color-switcher/color-switcher.component';
 import { MatModule } from '../appModules/mat.module';
-import { ModalComponent } from './components/modal-component/modal-component.component';
-import { SortingTableComponent } from './components/sorting-table/sorting-table.component';
+import { ModalComponent } from './modal-component/modal-component.component';
+import { SortingTableComponent } from './sorting-table/sorting-table.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 

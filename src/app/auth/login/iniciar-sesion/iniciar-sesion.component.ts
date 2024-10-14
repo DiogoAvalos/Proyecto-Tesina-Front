@@ -10,11 +10,10 @@ import { Token } from '../../interfaces/usuario';
 import { LocalStorageService } from '../../services/localStorageService.service';
 
 @Component({
-  selector: 'app-cover-signin',
   standalone: true,
   imports: [CommonModule, MatModule, RouterModule, ReactiveFormsModule],
-  templateUrl: './cover-signin.component.html',
-  styleUrl: './cover-signin.component.scss'
+  templateUrl: './iniciar-sesion.component.html',
+  styleUrl: './iniciar-sesion.component.scss'
 })
 
 export class CoverSigninComponent implements OnInit {
