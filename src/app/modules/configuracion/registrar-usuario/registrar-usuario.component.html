@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-12">
           <mat-card-content class="p-4">
-            <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+            <form [formGroup]="formUsuario" (ngSubmit)="OnSubmit()">
               <div class="row g-3">
                 <div class="col-12 col-md-2">
                   <mat-form-field class="w-100" appearance="outline">
@@ -113,10 +113,10 @@
                   </mat-form-field>
                 </div>
                 <div class="col-12 col-md-3">
-                  <mat-form-field class="w-100" appearance="outline">
+                  <!-- <mat-form-field class="w-100" appearance="outline">
                     <mat-label data-for="rol">Rol de usuario</mat-label>
                     <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="rol">
-                  </mat-form-field>
+                  </mat-form-field> -->
                 </div>
               </div>
               <button mat-raised-button class="px-5 py-4 text-uppercase" color="primary">

@@ -11,6 +11,7 @@ import { SortingTableColumnComponent } from 'src/app/shared/sorting-table/sortin
 import { CommonModule } from '@angular/common';
 import { MatModule } from 'src/app/appModules/mat.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { formUsuario } from '../formulario';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -33,12 +34,12 @@ export class RegistrarUsuarioComponent implements OnInit {
   paises: any[]
   tipoDoc$: Observable<TipoDoc[]>
   tipoDoc: any[]
-  form: FormGroup
   nombreBtn: string = ''
   nombreTitulo: string = ''
   dataUsuarios: any
   VERB_HTTP: string = ''
   id_registro: any
+  formUsuario: FormGroup = formUsuario()
 
   columnas: Array<SortingTableColumnComponent> = [
     { name: 'id', display: 'ID'},
@@ -47,45 +48,23 @@ export class RegistrarUsuarioComponent implements OnInit {
     { name: 'email', display: 'EMAIL' },
     { name: 'numdoc', display: 'N° DOCUMENTO' },
     { name: 'telefono', display: 'TELÉFONO' },
-    { name: 'rol', display: 'ROL' },
     { name: 'editar', display: 'EDITAR', accion: 'editar', icon: 'edit' }
   ]
 
   constructor() { }
 
   ngOnInit() {
-    this.pais$ = this.FS.getPais();
+    this.pais$ = this.FS.getPais()
     this.pais$.subscribe(data => { this.paises = data })
     this.tipoDoc$ = this.FS.getTipoDoc()
     this.tipoDoc$.subscribe(data => { this.tipoDoc = data })
-    this.form = this.FB.group({
-      id: [null],
-      username: [null, Validators.required],
-      nombres: [null, Validators.required],
-      apellidos: [null, Validators.required],
-      email: [null, Validators.required],
-      fecha_nacimiento: [null, Validators.required],
-      clave: [null, Validators.required],
-      tipodoc: [null, Validators.required],
-      numdoc: [null, Validators.required],
-      pais_id: [null],
-      departamento: [null],
-      distrito: [null],
-      genero: [null, Validators.required],
-      telefono: [null],
-      //*fecha_creacion: moment().format(),
-      rol: [null, Validators.required],
-      activo: [false]
-    })
     this.loadTabla()
   }
 
-  async loadTabla() {
-    this.dataUsuarios = await firstValueFrom(this.US.getUsers())
-  }
+  loadTabla = async() => this.dataUsuarios = await firstValueFrom(this.US.getUsers())
 
   registroNuevo(){
-    this.form.reset()
+    this.formUsuario.reset()
     this.modal.showModal()
     this.nombreTitulo = 'Registrar Usuario'
     this.nombreBtn = 'REGISTRAR'
@@ -98,21 +77,21 @@ export class RegistrarUsuarioComponent implements OnInit {
       this.nombreTitulo = 'Actualizar Usuario'
       this.VERB_HTTP = 'PUT'
       this.id_registro = data.id
-      this.form.patchValue(data)
+      this.formUsuario.patchValue(data)
       this.modal.showModal()
     }
   }
 
   OnSubmit(){
-    if(this.form.valid){
-      const data = this.form.getRawValue()
+    if(this.formUsuario.valid){
+      const data = this.formUsuario.getRawValue()
       this.US.crudUser(this.VERB_HTTP, data, this.id_registro).pipe(take(1)).subscribe({
         next: (r) => {
           if(r.status){
             this.SA.ErrorAlert(r.message)
           }else{
             this.SA.SuccessAlert(r.message)
-            this.form.reset()
+            this.formUsuario.reset()
             this.registroNuevo()
             this.modal.hiddenModal()
             this.loadTabla()
@@ -120,7 +99,7 @@ export class RegistrarUsuarioComponent implements OnInit {
         }
       })
     }else{
-      this.VA.validacionCampos(this.form.controls, this.SA)
+      this.VA.validacionCampos(this.formUsuario.controls, this.SA)
     }
   }
 }

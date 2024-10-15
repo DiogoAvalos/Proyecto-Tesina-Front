@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Usuario } from '../interfaces/usuario';
+import { Roles, Usuario } from '../interfaces/usuario';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -26,5 +26,10 @@ constructor(private http: HttpClient) {}
 
   putUserImagen(id: number, base64Image: string){
     return this.http.put(`${environment.apiUrl}/usuarios/imagen/${id}`, base64Image)
+  }
+
+  //* Roles y Menú Items *//
+  getRoles(): Observable<Roles[]>{
+    return this.http.get<Roles[]>(`${environment.apiUrl}/usuarios/listar-roles`)
   }
 }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
 import { MatModule } from 'src/app/appModules/mat.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 

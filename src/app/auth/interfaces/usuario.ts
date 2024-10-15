@@ -53,3 +53,22 @@ export interface UserToken {
     correo: string
     imagen_base64: string | null;
 }
+
+export interface MenuItem {
+    id: number
+    label: string
+    icon: string
+    router_link: string
+}
+
+export interface Roles {
+    id: number
+    nombre_rol: string
+    accesos: MenuItem[]
+}
+
+export interface Accesos {
+    name: string
+    completed: boolean
+    subtasks?: Accesos[]
+}
