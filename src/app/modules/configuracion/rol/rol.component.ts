@@ -10,7 +10,7 @@ import { ModalComponent } from 'src/app/shared/modal-component/modal-component.c
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SortingTableColumnComponent } from 'src/app/shared/sorting-table/sorting-table-column.interface';
 import { formRol } from '../formulario';
-import { Accesos } from 'src/app/auth/interfaces/usuario';
+import { Accesos, Roles } from 'src/app/auth/interfaces/usuario';
 
 @Component({
   standalone: true,
@@ -57,37 +57,38 @@ export class RolComponent implements OnInit {
   registroNuevo(){
   }
 
-  //! TEST
-  readonly task = signal<Accesos>({
-    name: 'Parent task',
-    completed: false,
-    subtasks: [
-      {name: 'Child task 1', completed: false},
-      {name: 'Child task 2', completed: false},
-      {name: 'Child task 3', completed: false},
+  readonly roles = signal<Roles>({
+    id: 1,
+    nombre_rol: 'Admin',
+    accesos: [
+      { id: 1, label: 'Dashboard', icon: 'dashboard', router_link: '/dashboard', completed: false },
+      { id: 2, label: 'Users', icon: 'people', router_link: '/users', completed: false },
+      { id: 3, label: 'Settings', icon: 'settings', router_link: '/settings', completed: false },
     ],
-  });
-
-  //! TEST
+  })
+  
   readonly partiallyComplete = computed(() => {
-    const task = this.task();
-    if (!task.subtasks) {
-      return false;
+    const roles = this.roles()
+    if (!roles.accesos) {
+      return false
     }
-    return task.subtasks.some(t => t.completed) && !task.subtasks.every(t => t.completed);
+    return roles.accesos.some(a => a.completed) && !roles.accesos.every(a => a.completed)
   });
-
-  //! TEST
+  
   update(completed: boolean, index?: number) {
-    this.task.update(task => {
+    this.roles.update(roles => {
       if (index === undefined) {
-        task.completed = completed;
-        task.subtasks?.forEach(t => (t.completed = completed));
+        roles.accesos?.forEach(a => (a.completed = completed))
       } else {
-        task.subtasks![index].completed = completed;
-        task.completed = task.subtasks?.every(t => t.completed) ?? true;
+        roles.accesos![index].completed = completed
       }
-      return {...task};
+      console.log("ROLES ->",roles)
+      return { ...roles }
     });
+  }
+
+  allAccesosCompleted(): boolean {
+    const roles = this.roles()
+    return roles.accesos.every(a => a.completed)
   }
 }

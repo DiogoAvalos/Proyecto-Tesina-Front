@@ -51,7 +51,7 @@ export interface UserToken {
     nombres: string
     apellidos: string
     correo: string
-    imagen_base64: string | null;
+    imagen_base64: string | null
 }
 
 export interface MenuItem {
@@ -59,6 +59,7 @@ export interface MenuItem {
     label: string
     icon: string
     router_link: string
+    completed: boolean
 }
 
 export interface Roles {
