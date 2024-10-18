@@ -9,7 +9,7 @@ export const environment = {
 
 export const environmentProductrion = {
   production: true,
-  apiUrl: ''
+  apiUrl: 'https://proyecto-tesina-back.onrender.com'
 }
 
 /*
