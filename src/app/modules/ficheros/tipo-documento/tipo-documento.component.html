@@ -1,3 +1,48 @@
-<p>
-  tipo-documento works!
-</p>
+<div>
+  <h3 class="titulo">Lista de Tipo de Documentos</h3>
+</div>
+
+<div class="row">
+  <tabla-dinamica [data]="dataTipoDoc" [columnas]="columnas" (accion)="accion($event)">
+    <div class="example-button-row">
+      <button mat-flat-button color="primary" (click)="modal.showModal()">REGISTRAR</button>
+    </div>
+  </tabla-dinamica>
+</div>
+
+<app-modal-component [titulo]="'TEST'" [style]="'min-width: 80%'" #modal>
+  <div class="row">
+    <div class="col-12">
+      <mat-card-content class="p-4">
+        <form [formGroup]="formTipoDoc" (ngSubmit)="OnSubmit()">
+          <div class="row g-3">
+            <div class="col-12 col-md-3">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="apellidos">CODIGO SUNAT</mat-label>
+                <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="cod_sunat">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-4">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="text">NOMBRE CORTO</mat-label>
+                <input type="text" matInput formControlName="cod_corto">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="apellidos">DESCRIPCIÓN</mat-label>
+                <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="descripcion">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-2">
+              <mat-slide-toggle style="padding-top: 15px; padding-bottom: 30px;" formControlName="activo">Activo</mat-slide-toggle>
+            </div>
+          </div>
+          <button mat-raised-button class="px-5 py-4 text-uppercase" color="primary">
+            {{ nombreBtn }}
+          </button>
+        </form>
+      </mat-card-content>
+    </div>
+  </div>
+</app-modal-component>

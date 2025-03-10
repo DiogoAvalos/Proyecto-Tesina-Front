@@ -8,8 +8,6 @@ const routes: Routes = [
   { path: 'pais', component:  PaisComponent, title: 'Países' }
 ];
 
-
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

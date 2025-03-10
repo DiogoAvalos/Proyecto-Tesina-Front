@@ -40,6 +40,5 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         SortingTableComponent
         // ColorSwitcherComponent
     ],
-    providers: [ ],
 })
 export class SharedModule { }

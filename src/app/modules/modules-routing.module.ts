@@ -8,8 +8,8 @@ import { RegistrarProductoComponent } from './registrar-producto/registrar-produ
 const routes: Routes = [
   { path: 'user-profile', component:  UserProfileComponent, title: 'Perfil de Usuario' },
   { path: 'listar-productos', component: RegistrarProductoComponent, title: 'Lista de Productos' },
-  { path: 'fichero', loadChildren: () => import('./ficheros/ficheros-routing.module').then(m => m.FicherosRoutingModule) },
-  { path: 'configuracion', loadChildren: () => import('./configuracion/configuracion-routing.module').then(m => m.ConfiguracionesRoutingModule) }
+  { path: 'fichero', loadChildren: () => import('./ficheros/ficheros.module').then(m => m.FicheroModule) },
+  { path: 'configuracion', loadChildren: () => import('./configuracion/configuracion.module').then(m => m.ConfiguracionModule) }
 ];
 
 @NgModule({

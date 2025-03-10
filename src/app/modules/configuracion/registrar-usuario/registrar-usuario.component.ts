@@ -8,17 +8,12 @@ import { UserService } from 'src/app/auth/services/userService.service';
 import { ValidacionService } from 'src/app/auth/services/validacion.service';
 import { ModalComponent } from 'src/app/shared/modal-component/modal-component.component';
 import { SortingTableColumnComponent } from 'src/app/shared/sorting-table/sorting-table-column.interface';
-import { CommonModule } from '@angular/common';
-import { MatModule } from 'src/app/appModules/mat.module';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { formUsuario } from '../formulario';
 
 @Component({
   selector: 'app-registrar-usuario',
   templateUrl: './registrar-usuario.component.html',
   styleUrls: ['./registrar-usuario.component.scss'],
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, MatModule, SharedModule]
 })
 
 export class RegistrarUsuarioComponent implements OnInit {
