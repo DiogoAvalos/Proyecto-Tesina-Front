@@ -1,129 +1,126 @@
 <div>
-    <h3 class="titulo">Lista de Usuarios</h3>
+  <h3 class="titulo">Lista de Usuarios</h3>
 </div>
 
 <div class="row">
-    <tabla-dinamica
-    [data]="dataUsuarios"
-    [columnas]="columnas"
-    (accion)="accion($event)"
-    >
+  <tabla-dinamica [data]="dataUsuarios" [columnas]="columnas" (accion)="accion($event)">
     <div class="example-button-row">
-        <button mat-flat-button color="primary" (click)="registroNuevo()">REGISTRAR</button>
+      <button mat-flat-button color="primary" (click)="registroNuevo()">REGISTRAR</button>
     </div>
-    </tabla-dinamica>
+  </tabla-dinamica>
 </div>
 
 <app-modal-component [titulo]="nombreTitulo" [style]="'min-width: 80%'" #modal>
-    <div class="row">
-        <div class="col-12">
-          <mat-card-content class="p-4">
-            <form [formGroup]="formUsuario" (ngSubmit)="OnSubmit()">
-              <div class="row g-3">
-                <div class="col-12 col-md-2">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="username">Username</mat-label>
-                    <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="username">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-3">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="nombres">Nombres</mat-label>
-                    <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="nombres">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-3">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="apellidos">Apellidos</mat-label>
-                    <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="apellidos">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-4">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="email">Email</mat-label>
-                    <input type="email" matInput formControlName="email">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-2">
-                  <mat-form-field appearance="outline" class="w-100">
-                    <mat-label data-for="birthdate">Fecha de Nacimiento</mat-label>
-                    <input matInput type="date" formControlName="fecha_nacimiento">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-2">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="telefono">Teléfono</mat-label>
-                    <input matInput formControlName="telefono">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-4">
-                  <mat-form-field appearance="outline" class="w-100">
-                    <mat-label data-for="tipodoc">Tipo de documento</mat-label>
-                      <mat-select formControlName="tipodoc">
-                      <mat-option *ngFor="let tipo of tipoDoc" [value]="tipo.id">
-                        {{ tipo.descripcion }}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-2">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="numdoc">N° Documento</mat-label>
-                    <input matInput formControlName="numdoc">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-2">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="genero">Género</mat-label>
-                    <mat-select formControlName="genero">
-                      <mat-option value="M">MASCULINO</mat-option>
-                      <mat-option value="F">FEMENINO</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-10">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="password">Contraseña</mat-label>
-                    <input type="password" matInput formControlName="clave">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-2">
-                  <mat-slide-toggle style="padding-top: 15px; padding-bottom: 30px;" formControlName="activo">Activo</mat-slide-toggle>
-                </div>
-                <div class="col-12 col-md-3">
-                  <mat-form-field appearance="outline" class="w-100">
-                    <mat-label data-for="pais_id">País</mat-label>
-                    <mat-select formControlName="pais_id">
-                      <mat-option *ngFor="let pais of paises" [value]="pais.id">
-                        {{ pais.nombre }}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-3">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="departamento">Departamento</mat-label>
-                    <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="departamento">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-3">
-                  <mat-form-field class="w-100" appearance="outline">
-                    <mat-label data-for="distrito">Distrito</mat-label>
-                    <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="distrito">
-                  </mat-form-field>
-                </div>
-                <div class="col-12 col-md-3">
-                  <!-- <mat-form-field class="w-100" appearance="outline">
+  <div class="row">
+    <div class="col-12">
+      <mat-card-content class="p-4">
+        <form [formGroup]="formUsuario" (ngSubmit)="OnSubmit()">
+          <div class="row g-3">
+            <div class="col-12 col-md-2">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="username">Username</mat-label>
+                <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="username">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="nombres">Nombres</mat-label>
+                <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="nombres">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="apellidos">Apellidos</mat-label>
+                <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="apellidos">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-4">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="email">Email</mat-label>
+                <input type="email" matInput formControlName="email">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-2">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label data-for="birthdate">Fecha de Nacimiento</mat-label>
+                <input matInput type="date" formControlName="fecha_nacimiento">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-2">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="telefono">Teléfono</mat-label>
+                <input matInput formControlName="telefono">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label data-for="tipodoc">Tipo de documento</mat-label>
+                <mat-select formControlName="tipodoc">
+                  <mat-option *ngFor="let tipo of tipoDoc" [value]="tipo.id">
+                    {{ tipo.descripcion }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-2">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="numdoc">N° Documento</mat-label>
+                <input matInput formControlName="numdoc">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-2">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="genero">Género</mat-label>
+                <mat-select formControlName="genero">
+                  <mat-option value="M">MASCULINO</mat-option>
+                  <mat-option value="F">FEMENINO</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-10">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="password">Contraseña</mat-label>
+                <input type="password" matInput formControlName="clave">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-2">
+              <mat-slide-toggle style="padding-top: 15px; padding-bottom: 30px;"
+                formControlName="activo">Activo</mat-slide-toggle>
+            </div>
+            <div class="col-12 col-md-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label data-for="pais_id">País</mat-label>
+                <mat-select formControlName="pais_id">
+                  <mat-option *ngFor="let pais of paises" [value]="pais.id">
+                    {{ pais.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="departamento">Departamento</mat-label>
+                <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="departamento">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label data-for="distrito">Distrito</mat-label>
+                <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="distrito">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+              <!-- <mat-form-field class="w-100" appearance="outline">
                     <mat-label data-for="rol">Rol de usuario</mat-label>
                     <input type="text" matInput oninput="value = value.toUpperCase()" formControlName="rol">
                   </mat-form-field> -->
-                </div>
-              </div>
-              <button mat-raised-button class="px-5 py-4 text-uppercase" color="primary">
-                  {{ nombreBtn }}
-              </button>
-            </form>
-          </mat-card-content>
-        </div>
+            </div>
+          </div>
+          <button mat-raised-button class="px-5 py-4 text-uppercase" color="primary">
+            {{ nombreBtn }}
+          </button>
+        </form>
+      </mat-card-content>
     </div>
+  </div>
 </app-modal-component>
