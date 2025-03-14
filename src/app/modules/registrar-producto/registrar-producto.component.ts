@@ -33,8 +33,6 @@ export class RegistrarProductoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.form = this.FB.group({
-    })
   }
 
   OnSubmit(){
