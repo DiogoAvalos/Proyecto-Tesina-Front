@@ -24,7 +24,7 @@ export class TipoDocumentoComponent implements OnInit {
       { name: 'id', display: 'ID'},
       { name: 'cod_corto', display: 'NOMBRE CORTO' },
       { name: 'descripcion', display: 'DESCRIPCION' },
-      { name: 'estado', display: 'ESTADO' },
+      { name: 'activo', display: 'ACTIVO' },
       { name: 'editar', display: 'EDITAR', accion: 'editar', icon: 'edit' }
     ]
 

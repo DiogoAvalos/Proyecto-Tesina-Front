@@ -1,6 +1,6 @@
-<mat-card appearance="outlined">
+<mat-card [ngClass]="{ 'no-estilo': noCard }" appearance="outlined">
   <mat-card-content class="p-4">
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center" *ngIf="filtrar">
       <mat-form-field appearance="outline" class="flex-grow-1 me-2">
         <mat-label>Filtrar por todos los campos</mat-label>
         <input matInput (keyup)="filtrarTodo($event)" #input>
@@ -18,7 +18,12 @@
               <ng-container *ngIf="columna.imagen">
                 <img [src]="columna.imagen" [ngStyle]="columna.style"/>
               </ng-container>
-              {{ row[columna.name] || columna.default }}
+              <ng-container *ngIf="columna.name === 'activo'; else normalValue">
+                {{ row[columna.name] ? 'SI' : 'NO' }}
+              </ng-container>
+              <ng-template #normalValue>
+                {{ row[columna.name] || columna.default }}
+              </ng-template>
             </ng-container>
             <ng-container *ngIf="columna.name === 'checkbox'">
               <input type="checkbox" [checked]="row[columna.name]" (change)="Accion(columna, row, $event)" [disabled]="row['disabled']"/>
@@ -33,10 +38,10 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="{{ displayedColumns.length }}">Datos no encontrados</td>
+          <td class="mat-cell" colspan="{{ displayedColumns.length }}">{{ noData }}</td>
         </tr>
       </table>
-      <mat-paginator #paginator
+      <mat-paginator *ngIf="paginateActive" #paginator
           class="demo-paginator"
           (page)="handlePageEvent($event)"
           [length]="length"

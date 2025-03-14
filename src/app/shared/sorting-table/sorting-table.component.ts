@@ -21,11 +21,15 @@ export interface UserData {
 export class SortingTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator
   @ViewChild(MatSort) sort: MatSort
-  @Input() columnas: Array<SortingTableColumnComponent>
-  @Input() data: Array<any>
+  @Input() columnas: Array<SortingTableColumnComponent> //TODO: Agregar columnas a la tabla
+  @Input() data: Array<any> //TODO: Pasar data a la tabla
+  @Input() paginateActive: boolean = true //TODO: Quitar o activar paginación de tabla
   @Input() paginate: number = 0
   @Input() estiloactivo: any = null
   @Input() estiloinactivo: any = null
+  @Input() noCard: boolean = false //TODO: Quitar borde de tabla
+  @Input() filtrar: boolean = true //TODO: Quitar o activar filtro de busqueda
+  @Input() noData: string = 'Datos no encontrados' //TODO: Personalizar texto de tabla
   @Output() accion = new EventEmitter<[string, number, any]>()
 
   displayedColumns: string[]

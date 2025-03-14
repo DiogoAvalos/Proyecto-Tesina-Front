@@ -1,12 +1,12 @@
 <aside class="sidebar-wrapper mat-elevation-z9 offcanvas offcanvas-start" [ngClass]="{'mini-sidebar' : getSideBarSate()}">
   <div class="sidebar-header">
-      <img src="assets/images/app/logocsi.jpg" width="220">
+    <img src="assets/images/app/logocsi.jpg" width="220" />
   </div>
   <nav class="sidebar-menu">
     <mat-accordion class="example-headers-align" multi>
-      <mat-nav-list>
+      <!-- <mat-nav-list>
         <a mat-list-item routerLink="profile/user-profile"><mat-icon class="material-icons-outlined">account_circle</mat-icon>Perfil</a>
-      </mat-nav-list>
+      </mat-nav-list> -->
 
       <mat-expansion-panel [class.mat-elevation-z0]="true">
         <mat-expansion-panel-header>
@@ -25,20 +25,17 @@
         <mat-nav-list>
           <a mat-list-item routerLink="modules/listar-productos"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Productos</a>
         </mat-nav-list>
-      </mat-expansion-panel>
 
-      <mat-expansion-panel [class.mat-elevation-z0]="true">
-        <mat-expansion-panel-header>
-          <mat-icon class="material-icons-outlined">settings</mat-icon>Configuración
-        </mat-expansion-panel-header>
         <mat-nav-list>
-          <a mat-list-item routerLink="modules/configuracion/registrar-usuario"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Usuarios</a>
-          <a mat-list-item routerLink="modules/configuracion/rol"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Roles</a>
-          <a mat-list-item routerLink="modules/configuracion/menu-item"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Menú - Accesos</a>
+          <a mat-list-item routerLink="modules/listar-productos"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Registro de Compra</a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+          <a mat-list-item routerLink="modules/registros/registrar-venta"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Registro de Venta</a>
         </mat-nav-list>
       </mat-expansion-panel>
 
-        <!-- <mat-expansion-panel [class.mat-elevation-z0]="true">
+      <!-- <mat-expansion-panel [class.mat-elevation-z0]="true">
           <mat-expansion-panel-header>
             <mat-icon class="material-icons-outlined">widgets</mat-icon>Medicamentos
           </mat-expansion-panel-header>
@@ -46,66 +43,78 @@
             <a mat-list-item routerLink="widgets/data"><mat-icon>arrow_right</mat-icon>Data</a>
           </mat-nav-list>
         </mat-expansion-panel> -->
-      
-        <mat-expansion-panel [class.mat-elevation-z0]="true">
-          <mat-expansion-panel-header>
-            <mat-icon class="material-icons-outlined">redeem</mat-icon>Parametros
-          </mat-expansion-panel-header>
-          <mat-nav-list>
-            <a mat-list-item routerLink="components/badges"><mat-icon>arrow_right</mat-icon>Badges</a>
-            <a mat-list-item routerLink="components/buttons"><mat-icon>arrow_right</mat-icon>Buttons</a>
-            <a mat-list-item routerLink="components/cards"><mat-icon>arrow_right</mat-icon>Cards</a>
-            <a mat-list-item routerLink="components/chips"><mat-icon>arrow_right</mat-icon>Chips</a>
-            <a mat-list-item routerLink="components/expansion"><mat-icon>arrow_right</mat-icon>Expansion</a>
-            <a mat-list-item routerLink="components/menu"><mat-icon>arrow_right</mat-icon>Menu</a>
-            <a mat-list-item routerLink="components/list"><mat-icon>arrow_right</mat-icon>List</a>
-            <a mat-list-item routerLink="components/tabs"><mat-icon>arrow_right</mat-icon>Tabs</a>
-            <a mat-list-item routerLink="components/toolbar"><mat-icon>arrow_right</mat-icon>Toolbar</a>
-          </mat-nav-list>
-        </mat-expansion-panel>
-      
-        <mat-expansion-panel [class.mat-elevation-z0]="true">
-          <mat-expansion-panel-header>
-            <mat-icon class="material-icons-outlined">description</mat-icon>Kardex
-          </mat-expansion-panel-header>
-          <mat-nav-list>
-            <a mat-list-item routerLink="forms/elements"><mat-icon>arrow_right</mat-icon>Elements</a>
-            <a mat-list-item routerLink="forms/layouts"><mat-icon>arrow_right</mat-icon>Layouts</a>
-          </mat-nav-list>
-        </mat-expansion-panel>
 
-        <mat-expansion-panel [class.mat-elevation-z0]="true">
-          <mat-expansion-panel-header>
-            <mat-icon class="material-icons-outlined">lock</mat-icon>Validacion de Datos
-          </mat-expansion-panel-header>
-          <mat-nav-list>
-            <a mat-list-item routerLink="auth/cover-signin" target="_blank"><mat-icon>arrow_right</mat-icon>SignIn Cover</a>
-            <a mat-list-item routerLink="auth/cover-signup" target="_blank"><mat-icon>arrow_right</mat-icon>SignUp Cover</a>
-            <a mat-list-item routerLink="auth/cover-forgot-password" target="_blank"><mat-icon>arrow_right</mat-icon>Forgot Password Cover</a>
-            <a mat-list-item routerLink="auth/cover-reset-password" target="_blank"><mat-icon>arrow_right</mat-icon>Reset Password Cover</a>
-          </mat-nav-list>
-        </mat-expansion-panel>
-      
-        <mat-expansion-panel [class.mat-elevation-z0]="true">
-          <mat-expansion-panel-header>
-            <mat-icon class="material-icons-outlined">leaderboard</mat-icon>Reportes
-          </mat-expansion-panel-header>
-          <mat-nav-list>
-            <a mat-list-item routerLink="charts/chart-js"><mat-icon>arrow_right</mat-icon>Chart Js</a>
-            <a mat-list-item routerLink="charts/apex-chart"><mat-icon>arrow_right</mat-icon>Apex Chart</a>
-          </mat-nav-list>
-        </mat-expansion-panel>
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <mat-icon class="material-icons-outlined">redeem</mat-icon>Parametros
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="components/badges"><mat-icon>arrow_right</mat-icon>Badges</a>
+          <a mat-list-item routerLink="components/buttons"><mat-icon>arrow_right</mat-icon>Buttons</a>
+          <a mat-list-item routerLink="components/cards"><mat-icon>arrow_right</mat-icon>Cards</a>
+          <a mat-list-item routerLink="components/chips"><mat-icon>arrow_right</mat-icon>Chips</a>
+          <a mat-list-item routerLink="components/expansion"><mat-icon>arrow_right</mat-icon>Expansion</a>
+          <a mat-list-item routerLink="components/menu"><mat-icon>arrow_right</mat-icon>Menu</a>
+          <a mat-list-item routerLink="components/list"><mat-icon>arrow_right</mat-icon>List</a>
+          <a mat-list-item routerLink="components/tabs"><mat-icon>arrow_right</mat-icon>Tabs</a>
+          <a mat-list-item routerLink="components/toolbar"><mat-icon>arrow_right</mat-icon>Toolbar</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
 
-        <!-- Test -->
-        <mat-expansion-panel [class.mat-elevation-z0]="true">
-          <mat-expansion-panel-header>
-            <mat-icon class="material-icons-outlined">build</mat-icon>Ficheros
-          </mat-expansion-panel-header>
-          <mat-nav-list>
-            <a mat-list-item routerLink="modules/fichero/tipo-documento"><mat-icon>arrow_right</mat-icon>Tipo de Documento</a>
-            <a mat-list-item routerLink="modules/fichero/pais"><mat-icon>arrow_right</mat-icon>Países</a>
-          </mat-nav-list>
-        </mat-expansion-panel>
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <mat-icon class="material-icons-outlined">description</mat-icon>Kardex
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="forms/elements"><mat-icon>arrow_right</mat-icon>Elements</a>
+          <a mat-list-item routerLink="forms/layouts"><mat-icon>arrow_right</mat-icon>Layouts</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <mat-icon class="material-icons-outlined">lock</mat-icon>Validacion deDatos
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="auth/cover-signin" target="_blank"><mat-icon>arrow_right</mat-icon>SignIn Cover</a>
+          <a mat-list-item routerLink="auth/cover-signup" target="_blank"><mat-icon>arrow_right</mat-icon>SignUp Cover</a>
+          <a mat-list-item routerLink="auth/cover-forgot-password" target="_blank" ><mat-icon>arrow_right</mat-icon>Forgot Password Cover</a>
+          <a mat-list-item routerLink="auth/cover-reset-password" target="_blank" ><mat-icon>arrow_right</mat-icon>Reset Password Cover</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <mat-icon class="material-icons-outlined">leaderboard</mat-icon>Reportes
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="charts/chart-js"><mat-icon>arrow_right</mat-icon>Chart Js</a>
+          <a mat-list-item routerLink="charts/apex-chart"><mat-icon>arrow_right</mat-icon>Apex Chart</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <!-- Test -->
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <mat-icon class="material-icons-outlined">build</mat-icon>Ficheros
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="modules/fichero/tipo-documento"><mat-icon>arrow_right</mat-icon>Tipo de Documento</a>
+          <a mat-list-item routerLink="modules/fichero/pais"><mat-icon>arrow_right</mat-icon>Países</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <mat-icon class="material-icons-outlined">settings</mat-icon
+          >Configuración
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="modules/configuracion/registrar-usuario"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Usuarios</a>
+          <a mat-list-item routerLink="modules/configuracion/rol"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Roles</a>
+          <a mat-list-item routerLink="modules/configuracion/menu-item"><mat-icon class="material-icons-outlined">arrow_right</mat-icon>Menú - Accesos</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
     </mat-accordion>
   </nav>
 </aside>

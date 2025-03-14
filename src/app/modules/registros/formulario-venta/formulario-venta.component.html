@@ -1,0 +1,84 @@
+<div>
+  <h3 class="titulo">Registro de Ventas</h3>
+</div>
+
+<mat-card appearance="outlined">
+  <mat-card-content class="p-4">
+    <div class="row">
+      <div class="col-12">
+        <mat-card-content class="p-4">
+          <form>
+            <div class="row g-3">
+              <div class="col-12 col-md-3">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>APELLIDO PATERNO</mat-label>
+                  <input type="text" matInput oninput="value = value.toUpperCase()">
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-3">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>APELLIDO MATERNO</mat-label>
+                  <input type="text" matInput oninput="value = value.toUpperCase()">
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-3">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>NOMBRES</mat-label>
+                  <input type="text" matInput oninput="value = value.toUpperCase()">
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-2">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>DNI / RUC</mat-label>
+                  <input type="text" matInput>
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-1">
+                <button mat-raised-button color="primary">Buscar DNI/RUC</button>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>DIRECCIÓN</mat-label>
+                  <input type="text" matInput>
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>FECHA DE EMISIÓN</mat-label>
+                  <input type="date" matInput>
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>NÚMERO DE VENTA</mat-label>
+                  <input type="text" matInput>
+                </mat-form-field>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+      </div>
+      <div class="venta-acciones mt-4">
+        <button mat-raised-button color="primary">Agregar Producto</button>
+      </div>
+      <tabla-dinamica
+      [columnas]="columnas"
+      [paginateActive]="false"
+      [noCard]="true"
+      [filtrar]="false"
+      [noData]="''"
+      >
+    </tabla-dinamica>
+    </div>
+    <div class="venta-acciones mt-4">
+      <button mat-raised-button color="warn">Cancelar</button>
+      <button mat-raised-button color="primary">Registrar Venta</button>
+    </div>    
+  </mat-card-content>
+</mat-card>

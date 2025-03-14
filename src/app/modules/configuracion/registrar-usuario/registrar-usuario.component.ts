@@ -43,6 +43,7 @@ export class RegistrarUsuarioComponent implements OnInit {
     { name: 'email', display: 'EMAIL' },
     { name: 'numdoc', display: 'N° DOCUMENTO' },
     { name: 'telefono', display: 'TELÉFONO' },
+    { name: 'activo', display: 'ACTIVO' },
     { name: 'editar', display: 'EDITAR', accion: 'editar', icon: 'edit' }
   ]
 

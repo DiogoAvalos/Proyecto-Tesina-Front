@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'user-profile', component:  UserProfileComponent, title: 'Perfil de Usuario' },
   { path: 'listar-productos', component: RegistrarProductoComponent, title: 'Lista de Productos' },
   { path: 'fichero', loadChildren: () => import('./ficheros/ficheros.module').then(m => m.FicheroModule) },
-  { path: 'configuracion', loadChildren: () => import('./configuracion/configuracion.module').then(m => m.ConfiguracionModule) }
+  { path: 'configuracion', loadChildren: () => import('./configuracion/configuracion.module').then(m => m.ConfiguracionModule) },
+  { path: 'registros', loadChildren: () => import('./registros/registros.module').then(m => m.RegistrosModule) },
 ];
 
 @NgModule({

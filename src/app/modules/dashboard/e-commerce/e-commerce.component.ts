@@ -761,7 +761,7 @@ this.WidgetChart8 = {
    }
 
   ngOnInit(){
-    this.load()
+    // this.load()
   }
 
   async load() {

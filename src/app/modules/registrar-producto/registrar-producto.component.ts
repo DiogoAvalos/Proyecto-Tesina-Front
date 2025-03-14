@@ -21,12 +21,12 @@ export class RegistrarProductoComponent implements OnInit {
   form: FormGroup
   columnas: Array<SortingTableColumnComponent> = [
     { name: 'id', display: 'ID'},
-    { name: 'nombres', display: 'NOMBRES' },
-    { name: 'apellidos', display: 'APELLIDOS' },
-    { name: 'email', display: 'EMAIL' },
-    { name: 'numdoc', display: 'N° DOCUMENTO' },
-    { name: 'telefono', display: 'TELÉFONO' },
-    { name: 'rol', display: 'ROL' },
+    { name: 'nombres', display: 'NOMBRE DEL PRODUCTO' },
+    { name: 'apellidos', display: 'MARCA' },
+    { name: 'email', display: 'CATEGORIA' },
+    { name: 'numdoc', display: 'PROVEEDOR' },
+    { name: 'telefono', display: 'UNIDAD DE VENTA' },
+    { name: 'rol', display: 'ESTADO' },
     { name: 'editar', display: 'EDITAR', accion: 'editar', icon: 'edit' }
   ]
 

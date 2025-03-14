@@ -1,0 +1,12 @@
+<div>
+  <h3 class="titulo">Lista de Registro de Ventas</h3>
+</div>
+
+<tabla-dinamica [columnas]="columnas">
+  <div class="example-button-row">
+    <button mat-flat-button color="primary" (click)="registroNuevo()">REGISTRAR</button>
+  </div>
+</tabla-dinamica>
+
+<app-modal-component [titulo]="'test'" [style]="'min-width: 80%'" #modal>
+</app-modal-component>

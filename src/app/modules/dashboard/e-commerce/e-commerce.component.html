@@ -1,27 +1,6 @@
-
+<!-- 
 
 <div class="row">
-  <!-- <div class="col-12 col-lg-12 col-xxl-4 d-flex">
-    <mat-card class="rounded-4 w-100">
-      <mat-card-content>
-        <div class="">
-          <div class="d-flex align-items-center gap-2 mb-2">
-            <h5 class="mb-0">Congratulations <span class="fw-600">Jhon</span></h5>
-            <img src="assets/images/app/party-popper.png" width="24" height="24" alt="">
-          </div>
-          <p class="mb-4">You are the best seller of this monnth</p>
-          <div class="d-flex align-items-center justify-content-between">
-            <div class="">
-              <h3 class="mb-0 text-indigo">$68.5K</h3>
-              <p class="mb-3">58% of sales target</p>
-              <button mat-raised-button color="primary" class="rounded-4 px-4">View Details</button>
-            </div>
-            <img src="assets/images/app/gift-box.png" width="100" alt="">
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div> -->
   <div class="col-12 col-xxl-6 d-flex flex-column">
     <mat-card class="rounded-4 w-100">
       <mat-card-content>
@@ -116,27 +95,7 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <!-- <div class="col-12 col-lg-6 col-xxl-2 d-flex">
-    <mat-card class="rounded-4 w-100">
-      <mat-card-content>
-        <div class="mb-3 d-flex align-items-center justify-content-between">
-          <mat-icon class="widget-icon mat-light-bg-orange text-orange material-icons-outlined">leaderboard</mat-icon>
-          <span class="text-green d-flex align-items-center">+18%<i
-              class="material-icons-outlined">expand_less</i></span>
-        </div>
-        <div>
-          <h4 class="mb-0">24.6%</h4>
-          <p class="mb-3">Bounce Rate</p>
-          <apx-chart [series]="WidgetChart4.series" [colors]="WidgetChart4.colors" [fill]="WidgetChart4.fill"
-            [chart]="WidgetChart4.chart" [plotOptions]="WidgetChart4.plotOptions" [stroke]="WidgetChart4.stroke" 
-            [tooltip]="WidgetChart1.tooltip">
-          </apx-chart>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div> -->
-
-</div><!--end row-->
+</div>
 
 
 <div class="row">
@@ -155,14 +114,6 @@
               <input matInput [(ngModel)]="fechaFin" type="date">
             </mat-form-field>
           </div>
-          <!-- <button mat-raised-button (click)="load()">
-            <mat-icon class="material-icons-outlined">refresh</mat-icon>
-            <span>Actualizar</span>
-          </button>
-          <button mat-raised-button (click)="downloadChartImage()">
-            <mat-icon class="material-icons-outlined">cloud_download</mat-icon>
-            <span>Descargar</span>
-          </button> -->
           <div>
             <button mat-icon-button [matMenuTriggerFor]="menu1">
               <mat-icon>more_horiz</mat-icon>
@@ -243,7 +194,7 @@
       </mat-card-content>
     </mat-card>
   </div>
-</div><!--end row-->
+</div>
 
 
 
@@ -545,7 +496,7 @@
       </mat-card-content>
     </mat-card>
   </div>
-</div><!--end row-->
+</div>
 
 
 <div class="row">
@@ -579,7 +530,6 @@
 
         <div class="table-responsive">
           <table mat-table [dataSource]="dataSource">
-            <!-- Position Column -->
             <ng-container matColumnDef="position">
               <th mat-header-cell *matHeaderCellDef> Date </th>
               <td mat-cell *matCellDef="let element">
@@ -589,8 +539,6 @@
                 </div>
               </td>
             </ng-container>
-  
-            <!-- Name Column -->
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef> Source Name </th>
               <td mat-cell *matCellDef="let element">
@@ -606,15 +554,11 @@
                 </div>
               </td>
             </ng-container>
-  
-            <!-- Weight Column -->
             <ng-container matColumnDef="weight">
               <th mat-header-cell *matHeaderCellDef> Status </th>
               <td mat-cell *matCellDef="let element"><span
                   class="card-lable mat-light-bg-green text-green fw-500">{{element.status}}</span></td>
             </ng-container>
-  
-            <!-- Symbol Column -->
             <ng-container matColumnDef="symbol">
               <th mat-header-cell *matHeaderCellDef> Amount </th>
               <td mat-cell *matCellDef="let element">
@@ -731,5 +675,5 @@
       </mat-card-content>
     </mat-card>
   </div>
-</div><!--end row-->
-
+</div>
+ -->
