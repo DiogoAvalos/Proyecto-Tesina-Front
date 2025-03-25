@@ -28,14 +28,37 @@ export class CoverSigninComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.form = this.FB.group({
       username: [null, Validators.required],
       password: [null, Validators.required]
-    })
+    });
+  
+    // Simular un usuario autenticado si no hay token en el localStorage
+    const token = localStorage.getItem('access_token');
+    if (!token) {
+      const dummyToken = 'fake_token_123';
+      const dummyUser = {
+        id_usuario: 1,
+        username: "DPADILLA",
+        nombres: "Joel",
+        apellidos: "Rush",
+        correo: "farleyjessica@yahoo.com",
+        activo: true
+      };
+  
+      localStorage.setItem('access_token', dummyToken);
+      localStorage.setItem('user', JSON.stringify(dummyUser));
+  
+      this.SA.SuccessAlert(`BIENVENIDO ${dummyUser.nombres} ${dummyUser.apellidos}`);
+      this.RT.navigate(['dashboard/e-commerce']);
+    }
   }
+  
 
   login() {
+    this.RT.navigate(['dashboard/e-commerce'])
+    return
     if (this.form.invalid) {
       this.SA.InfoAlert('¡Ingrese nombre usuario y/o contraseña!')
       return

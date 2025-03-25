@@ -1,12 +1,49 @@
-<div>
-  <h3 class="titulo">Lista de Registro de Ventas</h3>
+<div class="flex-container">
+  <fieldset class="group__form flex-container f10">
+    <legend>Control de Indicadores</legend>
+    <table class="table-standart">
+      <thead>
+        <tr>
+          <th colspan="2">DESCRIPCIÓN</th>
+          <th>INDICADOR INTERNO (TIPO 4) / INTEGRADOR (TIPO 5)</th>
+          <th>EXTERNO (TIPO 1)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items; let i = index">
+          <td style="width: 200px;">{{ item.descripcion }}</td>
+          
+          <!-- INDICADOR -->
+          <td class="image-container" style="width: 500px;">
+            <ng-container *ngIf="images[i]?.indicador; else noImageIndicador">
+              <img [src]="images[i].indicador" (click)="removeImage(i, 'indicador')" class="preview-image">
+            </ng-container>
+            <ng-template #noImageIndicador>
+              <button (click)="openCamera(i, 'indicador')">Capturar Imagen</button>
+            </ng-template>
+          </td>
+
+          <!-- INTEGRADOR -->
+          <td class="image-container" style="width: 500px;">
+            <ng-container *ngIf="images[i]?.integrador; else noImageIntegrador">
+              <img [src]="images[i].integrador" (click)="removeImage(i, 'integrador')" class="preview-image">
+            </ng-container>
+            <ng-template #noImageIntegrador>
+              <button (click)="openCamera(i, 'integrador')">Capturar Imagen</button>
+            </ng-template>
+          </td>
+
+          <!-- EXTERNO -->
+          <td class="image-container" style="width: 500px;">
+            <ng-container *ngIf="images[i]?.externo; else noImageExterno">
+              <img [src]="images[i].externo" (click)="removeImage(i, 'externo')" class="preview-image">
+            </ng-container>
+            <ng-template #noImageExterno>
+              <button (click)="openCamera(i, 'externo')">Capturar Imagen</button>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </fieldset>
 </div>
-
-<tabla-dinamica [columnas]="columnas">
-  <div class="example-button-row">
-    <button mat-flat-button color="primary" (click)="registroNuevo()">REGISTRAR</button>
-  </div>
-</tabla-dinamica>
-
-<app-modal-component [titulo]="'test'" [style]="'min-width: 80%'" #modal>
-</app-modal-component>
