@@ -1,6 +1,6 @@
-<fieldset class="group__form flex-container f10">
-  <legend>Control de Indicadores</legend>
-  <div class="f10">
+<div class="flex-container">
+  <fieldset class="group__form flex-container f10">
+    <legend>Control de Indicadores</legend>
     <table class="table-standart">
       <thead>
         <tr>
@@ -11,76 +11,37 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of items; let i = index">
-          <td style="width: 180px;">{{ item.descripcion }}</td>
-
+          <td style="width: 200px;">{{ item.descripcion }}</td>
+          
           <!-- INDICADOR -->
-          <td class="image-container">
-            <form [formGroup]="form">
-              <div class="image-wrapper">
-                <ng-container *ngIf="images[i]?.indicador; else noImageIndicador">
-                  <img [src]="images[i].indicador" class="preview-image" (click)="toggleMenu(i, 'indicador')">
-                  <div *ngIf="activeMenuIndex === i && activeMenuType === 'indicador'" class="dropdown-menu">
-                    <button (click)="viewImage(images[i].indicador)">Visualizar Imagen</button>
-                    <button (click)="removeImage(i, 'indicador')">Eliminar Imagen</button>
-                    <button (click)="closeMenu()">Cancelar</button>
-                  </div>
-                </ng-container>
-                <ng-template #noImageIndicador>
-                  <label class="upload-label">
-                    <input type="file" accept="image/*" (change)="handleImageSelection(i, 'indicador')" hidden> 
-                    <img src="assets/icons/upload-photo.png" class="upload-icon">
-                  </label>
-                </ng-template>
-              </div>
-            </form>
+          <td class="image-container" style="width: 500px;">
+            <ng-container *ngIf="images[i]?.indicador; else noImageIndicador">
+              <img [src]="images[i].indicador" (click)="removeImage(i, 'indicador')" class="preview-image">
+            </ng-container>
+            <ng-template #noImageIndicador>
+              <button (click)="openCamera(i, 'indicador')">Capturar Imagen</button>
+            </ng-template>
           </td>
-
           <!-- INTEGRADOR -->
-          <td class="image-container">
-            <form [formGroup]="form">
-              <div class="image-wrapper">
-                <ng-container *ngIf="images[i]?.integrador; else noImageIntegrador">
-                  <img [src]="images[i].integrador" class="preview-image" (click)="toggleMenu(i, 'integrador')">
-                  <div *ngIf="activeMenuIndex === i && activeMenuType === 'integrador'" class="dropdown-menu">
-                    <button (click)="viewImage(images[i].integrador)">Visualizar Imagen</button>
-                    <button (click)="removeImage(i, 'integrador')">Eliminar Imagen</button>
-                    <button (click)="closeMenu()">Cancelar</button>
-                  </div>
-                </ng-container>
-                <ng-template #noImageIntegrador>
-                  <label class="upload-label">
-                    <input type="file" accept="image/*" (change)="handleImageSelection(i, 'integrador')" hidden> 
-                    <img src="assets/icons/upload-photo.png" class="upload-icon">
-                  </label>
-                </ng-template>
-              </div>
-            </form>
+          <td class="image-container" style="width: 500px;">
+            <ng-container *ngIf="images[i]?.integrador; else noImageIntegrador">
+              <img [src]="images[i].integrador" (click)="removeImage(i, 'integrador')" class="preview-image">
+            </ng-container>
+            <ng-template #noImageIntegrador>
+              <button (click)="openCamera(i, 'integrador')">Capturar Imagen</button>
+            </ng-template>
           </td>
-
           <!-- EXTERNO -->
-          <td class="image-container">
-            <form [formGroup]="form">
-              <div class="image-wrapper">
-                <ng-container *ngIf="images[i]?.externo; else noImageExterno">
-                  <img [src]="images[i].externo" class="preview-image" (click)="toggleMenu(i, 'externo')">
-                  <div *ngIf="activeMenuIndex === i && activeMenuType === 'externo'" class="dropdown-menu">
-                    <button (click)="viewImage(images[i].externo)">Visualizar Imagen</button>
-                    <button (click)="removeImage(i, 'externo')">Eliminar Imagen</button>
-                    <button (click)="closeMenu()">Cancelar</button>
-                  </div>
-                </ng-container>
-                <ng-template #noImageExterno>
-                  <label class="upload-label">
-                    <button type="button" (click)="handleImageSelection(i, 'externo')">
-                      <img src="assets/icons/upload-photo.png" class="upload-icon">
-                    </button>
-                  </label>
-                </ng-template>
-              </div>
-            </form>
+          <td class="image-container" style="width: 500px;">
+            <ng-container *ngIf="images[i]?.externo; else noImageExterno">
+              <img [src]="images[i].externo" (click)="removeImage(i, 'externo')" class="preview-image">
+            </ng-container>
+            <ng-template #noImageExterno>
+              <button (click)="openCamera(i, 'externo')">Capturar Imagen</button>
+            </ng-template>
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
-</fieldset>
+  </fieldset>
+</div>
