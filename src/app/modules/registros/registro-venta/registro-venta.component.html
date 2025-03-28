@@ -27,7 +27,7 @@
                 </ng-container>
                 <ng-template #noImageIndicador>
                   <label class="upload-label">
-                    <input type="file" accept="image/*" (change)="onFileSelected($event, i, 'indicador')" hidden> 
+                    <input type="file" accept="image/*" (change)="handleImageSelection(i, 'indicador')" hidden> 
                     <img src="assets/icons/upload-photo.png" class="upload-icon">
                   </label>
                 </ng-template>
@@ -49,7 +49,7 @@
                 </ng-container>
                 <ng-template #noImageIntegrador>
                   <label class="upload-label">
-                    <input type="file" accept="image/*" (change)="onFileSelected($event, i, 'integrador')" hidden> 
+                    <input type="file" accept="image/*" (change)="handleImageSelection(i, 'integrador')" hidden> 
                     <img src="assets/icons/upload-photo.png" class="upload-icon">
                   </label>
                 </ng-template>
